@@ -1,3 +1,4 @@
 \beamer@endinputifotherversion {3.33pt}
 \beamer@sectionintoc {1}{事前準備}{3}{0}{1}
-\beamer@sectionintoc {2}{小試身手}{7}{0}{2}
+\beamer@sectionintoc {2}{R的function}{7}{0}{2}
+\beamer@sectionintoc {3}{小試身手}{8}{0}{3}

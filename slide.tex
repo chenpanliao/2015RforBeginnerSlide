@@ -3,10 +3,12 @@
 
 \documentclass[12pt]{beamer}
 \usepackage{amsmath, fancyvrb, textcomp}
+\usepackage{xcolor}
+\definecolor{verb}{rgb}{0.0,0.4,0.0}
 
 %% Beamer 版面配置
 \beamertemplatenavigationsymbolsempty % 去除 Beamer 導覽工具列
-%\setbeamertemplate{footline}[frame number]{}
+\setbeamertemplate{footline}[frame number]{}
 \mode<presentation>
 \usetheme{Frankfurt}
 %\usecolortheme{whale}
@@ -23,7 +25,7 @@
 \usepackage[no-math]{fontspec}
 \setmainfont[Mapping=tex-text,LetterSpace=0]{Fira Sans Book}
 \setsansfont[Mapping=tex-text,LetterSpace=0]{Fira Sans Book}
-\setmonofont{Inconsolata}
+\setmonofont[Color=verb]{Inconsolata}
 \usefonttheme{professionalfonts}
 
 %% 中文字配置
@@ -32,7 +34,7 @@
   CJKecglue = {\hskip 0.15em}
 ]{xeCJK}
 \setCJKmainfont[Scale=1,BoldFeatures={FakeBold=2}]{Heiti TC Medium}
-\setCJKmonofont[Scale=1,BoldFeatures={FakeBold=2}, FakeStretch=1]{Heiti TC Light}
+\setCJKmonofont[Scale=1,BoldFeatures={FakeBold=2}, FakeStretch=1, Color=verb]{Heiti TC Light}
 
 \title[初學者學習R語言]{初學R語言的100分鐘}
 \author[廖鎮磐]{廖鎮磐 \\ \texttt{<andrew.43@gmail.com>}\\ 東海大學生命科學系}
@@ -108,6 +110,9 @@
 \end{block}
 \end{frame}
 
+\section{R的function}\subsection{}
+
+
 \section{小試身手}\subsection{}
 
 \begin{frame}[fragile]{計算機}
@@ -118,6 +123,8 @@
 [1] 10
 \end{verbatim}
 \end{frame}
+
+
 
 
 \end{document}

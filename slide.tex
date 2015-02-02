@@ -11,17 +11,16 @@
 \let\oldfootnote\footnote
 \renewcommand\footnote[1]{\oldfootnote{\scriptsize\ignorespaces#1}}
 
-
+\mode<presentation>
 %% Beamer 版面配置
 \beamertemplatenavigationsymbolsempty % 去除 Beamer 導覽工具列
 \setbeamertemplate{footline}[frame number]{}
-\mode<presentation>
 %\usetheme{Frankfurt}
 \usecolortheme{whale}
 %\usetheme{Madrid}
-\useinnertheme{circles}
+%\useinnertheme{circles}
 %\usecolortheme{beaver}
-\usefonttheme{structurebold}
+%\usefonttheme{structurebold}
 
 %\DefineVerbatimEnvironment{MyVerbatim}{Verbatim}{fontsize=\tiny}
 
@@ -76,8 +75,8 @@
 \begin{frame}{我今天希望讓諸位達成\ldots\ldots}
 \begin{itemize}
 \item 不怕害使用R這類以文字指令進行的工作方式。
-\item 自己救自己。
-\item 請別人救自己。
+\item 如何自己救自己。
+\item 如何請別人救自己。
 \item 實作一些常見的統計分析與繪圖。
 \end{itemize}
 \end{frame}
@@ -157,7 +156,7 @@
 \begin{frame}[fragile]{R的官方套件庫}
 \begin{itemize}
 \item \url{http://cran.r-project.org/web/packages/available_packages_by_name.html}\\
-官方的套件一覽表（目前有6,000多個）。
+官方的套件一覽表（目前有六千多個）。可直接以 \verb+install.packages()+ 安裝。
 \item 「我如何找能做某件事的套作？」「有沒有什麼方式可以快速找到我需要哪個套件？」
 \item 阿盤：「我都是請谷歌大神幫我找的。」
 \end{itemize}

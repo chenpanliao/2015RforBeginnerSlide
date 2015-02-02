@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99991 (TeX Live 2014) (preloaded format=xelatex 2014.10.25)  19 JAN 2015 01:19
+This is XeTeX, Version 3.14159265-2.6-0.99991 (TeX Live 2014) (preloaded format=xelatex 2014.10.25)  3 FEB 2015 01:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -825,31 +825,21 @@ Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 338.
 Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 339.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 340.
 )
-(/usr/local/texlive/2014/texmf-dist/tex/latex/beamer/themes/theme/beamerthemeFr
-ankfurt.sty
-Package: beamerthemeFrankfurt 2010/06/17  (rcs-revision d02a7cf4d8ae)
-
-(/usr/local/texlive/2014/texmf-dist/tex/latex/beamer/themes/outer/beamerouterth
-emesmoothbars.sty
-Package: beamerouterthemesmoothbars 2010/06/17  (rcs-revision d02a7cf4d8ae)
-)
-(/usr/local/texlive/2014/texmf-dist/tex/latex/beamer/themes/inner/beamerinnerth
-emerounded.sty
-Package: beamerinnerthemerounded 2010/06/17  (rcs-revision d02a7cf4d8ae)
-)
-(/usr/local/texlive/2014/texmf-dist/tex/latex/beamer/themes/color/beamercolorth
-emeorchid.sty
-Package: beamercolorthemeorchid 2010/06/17  (rcs-revision d02a7cf4d8ae)
-)
 (/usr/local/texlive/2014/texmf-dist/tex/latex/beamer/themes/color/beamercolorth
 emewhale.sty
 Package: beamercolorthemewhale 2010/06/17  (rcs-revision d02a7cf4d8ae)
-))
+)
 (/usr/local/texlive/2014/texmf-dist/tex/latex/beamer/themes/inner/beamerinnerth
 emecircles.sty
 Package: beamerinnerthemecircles 2010/06/17  (rcs-revision d02a7cf4d8ae)
-) (/usr/local/texlive/2014/texmf-dist/tex/latex/arev/arevmath.sty
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/beamer/themes/font/beamerfontthem
+estructurebold.sty
+Package: beamerfontthemestructurebold 2010/06/17  (rcs-revision d02a7cf4d8ae)
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/arev/arevmath.sty
 Package: arevmath 2006/02/19 0.1 Arev Sans Math package
+
 (/usr/local/texlive/2014/texmf-dist/tex/latex/arev/ams-mdbch.sty
 Package: ams-mdbch 2005/05/08 v1.4 Bold mdbch (Math Design Project) to replace 
 AMS fonts
@@ -1448,96 +1438,97 @@ LaTeX Info: Redefining \upshape on input line 2208.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/fontspec/fontspec.cfg)))
 \g__file_internal_ior=\read3
-\g__fontspec_family_FiraSansBook_int=\count192
+\g__fontspec_family_MyriadProSemiCondensed_int=\count192
 .................................................
 . fontspec info: "defining-font"
 . 
-. Font family 'FiraSansBook(0)' created for font 'Fira Sans Book' with options
-. [Ligatures=TeX,Mapping=tex-text,LetterSpace=0].
+. Font family 'MyriadProSemiCondensed(0)' created for font 'Myriad Pro
+. SemiCondensed' with options [Ligatures=TeX,Mapping=tex-text,LetterSpace=0].
 . 
 . This font family consists of the following shapes:
 . 
 . * 'normal' with NFSS spec.:
-. <->"Fira Sans
-. Book/OT:script=latn;language=DFLT;mapping=tex-text;mapping=tex-text;letterspa
-ce=0;"
+. <->"Myriad Pro
+. SemiCondensed/OT:script=latn;language=DFLT;mapping=tex-text;mapping=tex-text;
+letterspace=0;"
 . 
 . * 'small caps' with NFSS spec.:
-. <->"Fira Sans
-. Book/OT:script=latn;language=DFLT;mapping=tex-text;mapping=tex-text;letterspa
-ce=0;+smcp;"
+. 
 . and font adjustment code:
 . 
 . 
 . * 'bold' with NFSS spec.:
-. <->"Fira Sans
-. Book/B/OT:script=latn;language=DFLT;mapping=tex-text;mapping=tex-text;letters
-pace=0;"
+. <->"Myriad Pro
+. SemiCondensed/B/OT:script=latn;language=DFLT;mapping=tex-text;mapping=tex-tex
+t;letterspace=0;"
 . 
 . * 'bold small caps' with NFSS spec.:
-. <->"Fira Sans
-. Book/B/OT:script=latn;language=DFLT;mapping=tex-text;mapping=tex-text;letters
-pace=0;+smcp;"
+. 
 . and font adjustment code:
 . 
 . 
 . * 'italic' with NFSS spec.:
-. <->"Fira Sans
-. Book/I/OT:script=latn;language=DFLT;mapping=tex-text;mapping=tex-text;letters
-pace=0;"
+. <->"Myriad Pro
+. SemiCondensed/I/OT:script=latn;language=DFLT;mapping=tex-text;mapping=tex-tex
+t;letterspace=0;"
 . 
 . * 'small caps' with NFSS spec.:
-. <->"Fira Sans
-. Book/I/OT:script=latn;language=DFLT;mapping=tex-text;mapping=tex-text;letters
-pace=0;+smcp;"
+. 
 . and font adjustment code:
 . 
 . 
 . * 'bold italic' with NFSS spec.:
-. <->"Fira Sans
-. Book/BI/OT:script=latn;language=DFLT;mapping=tex-text;mapping=tex-text;letter
-space=0;"
+. <->"Myriad Pro
+. SemiCondensed/BI/OT:script=latn;language=DFLT;mapping=tex-text;mapping=tex-te
+xt;letterspace=0;"
 . 
 . * 'bold small caps' with NFSS spec.:
-. <->"Fira Sans
-. Book/BI/OT:script=latn;language=DFLT;mapping=tex-text;mapping=tex-text;letter
-space=0;+smcp;"
+. 
 . and font adjustment code:
 . 
 .................................................
-.................................................
-. fontspec info: "no-scripts"
-. 
-. Font Inconsolata does not contain any OpenType `Script' information.
-.................................................
-\g__fontspec_family_Inconsolata_int=\count193
+\g__fontspec_family_SourceCodeProSemibold_int=\count193
 .................................................
 . fontspec info: "no-font-shape"
 . 
-. Could not resolve font Inconsolata/BI (it probably doesn't exist).
-.................................................
-.................................................
-. fontspec info: "no-font-shape"
-. 
-. Could not resolve font Inconsolata/B (it probably doesn't exist).
-.................................................
-.................................................
-. fontspec info: "no-font-shape"
-. 
-. Could not resolve font Inconsolata/I (it probably doesn't exist).
+. Could not resolve font Source Code Pro Semibold/I (it probably doesn't
+. exist).
 .................................................
 .................................................
 . fontspec info: "defining-font"
 . 
-. Font family 'Inconsolata(0)' created for font 'Inconsolata' with options
-. [WordSpace={1,0,0},PunctuationSpace=WordSpace,Color=verb].
+. Font family 'SourceCodeProSemibold(0)' created for font 'Source Code Pro
+. Semibold' with options
+. [WordSpace={1,0,0},PunctuationSpace=WordSpace,Color=verb,Scale=1,LetterSpace=
+-3].
 . 
 . This font family consists of the following shapes:
 . 
 . * 'normal' with NFSS spec.:
-. <->"Inconsolata/AAT:color=006600FF ;"
+. <->s*[1]"Source Code Pro
+. Semibold/OT:script=latn;language=DFLT;letterspace=-3;color=004D00FF ;"
 . 
 . * 'small caps' with NFSS spec.:
+. 
+. and font adjustment code:
+. \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font =0\fontdimen 3\font
+. \fontdimen 4\font =0\fontdimen 4\font \fontdimen 7\font =0\fontdimen 2\font 
+. 
+. * 'bold' with NFSS spec.:
+. <->s*[1]"Source Code Pro
+. Semibold/B/OT:script=latn;language=DFLT;letterspace=-3;color=004D00FF ;"
+. 
+. * 'bold small caps' with NFSS spec.:
+. 
+. and font adjustment code:
+. \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font =0\fontdimen 3\font
+. \fontdimen 4\font =0\fontdimen 4\font \fontdimen 7\font =0\fontdimen 2\font 
+. 
+. * 'bold italic' with NFSS spec.:
+. <->s*[1]"Source Code Pro
+. Semibold/BI/OT:script=latn;language=DFLT;letterspace=-3;color=004D00FF ;"
+. 
+. * 'bold small caps' with NFSS spec.:
 . 
 . and font adjustment code:
 . \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font =0\fontdimen 3\font
@@ -2009,37 +2000,48 @@ File: xeCJK.cfg 2014/12/26 v3.3.0 Configuration file for xeCJK package
 *************************************************
 * fontspec warning: "script-not-exist"
 * 
-* Font 'Heiti TC Medium' does not contain script 'CJK'.
+* Font 'Heiti TC Light' does not contain script 'CJK'.
 *************************************************
 Normal \count register pool exhausted, switching to extended pool.
-\g__fontspec_family_HeitiTCMedium_int=\count277
+\g__fontspec_family_HeitiTCLight_int=\count277
 .................................................
 . fontspec info: "no-font-shape"
 . 
-. Could not resolve font Heiti TC Medium/BI (it probably doesn't exist).
-.................................................
-.................................................
-. fontspec info: "no-font-shape"
-. 
-. Could not resolve font Heiti TC Medium/B (it probably doesn't exist).
+. Could not resolve font LiHei Pro/I (it probably doesn't exist).
 .................................................
 .................................................
 . fontspec info: "no-font-shape"
 . 
-. Could not resolve font Heiti TC Medium/I (it probably doesn't exist).
+. Could not resolve font Heiti TC Light/I (it probably doesn't exist).
 .................................................
 .................................................
 . fontspec info: "defining-font"
 . 
-. Font family 'HeitiTCMedium(0)' created for font 'Heiti TC Medium' with
-. options [Script={CJK},Scale={1},BoldFeatures={FakeBold=2}].
+. Font family 'HeitiTCLight(0)' created for font 'Heiti TC Light' with options
+. [Script={CJK},Scale={1},BoldFont={LiHei Pro}].
 . 
 . This font family consists of the following shapes:
 . 
 . * 'normal' with NFSS spec.:
-. <->s*[1]"Heiti TC Medium/OT:"
+. <->s*[1]"Heiti TC Light/OT:"
 . 
 . * 'small caps' with NFSS spec.:
+. 
+. and font adjustment code:
+. 
+. 
+. * 'bold' with NFSS spec.:
+. <->s*[1]"LiHei Pro/OT:"
+. 
+. * 'bold small caps' with NFSS spec.:
+. 
+. and font adjustment code:
+. 
+. 
+. * 'bold italic' with NFSS spec.:
+. <->s*[1]"Heiti TC Light/BI/OT:"
+. 
+. * 'bold small caps' with NFSS spec.:
 . 
 . and font adjustment code:
 . 
@@ -2061,6 +2063,9 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 * Try to use `\setCJKsansfont[...]{...}' to define it.
 *************************************************
 \symCJKmath=\mathgroup9
+LaTeX Font Info:    Overwriting symbol font `CJKmath' in version `bold'
+(Font)                  EU1/HeitiTCLight(0)/m/n --> EU1/HeitiTCLight(0)/bx/n on
+ input line 55.
 (./slide.aux)
 \openout1 = `slide.aux'.
 
@@ -2184,35 +2189,44 @@ Dictionary: translator-theorem-dictionary, Language: English
 )
 LaTeX Info: Redefining \includegraphics on input line 55.
  (./slide.nav)
-LaTeX Font Info:    Font shape `EU1/HeitiTCMedium(0)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 55.
-LaTeX Font Info:    Font shape `EU1/HeitiTCMedium(0)/m/n' will be
+LaTeX Font Info:    Font shape `EU1/HeitiTCLight(0)/bx/n' will be
 (Font)              scaled to size 17.28pt on input line 59.
-LaTeX Font Info:    Font shape `EU1/HeitiTCMedium(0)/m/n' will be
+LaTeX Font Info:    Font shape `EU1/HeitiTCLight(0)/m/n' will be
 (Font)              scaled to size 12.0pt on input line 59.
 
 *************************************************
 * fontspec warning: "script-not-exist"
 * 
-* Font 'Heiti TC Light' does not contain script 'CJK'.
+* Font 'Heiti TC Medium' does not contain script 'CJK'.
 *************************************************
-\g__fontspec_family_HeitiTCLight_int=\count279
+\g__fontspec_family_HeitiTCMedium_int=\count279
 .................................................
 . fontspec info: "no-font-shape"
 . 
-. Could not resolve font Heiti TC Light/I (it probably doesn't exist).
+. Could not resolve font LiHei Pro/I (it probably doesn't exist).
 .................................................
+.................................................
+. fontspec info: "no-font-shape"
+. 
+. Could not resolve font Heiti TC Medium/BI (it probably doesn't exist).
+.................................................
+.................................................
+. fontspec info: "no-font-shape"
+. 
+. Could not resolve font Heiti TC Medium/I (it probably doesn't exist).
+.................................................
+LaTeX Font Info:    Font shape `EU1/SourceCodeProSemibold(0)/m/n' will be
+(Font)              scaled to size 12.0pt on input line 59.
 .................................................
 . fontspec info: "defining-font"
 . 
-. Font family 'HeitiTCLight(0)' created for font 'Heiti TC Light' with options
-. [Script={CJK},Scale={1},BoldFeatures={FakeBold=2},FakeStretch={1},Color={verb
-}].
+. Font family 'HeitiTCMedium(0)' created for font 'Heiti TC Medium' with
+. options [Script={CJK},Scale={1},Color={verb},BoldFont={LiHei Pro}].
 . 
 . This font family consists of the following shapes:
 . 
 . * 'normal' with NFSS spec.:
-. <->s*[1]"Heiti TC Light/OT:extend=1;color=006600FF ;"
+. <->s*[1]"Heiti TC Medium/OT:color=004D00FF ;"
 . 
 . * 'small caps' with NFSS spec.:
 . 
@@ -2220,15 +2234,7 @@ LaTeX Font Info:    Font shape `EU1/HeitiTCMedium(0)/m/n' will be
 . 
 . 
 . * 'bold' with NFSS spec.:
-. <->s*[1]"Heiti TC Light/B/OT:extend=1;embolden=2;color=006600FF ;"
-. 
-. * 'bold small caps' with NFSS spec.:
-. 
-. and font adjustment code:
-. 
-. 
-. * 'bold italic' with NFSS spec.:
-. <->s*[1]"Heiti TC Light/BI/OT:extend=1;color=006600FF ;"
+. <->s*[1]"LiHei Pro/OT:color=004D00FF ;"
 . 
 . * 'bold small caps' with NFSS spec.:
 . 
@@ -2237,9 +2243,11 @@ LaTeX Font Info:    Font shape `EU1/HeitiTCMedium(0)/m/n' will be
 .................................................
 File: cc.pdf Graphic file (type QTm)
 <use  "cc.pdf" >
-LaTeX Font Info:    Font shape `EU1/HeitiTCMedium(0)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 59.
 LaTeX Font Info:    Font shape `EU1/HeitiTCLight(0)/m/n' will be
+(Font)              scaled to size 8.0pt on input line 59.
+LaTeX Font Info:    Font shape `EU1/SourceCodeProSemibold(0)/m/n' will be
+(Font)              scaled to size 8.0pt on input line 59.
+LaTeX Font Info:    Font shape `EU1/HeitiTCMedium(0)/m/n' will be
 (Font)              scaled to size 8.0pt on input line 59.
 LaTeX Font Info:    Try loading font information for OT1+zavm on input line 59.
 
@@ -2296,11 +2304,16 @@ LaTeX Font Info:    Try loading font information for U+zavm on input line 59.
 (/usr/local/texlive/2014/texmf-dist/tex/latex/arev/uzavm.fd
 File: uzavm.fd 2006/05/30 Fontinst v1.929 font definitions for U/zavm.
 )
-LaTeX Font Info:    Font shape `EU1/HeitiTCMedium(0)/m/n' will be
+LaTeX Font Info:    Font shape `EU1/HeitiTCLight(0)/m/n' will be
+(Font)              scaled to size 6.0pt on input line 59.
+LaTeX Font Info:    Font shape `EU1/HeitiTCLight(0)/m/n' will be
 (Font)              scaled to size 5.0pt on input line 59.
  [1
 
-] (./slide.toc)
+] (./slide.toc
+LaTeX Font Info:    Font shape `EU1/HeitiTCLight(0)/bx/n' will be
+(Font)              scaled to size 12.0pt on input line 2.
+)
 [2
 
 ] (./slide.toc) [3
@@ -2312,29 +2325,50 @@ LaTeX Font Info:    Font shape `EU1/HeitiTCMedium(0)/m/n' will be
 
  (./slide.vrb
 File: downloadR.png Graphic file (type QTm)
- <use  "downloadR.png" >)
-Overfull \vbox (2.51138pt too high) detected at line 92
- []
+ <use  "downloadR.png" >) [5
 
-[5
+]
+\openout4 = `slide.vrb'.
+
+
+(./slide.vrb) [6
 
 ]
 \openout4 = `slide.vrb'.
 
  (./slide.vrb
-LaTeX Font Info:    Font shape `EU1/HeitiTCLight(0)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 13.
-) [6
-
-] (./slide.toc) [7
+LaTeX Font Info:    Font shape `EU1/HeitiTCMedium(0)/m/n' will be
+(Font)              scaled to size 12.0pt on input line 9.
+) [7
 
 ] (./slide.toc) [8
 
 ]
 \openout4 = `slide.vrb'.
 
- (./slide.vrb)
-[9
+ (./slide.vrb) [9
+
+]
+\openout4 = `slide.vrb'.
+
+
+(./slide.vrb
+Overfull \hbox (0.96999pt too wide) in paragraph at lines 3--3
+[][]\EU1/HeitiTCMedium(0)/m/n/12 函數名\EU1/SourceCodeProSemibold(0)/m/n/12 (\EU1/
+HeitiTCMedium(0)/m/n/12 第一引數 \EU1/SourceCodeProSemibold(0)/m/n/12 = \EU1/HeitiT
+CMedium(0)/m/n/12 某值\EU1/SourceCodeProSemibold(0)/m/n/12 , \EU1/HeitiTCMedium(0
+)/m/n/12 第二引數 \EU1/SourceCodeProSemibold(0)/m/n/12 = \EU1/HeitiTCMedium(0)/m/n/
+12 某值\EU1/SourceCodeProSemibold(0)/m/n/12 , ...)  
+ []
+
+) [10
+
+] (./slide.toc) [11
+
+]
+\openout4 = `slide.vrb'.
+
+ (./slide.vrb) [12
 
 ]
 \tf@nav=\write7
@@ -2346,20 +2380,20 @@ LaTeX Font Info:    Font shape `EU1/HeitiTCLight(0)/m/n' will be
 \tf@snm=\write9
 \openout9 = `slide.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 130.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 130.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 175.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 175.
  (./slide.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 130.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 130.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 130.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 175.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 175.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 175.
  ) 
 Here is how much of TeX's memory you used:
- 35787 strings out of 493724
- 716274 string characters out of 6145898
- 738587 words of memory out of 5000000
- 38502 multiletter control sequences out of 15000+600000
- 15242 words of font info for 75 fonts, out of 8000000 for 9000
+ 35780 strings out of 493724
+ 718646 string characters out of 6145898
+ 731023 words of memory out of 5000000
+ 38489 multiletter control sequences out of 15000+600000
+ 15306 words of font info for 83 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 56i,20n,69p,10416b,790s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,11n,69p,10427b,642s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on slide.pdf (9 pages).
+Output written on slide.pdf (12 pages).

@@ -4,43 +4,43 @@
 \documentclass[12pt]{beamer}
 \usepackage{amsmath, fancyvrb, textcomp}
 \usepackage{xcolor}
-\definecolor{verb}{rgb}{0.0,0.4,0.0}
+\definecolor{verb}{rgb}{0.0,0.3,0.0}
 
 %% Beamer 版面配置
 \beamertemplatenavigationsymbolsempty % 去除 Beamer 導覽工具列
 \setbeamertemplate{footline}[frame number]{}
 \mode<presentation>
-\usetheme{Frankfurt}
-%\usecolortheme{whale}
+%\usetheme{Frankfurt}
+\usecolortheme{whale}
 %\usetheme{Madrid}
 \useinnertheme{circles}
 %\usecolortheme{beaver}
-%\usefonttheme{structurebold}
+\usefonttheme{structurebold}
 
-\DefineVerbatimEnvironment{MyVerbatim}{Verbatim}{fontsize=\tiny}
+%\DefineVerbatimEnvironment{MyVerbatim}{Verbatim}{fontsize=\tiny}
 
 %% 西文字配置
 \linespread{1.2}
 \usepackage{arevmath}
 \usepackage[no-math]{fontspec}
-\setmainfont[Mapping=tex-text,LetterSpace=0]{Fira Sans Book}
-\setsansfont[Mapping=tex-text,LetterSpace=0]{Fira Sans Book}
-\setmonofont[Color=verb]{Inconsolata}
+\setmainfont[Mapping=tex-text, LetterSpace=0]{Myriad Pro SemiCondensed}
+\setsansfont[Mapping=tex-text, LetterSpace=0]{Myriad Pro SemiCondensed}
+%\setmonofont[Color=verb]{Inconsolata}
+\setmonofont[Color=verb, Scale=1, LetterSpace=-3]{Source Code Pro Semibold}
 \usefonttheme{professionalfonts}
 
 %% 中文字配置
 \usepackage[
-  CJKmath=true, indentfirst=false, PunctStyle={quanjiao}, CheckSingle=false,
-  CJKecglue = {\hskip 0.15em}
+  CJKmath=true, indentfirst=false, PunctStyle={quanjiao}, CheckSingle=false
 ]{xeCJK}
-\setCJKmainfont[Scale=1,BoldFeatures={FakeBold=2}]{Heiti TC Medium}
-\setCJKmonofont[Scale=1,BoldFeatures={FakeBold=2}, FakeStretch=1, Color=verb]{Heiti TC Light}
+\setCJKmainfont[Scale=1,BoldFont={LiHei Pro}]{Heiti TC Light}
+\setCJKmonofont[Scale=1,BoldFont={LiHei Pro},Color=verb]{Heiti TC Medium}
 
-\title[初學者學習R語言]{初學R語言的100分鐘}
+\title[初學者學習R語言]{初學R語言的前60分鐘}
 \author[廖鎮磐]{廖鎮磐 \\ \texttt{<andrew.43@gmail.com>}\\ 東海大學生命科學系}
 \institute{\normalsize 2015年3月15日於蓮華池}
 \date{\scriptsize \includegraphics[width=1in]{cc.pdf}\\[5pt]
-本文件採用姓名標示-相同方式分享 4.0 國際（CC BY-SA 4.0；詳細內容請見 \url{http://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW}）。\\ 本文件之PDF副本可於 \url{} 下載。}
+本文件採用姓名標示-相同方式分享 4.0 國際（CC BY-SA 4.0；詳細內容請見 \url{http://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW}），\\ 歡迎來信索取本投影片副本。}
 
 
 
@@ -91,26 +91,71 @@
 \end{enumerate}
 \end{frame}
 
-
-\begin{frame}[fragile]{安裝R的套件}
-\begin{block}{什麼是套件（package）？}
+\begin{frame}[fragile]{選用適當的R程式編輯器}
 \begin{itemize}
-\item 安裝在R系統裡的外掛。
-\item 不用「重新造輪子」。
-\item 和R一樣，大多都可自由使用。
+\item 建議以純文字編輯器撰寫R程式碼，並儲存成「\verb+.R+」檔。
+\item 「語法多色支援」、「語法提示」、「即時執行」等功能，增加撰寫效率。
+\item 支援R語言的編輯器很多：
+\begin{description}
+	\item [RStudio] 強大、整合性高、專為R程式員設計。
+	\item [Notepad++] 老字號的純文字編輯器，有和R相配合的外掛。
+	\item [Atom] 與GitHub配合度高。
+\end{description}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]{套件}
+\begin{block}{什麼是套件（package）？}
+安裝在R系統裡的外掛，讓你「不用重新造輪子」。
+\end{block}
+
+\begin{block}{如何安裝、更新及引入套件？}
+\begin{itemize}
+\item 連上網路之後，輸入
+\verb+install.packages("套件名稱")+
+可以安裝某套件，而
+\verb+update.packages()+
+可以更新所有已安裝套件。
+
+\item 在已安裝某套件之後，輸入
+\verb+library(套件名稱)+
+可引入該套件，之後才可以使用它的功能。
 \end{itemize}
 \end{block}
 
-\begin{block}{如何安裝套件？}
-\begin{enumerate}
-\item 有網路。
-\item \verb+install.packages("套件名稱") #安裝某套件+
-\item \verb+update.packages() #更新所有已安裝套件+
-\end{enumerate}
+\begin{block}{練習}
+安裝一個名叫「\verb+vegan+」的套件，並將之引入R中。
 \end{block}
+
 \end{frame}
 
-\section{R的function}\subsection{}
+\section{R的函數}\subsection{}
+
+\begin{frame}[fragile]{什麼是程式語言的函數（function）}
+\begin{itemize}
+\item 就像數學裡的函數一樣：把x放到f裡，得到一個f(x)。
+\item x稱為引數，而f(x)叫回傳值。
+\item 通常引數不只一個。
+\item 操作R的過程，幾乎就是使用各種function的過程。
+\item 試試看 \verb+seq(from = 0, to = 9)+ 的回傳值是什麼？
+\item 用中文說明上面的程式：「在 \verb+seq()+ 這個function中，第一個引數名為 \verb+from+，表示起始值，其值為 \verb+0+；第二個引數名為 \verb+to+，表示終點值，其值是 \verb+9+。」
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{函數的使用通則}
+\begin{itemize}
+\item 使用某函數的語法通則： \\ \verb+函數名(第一引數 = 某值, 第二引數 = 某值, ...)+ \\
+      例如\\
+      \verb+seq(from = 0, to = 9)+
+\item 當引數的順序與該函數要求的順序相同時，可以省略引數名，例如\\
+      \verb+seq(from = 0, to = 9)+\\
+      可以省略為 \\
+      \verb+seq(0, 9)+
+\item 觀看某個函數的使用手冊\\
+	\verb+?函數名+ 或 \verb+help(函數名)+
+\end{itemize}
+\end{frame}
 
 
 \section{小試身手}\subsection{}

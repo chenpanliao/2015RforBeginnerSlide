@@ -1,5 +1,0 @@
-\beamer@endinputifotherversion {3.33pt}
-\beamer@sectionintoc {1}{事前準備}{5}{0}{1}
-\beamer@sectionintoc {2}{R的函數}{11}{0}{2}
-\beamer@sectionintoc {3}{資料的讀取與整理}{17}{0}{3}
-\beamer@sectionintoc {4}{小試身手}{18}{0}{4}

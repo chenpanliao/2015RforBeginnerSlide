@@ -1,7 +1,0 @@
-\frametitle{計算機}
-\begin{verbatim}
-> 2.4 + 42
-[1] 44.4
-> sqrt(100)
-[1] 10
-\end{verbatim}

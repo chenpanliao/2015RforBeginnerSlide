@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99991 (TeX Live 2014) (preloaded format=xelatex 2014.10.25)  3 FEB 2015 04:57
+This is XeTeX, Version 3.14159265-2.6-0.99991 (TeX Live 2014) (preloaded format=xelatex 2014.10.25)  3 FEB 2015 06:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1487,26 +1487,20 @@ xt;letterspace=0;"
 . and font adjustment code:
 . 
 .................................................
-\g__fontspec_family_SourceCodeProSemibold_int=\count193
-.................................................
-. fontspec info: "no-font-shape"
-. 
-. Could not resolve font Source Code Pro Semibold/I (it probably doesn't
-. exist).
-.................................................
+\g__fontspec_family_Consolas_int=\count193
 .................................................
 . fontspec info: "defining-font"
 . 
-. Font family 'SourceCodeProSemibold(0)' created for font 'Source Code Pro
-. Semibold' with options
+. Font family 'Consolas(0)' created for font 'Consolas' with options
 . [WordSpace={1,0,0},PunctuationSpace=WordSpace,Color=verb,Scale=1,LetterSpace=
--3].
+-0].
 . 
 . This font family consists of the following shapes:
 . 
 . * 'normal' with NFSS spec.:
-. <->s*[1]"Source Code Pro
-. Semibold/OT:script=latn;language=DFLT;letterspace=-3;color=006600FF ;"
+. 
+. <->s*[1]"Consolas/OT:script=latn;language=DFLT;letterspace=-0;color=006600FF
+. ;"
 . 
 . * 'small caps' with NFSS spec.:
 . 
@@ -1515,8 +1509,10 @@ xt;letterspace=0;"
 . \fontdimen 4\font =0\fontdimen 4\font \fontdimen 7\font =0\fontdimen 2\font 
 . 
 . * 'bold' with NFSS spec.:
-. <->s*[1]"Source Code Pro
-. Semibold/B/OT:script=latn;language=DFLT;letterspace=-3;color=006600FF ;"
+. 
+. <->s*[1]"Consolas/B/OT:script=latn;language=DFLT;letterspace=-0;color=006600F
+F
+. ;"
 . 
 . * 'bold small caps' with NFSS spec.:
 . 
@@ -1524,9 +1520,23 @@ xt;letterspace=0;"
 . \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font =0\fontdimen 3\font
 . \fontdimen 4\font =0\fontdimen 4\font \fontdimen 7\font =0\fontdimen 2\font 
 . 
+. * 'italic' with NFSS spec.:
+. 
+. <->s*[1]"Consolas/I/OT:script=latn;language=DFLT;letterspace=-0;color=006600F
+F
+. ;"
+. 
+. * 'small caps' with NFSS spec.:
+. 
+. and font adjustment code:
+. \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font =0\fontdimen 3\font
+. \fontdimen 4\font =0\fontdimen 4\font \fontdimen 7\font =0\fontdimen 2\font 
+. 
 . * 'bold italic' with NFSS spec.:
-. <->s*[1]"Source Code Pro
-. Semibold/BI/OT:script=latn;language=DFLT;letterspace=-3;color=006600FF ;"
+. 
+. <->s*[1]"Consolas/BI/OT:script=latn;language=DFLT;letterspace=-0;color=006600
+FF
+. ;"
 . 
 . * 'bold small caps' with NFSS spec.:
 . 
@@ -2000,30 +2010,35 @@ File: xeCJK.cfg 2014/12/26 v3.3.0 Configuration file for xeCJK package
 *************************************************
 * fontspec warning: "script-not-exist"
 * 
-* Font 'Heiti TC Light' does not contain script 'CJK'.
+* Font 'Heiti TC Medium' does not contain script 'CJK'.
 *************************************************
 Normal \count register pool exhausted, switching to extended pool.
-\g__fontspec_family_HeitiTCLight_int=\count277
+\g__fontspec_family_HeitiTCMedium_int=\count277
 .................................................
 . fontspec info: "no-font-shape"
 . 
-. Could not resolve font LiHei Pro/I (it probably doesn't exist).
+. Could not resolve font AR PChiauHei Extra B5/I (it probably doesn't exist).
 .................................................
 .................................................
 . fontspec info: "no-font-shape"
 . 
-. Could not resolve font Heiti TC Light/I (it probably doesn't exist).
+. Could not resolve font Heiti TC Medium/BI (it probably doesn't exist).
+.................................................
+.................................................
+. fontspec info: "no-font-shape"
+. 
+. Could not resolve font Heiti TC Medium/I (it probably doesn't exist).
 .................................................
 .................................................
 . fontspec info: "defining-font"
 . 
-. Font family 'HeitiTCLight(0)' created for font 'Heiti TC Light' with options
-. [Script={CJK},Scale={1},BoldFont={LiHei Pro}].
+. Font family 'HeitiTCMedium(0)' created for font 'Heiti TC Medium' with
+. options [Script={CJK},Scale={1},BoldFont={AR PChiauHei Extra B5}].
 . 
 . This font family consists of the following shapes:
 . 
 . * 'normal' with NFSS spec.:
-. <->s*[1]"Heiti TC Light/OT:"
+. <->s*[1]"Heiti TC Medium/OT:"
 . 
 . * 'small caps' with NFSS spec.:
 . 
@@ -2031,15 +2046,7 @@ Normal \count register pool exhausted, switching to extended pool.
 . 
 . 
 . * 'bold' with NFSS spec.:
-. <->s*[1]"LiHei Pro/OT:"
-. 
-. * 'bold small caps' with NFSS spec.:
-. 
-. and font adjustment code:
-. 
-. 
-. * 'bold italic' with NFSS spec.:
-. <->s*[1]"Heiti TC Light/BI/OT:"
+. <->s*[1]"AR PChiauHei Extra B5/OT:"
 . 
 . * 'bold small caps' with NFSS spec.:
 . 
@@ -2064,8 +2071,8 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 *************************************************
 \symCJKmath=\mathgroup9
 LaTeX Font Info:    Overwriting symbol font `CJKmath' in version `bold'
-(Font)                  EU1/HeitiTCLight(0)/m/n --> EU1/HeitiTCLight(0)/bx/n on
- input line 62.
+(Font)                  EU1/HeitiTCMedium(0)/m/n --> EU1/HeitiTCMedium(0)/bx/n 
+on input line 62.
 (./slide.aux)
 \openout1 = `slide.aux'.
 
@@ -2189,44 +2196,38 @@ Dictionary: translator-theorem-dictionary, Language: English
 )
 LaTeX Info: Redefining \includegraphics on input line 62.
  (./slide.nav)
-LaTeX Font Info:    Font shape `EU1/HeitiTCLight(0)/bx/n' will be
+LaTeX Font Info:    Font shape `EU1/HeitiTCMedium(0)/bx/n' will be
 (Font)              scaled to size 17.28pt on input line 67.
-LaTeX Font Info:    Font shape `EU1/HeitiTCLight(0)/m/n' will be
+LaTeX Font Info:    Font shape `EU1/HeitiTCMedium(0)/m/n' will be
 (Font)              scaled to size 12.0pt on input line 67.
-
-*************************************************
-* fontspec warning: "script-not-exist"
-* 
-* Font 'Heiti TC Medium' does not contain script 'CJK'.
-*************************************************
-\g__fontspec_family_HeitiTCMedium_int=\count279
+\g__fontspec_family_DFYuanBold-B5_int=\count279
 .................................................
 . fontspec info: "no-font-shape"
 . 
-. Could not resolve font LiHei Pro/I (it probably doesn't exist).
+. Could not resolve font AR Yenti Bold B5/I (it probably doesn't exist).
 .................................................
 .................................................
 . fontspec info: "no-font-shape"
 . 
-. Could not resolve font Heiti TC Medium/BI (it probably doesn't exist).
+. Could not resolve font DFYuanBold-B5/BI (it probably doesn't exist).
 .................................................
 .................................................
 . fontspec info: "no-font-shape"
 . 
-. Could not resolve font Heiti TC Medium/I (it probably doesn't exist).
+. Could not resolve font DFYuanBold-B5/I (it probably doesn't exist).
 .................................................
-LaTeX Font Info:    Font shape `EU1/SourceCodeProSemibold(0)/m/n' will be
+LaTeX Font Info:    Font shape `EU1/Consolas(0)/m/n' will be
 (Font)              scaled to size 12.0pt on input line 67.
 .................................................
 . fontspec info: "defining-font"
 . 
-. Font family 'HeitiTCMedium(0)' created for font 'Heiti TC Medium' with
-. options [Script={CJK},Scale={1},Color={verb},BoldFont={LiHei Pro}].
+. Font family 'DFYuanBold-B5(0)' created for font 'DFYuanBold-B5' with options
+. [Script={CJK},Scale={0.95},Color={verb},BoldFont={AR Yenti Bold B5}].
 . 
 . This font family consists of the following shapes:
 . 
 . * 'normal' with NFSS spec.:
-. <->s*[1]"Heiti TC Medium/OT:color=006600FF ;"
+. <->s*[0.95]"DFYuanBold-B5/OT:script=hani;language=DFLT;color=006600FF ;"
 . 
 . * 'small caps' with NFSS spec.:
 . 
@@ -2234,7 +2235,7 @@ LaTeX Font Info:    Font shape `EU1/SourceCodeProSemibold(0)/m/n' will be
 . 
 . 
 . * 'bold' with NFSS spec.:
-. <->s*[1]"LiHei Pro/OT:color=006600FF ;"
+. <->s*[0.95]"AR Yenti Bold B5/OT:script=hani;language=DFLT;color=006600FF ;"
 . 
 . * 'bold small caps' with NFSS spec.:
 . 
@@ -2242,13 +2243,14 @@ LaTeX Font Info:    Font shape `EU1/SourceCodeProSemibold(0)/m/n' will be
 . 
 .................................................
 File: cc.pdf Graphic file (type QTm)
+
 <use  "cc.pdf" >
-LaTeX Font Info:    Font shape `EU1/HeitiTCLight(0)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 67.
-LaTeX Font Info:    Font shape `EU1/SourceCodeProSemibold(0)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 67.
 LaTeX Font Info:    Font shape `EU1/HeitiTCMedium(0)/m/n' will be
 (Font)              scaled to size 10.0pt on input line 67.
+LaTeX Font Info:    Font shape `EU1/Consolas(0)/m/n' will be
+(Font)              scaled to size 10.0pt on input line 67.
+LaTeX Font Info:    Font shape `EU1/DFYuanBold-B5(0)/m/n' will be
+(Font)              scaled to size 9.49997pt on input line 67.
 LaTeX Font Info:    Try loading font information for OT1+zavm on input line 67.
 
  (/usr/local/texlive/2014/texmf-dist/tex/latex/arev/ot1zavm.fd
@@ -2304,9 +2306,9 @@ LaTeX Font Info:    Try loading font information for U+zavm on input line 67.
 (/usr/local/texlive/2014/texmf-dist/tex/latex/arev/uzavm.fd
 File: uzavm.fd 2006/05/30 Fontinst v1.929 font definitions for U/zavm.
 )
-LaTeX Font Info:    Font shape `EU1/HeitiTCLight(0)/m/n' will be
+LaTeX Font Info:    Font shape `EU1/HeitiTCMedium(0)/m/n' will be
 (Font)              scaled to size 7.6pt on input line 67.
-LaTeX Font Info:    Font shape `EU1/HeitiTCLight(0)/m/n' will be
+LaTeX Font Info:    Font shape `EU1/HeitiTCMedium(0)/m/n' will be
 (Font)              scaled to size 6.0pt on input line 67.
  [1
 
@@ -2314,28 +2316,15 @@ LaTeX Font Info:    Font shape `EU1/HeitiTCLight(0)/m/n' will be
 File: url.pdf Graphic file (type QTm)
 
 <use  "url.pdf" >
-LaTeX Font Info:    Font shape `EU1/SourceCodeProSemibold(0)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 74.
-LaTeX Font Info:    Font shape `EU1/HeitiTCMedium(0)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 74.
-LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 74.
-LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 74.
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 7.68005pt on input line 74.
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 4.80003pt on input line 74.
-LaTeX Font Info:    Font shape `EU1/HeitiTCLight(0)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 74.
-LaTeX Font Info:    Font shape `EU1/HeitiTCLight(0)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 74.
- [2
+Overfull \vbox (1.01175pt too high) detected at line 74
+ []
+
+[2
 
 ] [3
 
 ] (./slide.toc
-LaTeX Font Info:    Font shape `EU1/HeitiTCLight(0)/bx/n' will be
+LaTeX Font Info:    Font shape `EU1/HeitiTCMedium(0)/bx/n' will be
 (Font)              scaled to size 12.0pt on input line 2.
 ) [4
 
@@ -2347,23 +2336,23 @@ LaTeX Font Info:    Font shape `EU1/HeitiTCLight(0)/bx/n' will be
 \openout4 = `slide.vrb'.
 
  (./slide.vrb
+LaTeX Font Info:    Font shape `EU1/DFYuanBold-B5(0)/m/n' will be
+(Font)              scaled to size 11.39996pt on input line 3.
+LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
+(Font)              scaled to size 11.52008pt on input line 3.
+LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
+(Font)              scaled to size 8.64006pt on input line 3.
+LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
+(Font)              scaled to size 6.72005pt on input line 3.
+LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
+(Font)              scaled to size 11.52008pt on input line 3.
+LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
+(Font)              scaled to size 8.64006pt on input line 3.
+LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
+(Font)              scaled to size 6.72005pt on input line 3.
 LaTeX Font Info:    Font shape `EU1/HeitiTCMedium(0)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 3.
-LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 11.52008pt on input line 3.
-LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 8.64006pt on input line 3.
-LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 3.
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 11.52008pt on input line 3.
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 8.64006pt on input line 3.
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 6.72005pt on input line 3.
-LaTeX Font Info:    Font shape `EU1/HeitiTCLight(0)/m/n' will be
 (Font)              scaled to size 9.0pt on input line 3.
-LaTeX Font Info:    Font shape `EU1/HeitiTCLight(0)/m/n' will be
+LaTeX Font Info:    Font shape `EU1/HeitiTCMedium(0)/m/n' will be
 (Font)              scaled to size 7.0pt on input line 3.
 File: downloadR.png Graphic file (type QTm)
 
@@ -2372,7 +2361,24 @@ File: downloadR.png Graphic file (type QTm)
 ]
 \openout4 = `slide.vrb'.
 
- (./slide.vrb) [8
+ (./slide.vrb
+LaTeX Font Info:    Font shape `EU1/Consolas(0)/m/n' will be
+(Font)              scaled to size 8.0pt on input line 7.
+LaTeX Font Info:    Font shape `EU1/DFYuanBold-B5(0)/m/n' will be
+(Font)              scaled to size 7.59998pt on input line 7.
+LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
+(Font)              scaled to size 7.68005pt on input line 7.
+LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
+(Font)              scaled to size 4.80003pt on input line 7.
+LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
+(Font)              scaled to size 7.68005pt on input line 7.
+LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
+(Font)              scaled to size 4.80003pt on input line 7.
+LaTeX Font Info:    Font shape `EU1/HeitiTCMedium(0)/m/n' will be
+(Font)              scaled to size 8.0pt on input line 7.
+LaTeX Font Info:    Font shape `EU1/HeitiTCMedium(0)/m/n' will be
+(Font)              scaled to size 5.0pt on input line 7.
+) [8
 
 ]
 \openout4 = `slide.vrb'.
@@ -2391,12 +2397,11 @@ File: downloadR.png Graphic file (type QTm)
 \openout4 = `slide.vrb'.
 
  (./slide.vrb
-Overfull \hbox (24.96999pt too wide) in paragraph at lines 6--7
-[][]\EU1/HeitiTCMedium(0)/m/n/12 函數名\EU1/SourceCodeProSemibold(0)/m/n/12 (\EU1/
-HeitiTCMedium(0)/m/n/12 第一引數名 \EU1/SourceCodeProSemibold(0)/m/n/12 = \EU1/Heiti
-TCMedium(0)/m/n/12 某值\EU1/SourceCodeProSemibold(0)/m/n/12 , \EU1/HeitiTCMedium(
-0)/m/n/12 第二引數名 \EU1/SourceCodeProSemibold(0)/m/n/12 = \EU1/HeitiTCMedium(0)/m/
-n/12 某值\EU1/SourceCodeProSemibold(0)/m/n/12 , ...)  
+Overfull \hbox (8.9741pt too wide) in paragraph at lines 6--7
+[][]\EU1/DFYuanBold-B5(0)/m/n/12 函數名\EU1/Consolas(0)/m/n/12 (\EU1/DFYuanBold-B5
+(0)/m/n/12 第一引數名 \EU1/Consolas(0)/m/n/12 = \EU1/DFYuanBold-B5(0)/m/n/12 某值\EU1/
+Consolas(0)/m/n/12 , \EU1/DFYuanBold-B5(0)/m/n/12 第二引數名 \EU1/Consolas(0)/m/n/12
+ = \EU1/DFYuanBold-B5(0)/m/n/12 某值\EU1/Consolas(0)/m/n/12 , ...)  
  []
 
 ) [12
@@ -2410,7 +2415,7 @@ n/12 某值\EU1/SourceCodeProSemibold(0)/m/n/12 , ...)
 \openout4 = `slide.vrb'.
 
  (./slide.vrb
-LaTeX Font Info:    Font shape `EU1/SourceCodeProSemibold(0)/bx/n' will be
+LaTeX Font Info:    Font shape `EU1/Consolas(0)/bx/n' will be
 (Font)              scaled to size 12.0pt on input line 3.
 ) [14
 
@@ -2452,12 +2457,12 @@ Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 265.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 265.
  ) 
 Here is how much of TeX's memory you used:
- 35899 strings out of 493724
- 721158 string characters out of 6145898
- 732228 words of memory out of 5000000
- 38590 multiletter control sequences out of 15000+600000
- 32672 words of font info for 136 fonts, out of 8000000 for 9000
+ 35904 strings out of 493724
+ 721390 string characters out of 6145898
+ 732018 words of memory out of 5000000
+ 38591 multiletter control sequences out of 15000+600000
+ 32688 words of font info for 138 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 56i,11n,69p,10427b,642s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,11n,69p,10427b,653s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on slide.pdf (19 pages).

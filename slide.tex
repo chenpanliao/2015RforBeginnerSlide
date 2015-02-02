@@ -32,15 +32,15 @@
 \setmainfont[Mapping=tex-text, LetterSpace=0]{Myriad Pro SemiCondensed}
 \setsansfont[Mapping=tex-text, LetterSpace=0]{Myriad Pro SemiCondensed}
 %\setmonofont[Color=verb]{Inconsolata}
-\setmonofont[Color=verb, Scale=1, LetterSpace=-3]{Source Code Pro Semibold}
+\setmonofont[Color=verb, Scale=1, LetterSpace=-0]{Consolas}
 \usefonttheme{professionalfonts}
 
 %% 中文字配置
 \usepackage[
   CJKmath=true, indentfirst=false, PunctStyle={quanjiao}, CheckSingle=false
 ]{xeCJK}
-\setCJKmainfont[Scale=1,BoldFont={LiHei Pro}]{Heiti TC Light}
-\setCJKmonofont[Scale=1,BoldFont={LiHei Pro},Color=verb]{Heiti TC Medium}
+\setCJKmainfont[Scale=1,BoldFont={AR PChiauHei Extra B5}]{Heiti TC Medium}
+\setCJKmonofont[Scale=0.95,BoldFont={AR Yenti Bold B5},Color=verb]{DFYuanBold-B5}
 
 \title[初學者學習R語言]{初學R語言的60分鐘（draft）}
 \author[廖鎮磐]{廖鎮磐 \\ \texttt{<andrew.43@gmail.com>}\\ 東海大學生命科學系}
@@ -69,7 +69,7 @@
 \begin{frame}{歡迎下載本投影片複本}
 \begin{center}
 \includegraphics[width=2.75in]{url.pdf}\\
-\scriptsize\url{http://www.slideshare.net/chenpanliao/slide-44171070}
+\footnotesize\url{http://www.slideshare.net/chenpanliao/slide-44171070}
 \end{center}
 \end{frame}
 
@@ -179,7 +179,7 @@
 
 
 
-\begin{frame}[fragile]{學習觀看某函數的使用手冊}
+\begin{frame}[fragile]{函數的使用手冊}
 \begin{itemize}
 \item 觀看某個函數的使用手冊：\verb+?函數名+ 或 \verb+help(函數名)+。
 \item 使用手冊中都有以下資訊：

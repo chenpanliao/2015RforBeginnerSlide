@@ -10,24 +10,24 @@
 
 %% Beamer 版面配置
 \mode<presentation>
-\let\oldfootnote\footnote
-\renewcommand\footnote[1]{\hspace{-0.6em}\oldfootnote{\scriptsize\ignorespaces#1}}
-\setbeamerfont{footnote mark}{size=\tiny}
-\usecolortheme{rose}
+
 
 \beamertemplatenavigationsymbolsempty % 去除 Beamer 導覽工具列
-\setbeamertemplate{footline}[frame number]{}
-%\usetheme{Frankfurt}
-%\usecolortheme{whale}
-%\usetheme{Madrid}
-%\useinnertheme{circles}
-%\usecolortheme{beaver}
-%\usefonttheme{structurebold}
+%\setbeamertemplate{footline}[frame number]{}
+\useoutertheme[subsection=false]{miniframes}
+\usecolortheme{rose}
+
+\let\oldfootnote\footnote
+\renewcommand\footnote[1]{\hspace{-0.6em}\oldfootnote{\scriptsize\ignorespaces#1}\hspace{0.6em}}
+\setbeamerfont{footnote mark}{size=\tiny}
+
+%\setbeamercolor{frametitle}{bg=red!5}
+\setbeamertemplate{frametitle}{\vskip-0.2cm\hskip-0.7cm\insertframetitle\par}
 
 %\DefineVerbatimEnvironment{MyVerbatim}{Verbatim}{fontsize=\tiny}
 
 %% 西文字配置
-\linespread{1.12}
+\linespread{1.1}
 \usepackage{arevmath}
 \usepackage[no-math]{fontspec}
 \setmainfont[Mapping=tex-text, LetterSpace=0]{PT Sans}
@@ -136,19 +136,17 @@
 安裝在R系統裡的外掛，讓你「不用重新造輪子」。
 \end{block}
 
-\begin{block}{如何安裝、更新及引入套件？}
+如何安裝、更新及引入套件？
 \begin{itemize}
 \item 連上網路之後，輸入
 \verb+install.packages("套件名稱")+
 可以安裝某套件，而
 \verb+update.packages()+
 可以更新所有已安裝套件。
-
 \item 在已安裝某套件之後，輸入
 \verb+library(套件名稱)+
 可引入該套件，之後才可以使用它的功能。
 \end{itemize}
-\end{block}
 
 \begin{block}{練習}
 安裝一個名叫「\verb+vegan+」的套件，並將之引入R中。

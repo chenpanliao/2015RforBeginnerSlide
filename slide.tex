@@ -13,7 +13,7 @@
 
 
 \beamertemplatenavigationsymbolsempty % 去除 Beamer 導覽工具列
-%\setbeamertemplate{footline}[frame number]{}
+\setbeamertemplate{footline}[frame number]{}
 \useoutertheme[subsection=false]{miniframes}
 \usecolortheme{rose}
 
@@ -22,7 +22,7 @@
 \setbeamerfont{footnote mark}{size=\tiny}
 
 %\setbeamercolor{frametitle}{bg=red!5}
-\setbeamertemplate{frametitle}{\vskip-0.2cm\hskip-0.7cm\insertframetitle\par}
+%\setbeamertemplate{frametitle}{\vskip-0.1cm\hskip-0.7cm\insertframetitle\par}
 
 %\DefineVerbatimEnvironment{MyVerbatim}{Verbatim}{fontsize=\tiny}
 
@@ -154,14 +154,23 @@
 \end{frame}
 
 \begin{frame}[fragile]{R的官方套件庫}
-\begin{itemize}
-\item \url{http://cran.r-project.org/web/packages/available_packages_by_name.html}\\
+\url{http://cran.r-project.org/web/packages/available_packages_by_name.html}\\
 官方的套件一覽表（目前有六千多個）。可直接以 \verb+install.packages()+ 安裝。
-\item 「我如何找能做某件事的套作？」「有沒有什麼方式可以快速找到我需要哪個套件？」
-\item 阿盤：「我都是請谷歌大神幫我找的。」
-\end{itemize}
 \end{frame}
 
+
+\begin{frame}[fragile]{充滿疑惑的時間到了}
+\begin{itemize}
+\item[Q] 有什麼方式可以學R學得快一點？
+\item[A] 肯看英文、肯多嘗試累積經驗、肯問人。
+\item [ ] \pause
+\item[Q] 阿盤學多久才叫「上手」、「有生產力」？
+\item[A] 自學半年以上，但我今天就要把八成功力都傳給你了！
+\item [ ] \pause
+\item[Q] 如何找能做某件事的套件？
+\item[A] 請Google大神幫你找最快。真的。
+\end{itemize}
+\end{frame}
 
 \section{R的函數}\subsection{}
 
@@ -249,7 +258,76 @@
 \end{itemize}
 \end{frame}
 
+
+
+\begin{frame}[fragile]{充滿疑惑的時間又到了}
+\begin{itemize}
+\item[Q] 成千上萬的函數哪學得完？
+\item[A] 不用學完！沒人學得完！學常用的就好。
+\item [ ] \pause
+\item[Q] 函數的使用手冊看不懂耶。
+\item[A] 我也常看不懂。儘量看。多嘗試。
+\item [ ] \pause
+\item[Q] 如何找能做某件事的函數？
+\item[A] 請Google大神幫你找最快。真的。
+\end{itemize}
+\end{frame}
+
+
 \section{資料的讀取與整理}\subsection{}
+
+\begin{frame}[fragile]{讀取檔案}
+\begin{enumerate}
+\item 前往 \url{http://goo.gl/YRCOaN}，下載 \verb+exam.xlsx+ 並開啟這個試算表。
+\item 看一眼 \verb+exam.xlsx+，注意第一列必需有一列「變數名」。
+\item 另存新檔 $\rightarrow$ 檔名為「exam」，類型為「CSV」，儲存在C disk下的LearnR2015資料夾中。
+\item \verb+getwd()+ 顯示目前R所在的路徑。
+\item \verb+setwd("C:/LearnR2015")+ 到達該資料夾。
+\item \verb+dt <- read.csv("exam.csv")+ 或是 \\
+      \verb+dt <- read.csv("C:/LearnR2015/exam.csv")+ 以讀取該檔，並取名為 \verb+dt+。\\
+\item \verb+dt+ 的結果是什麼？
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}[fragile]{提取特定變數（欄）}
+\begin{block}{\texttt{> dt}}
+\begin{verbatim}
+  ID Gender Group Literature Science
+1 23      m     A         36      63
+...
+\end{verbatim}
+\end{block}
+
+如何取得 \texttt{Science}？直接輸入 \verb+Science+ 是不行的，因為它是在 \verb+dt+ 裡的變數。
+\begin{itemize}
+\item \verb+dt$Science+ 意思是「dt裡的Science變數」
+\item \verb+dt[ , 5]+ 意思是「dt裡的第5欄變數」
+\item \verb+attach(dt)+ 可使dt的所有變數傳至表層。
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]{提取特定重覆數（列）}
+\begin{itemize}
+\item \verb+dt[3 , ]+ 取得「dt裡的第3列變數」
+\item \verb+subset(dt, Gender == "m")+ \\ 取得 Gender 是 m 的資料。
+\item \verb+subset(dt, Science >= 60)+ \\ 取得 Science 大於等於 60 的資料。
+\item \verb+subset(dt, Gender == "m" | Science >= 60)+ \\ 取得 Gender 是 m \alert{或} Science 大於等於 60 的資料。
+\item \verb+subset(dt, Gender == "m" & Science >= 60)+ \\ 取得 Gender 是 m \alert{且} Science 大於等於 60 的資料。
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{充滿疑惑的時間又到了}
+\begin{itemize}
+\item[Q] 可否直接讀取 xlsx 檔？\\
+\item[A] 可以！請日後自行研究 \verb+xlsx+ 這個套件。
+\item [ ] \pause
+\item[Q] 可不可以資料排序？\\
+\item[A] 可以！請日後自行研究 \verb+order()+ 和 \verb+sort()+。
+\end{itemize}
+\end{frame}
+
 
 \section{統計分析與繪圖}\subsection{}
 

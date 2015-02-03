@@ -8,15 +8,17 @@
 \definecolor{white}{rgb}{1,1,1}
 
 
-\let\oldfootnote\footnote
-\renewcommand\footnote[1]{\oldfootnote{\scriptsize\ignorespaces#1}}
-
-\mode<presentation>
 %% Beamer 版面配置
+\mode<presentation>
+\let\oldfootnote\footnote
+\renewcommand\footnote[1]{\hspace{-0.6em}\oldfootnote{\scriptsize\ignorespaces#1}}
+\setbeamerfont{footnote mark}{size=\tiny}
+\usecolortheme{rose}
+
 \beamertemplatenavigationsymbolsempty % 去除 Beamer 導覽工具列
 \setbeamertemplate{footline}[frame number]{}
 %\usetheme{Frankfurt}
-\usecolortheme{whale}
+%\usecolortheme{whale}
 %\usetheme{Madrid}
 %\useinnertheme{circles}
 %\usecolortheme{beaver}
@@ -25,26 +27,26 @@
 %\DefineVerbatimEnvironment{MyVerbatim}{Verbatim}{fontsize=\tiny}
 
 %% 西文字配置
-\linespread{1.2}
+\linespread{1.12}
 \usepackage{arevmath}
 \usepackage[no-math]{fontspec}
-\setmainfont[Mapping=tex-text, LetterSpace=0]{Myriad Pro SemiCondensed}
-\setsansfont[Mapping=tex-text, LetterSpace=0]{Myriad Pro SemiCondensed}
+\setmainfont[Mapping=tex-text, LetterSpace=0]{PT Sans}
+\setsansfont[Mapping=tex-text, LetterSpace=0]{PT Sans}
 %\setmonofont[Color=verb]{Inconsolata}
-\setmonofont[Color=verb, Scale=1, LetterSpace=-0]{Consolas}
+\setmonofont[Color=verb, Scale=0.9, LetterSpace=-0]{PT Mono}
 \usefonttheme{professionalfonts}
 
 %% 中文字配置
 \usepackage[
   CJKmath=true, indentfirst=false, PunctStyle={quanjiao}, CheckSingle=false
 ]{xeCJK}
-\setCJKmainfont[Scale=1,BoldFont={AR PChiauHei Extra B5}]{Heiti TC Medium}
-\setCJKmonofont[Scale=0.95,BoldFont={AR Yenti Bold B5},Color=verb]{DFYuanBold-B5}
+\setCJKmainfont[Scale=1]{cwTeX Q Yuan}
+\setCJKmonofont[Scale=0.9,Color=verb]{cwTeX Q Yuan}
 
-\title[初學者學習R語言]{初學R語言的60分鐘（draft）}
+\title[初學者學習R語言]{初學R語言的60分鐘}
 \author[廖鎮磐]{廖鎮磐 \\ \texttt{<andrew.43@gmail.com>}\\ 東海大學生命科學系}
 \institute{\normalsize 2015年3月14日於蓮華池}
-\date{\footnotesize \includegraphics[width=1in]{cc.pdf}\\[5pt]
+\date{\scriptsize \includegraphics[width=2cm]{cc.pdf}\\
 本文件採用姓名標示-相同方式分享 4.0 國際（CC BY-SA 4.0，詳情請見 \url{http://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW}）。}
 
 
@@ -170,7 +172,13 @@
 \item 操作R的過程，幾乎就是使用各種function的過程。
 \item 就像數學裡的函數一樣：把x放到f裡，得到一個f(x)。
 \item x稱為引數，而f(x)叫回傳值。
-\item 使用某函數的語法通則： \\ \verb+函數名(第一引數名 = 某值, 第二引數名 = 某值, ...)+ 
+\end{itemize}
+
+\begin{block}{使用某函數的語法通則}
+\verb+函數名(第一引數名 = 某值, 第二引數名 = 某值, ...)+ 
+\end{block}
+
+\begin{itemize}
 \item 試試看 \verb+seq(from = 0, to = 9)+ 的回傳值是什麼？
 \item 用中文說明上面的程式：「在 \verb+seq()+ 這個function中，第一個引數名為 \verb+from+，表示起始值，其值為 \verb+0+；第二個引數名為 \verb+to+，表示終點值，其值是 \verb+9+。」
 \end{itemize}
@@ -182,7 +190,7 @@
 \begin{itemize}
 \item 觀看某個函數的使用手冊：\verb+?函數名+ 或 \verb+help(函數名)+。
 \item 使用手冊中都有以下資訊：
-\begin{description}
+\begin{description}[longest item]
 	\item [Description] 函數的功能。
 	\item [Usage] 基本語法，包括了引數的順序和預設值。
 	\item [Arguments] 引數的細節。
@@ -222,7 +230,7 @@
 
 \begin{itemize}
 \item 當明確指定引數名時，引數的順序無所謂。例如：\\ \verb+seq(from = 0, to = 9)+ 和 \\ \verb+seq(to = 9, from = 0)+ 同義。
-\item 當引數的順序與該函數要求的順序相同時，可以省略引數名。例如：\\ \verb+seq(from = 0, to = 9)+ 可以省略為 \\ \verb+seq(0, 9)+。
+\item 當引數的順序與該函數要求的順序相同時，可以省略引數名。例如：\\ \verb+seq(from = 0, to = 9)+ 可以省略為 \\ \verb+seq(0, 9)+ 的形式。
 \end{itemize}
 \end{frame}
 
@@ -233,7 +241,7 @@
 \verb+seq(from = 1, to = 1, ...)+ \\
 \end{block}
 
-\begin{block}{試回答下列程式的回傳值為何？}
+試回答下列程式的回傳值為何？
 \begin{itemize}
 \item \verb+seq(from = 3, to = 1)+
 \item \verb+seq(3, to = 1)+
@@ -241,11 +249,13 @@
 \item \verb+seq(3, 1)+
 \item \verb+seq(to = 1, from = 3)+
 \end{itemize}
-\end{block}
 \end{frame}
 
 \section{資料的讀取與整理}\subsection{}
 
+\section{統計分析與繪圖}\subsection{}
+
+\section{學習與討論資源}\subsection{}
 
 \section{小試身手}\subsection{}
 

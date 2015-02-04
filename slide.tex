@@ -11,7 +11,7 @@
 %% Beamer 版面配置
 \mode<presentation>
 
-%\usecolortheme{rose}
+\usecolortheme{rose}
 
 %\useoutertheme[subsection=false]{miniframes}
 
@@ -21,7 +21,8 @@
 
 %\usefonttheme{structurebold}
 
-%\setbeamertemplate{frametitle}{\vskip-5pt\hskip-0.7cm\insertframetitle\par}
+%\setbeamertemplate{frametitle}{\vskip-0pt\hskip0cm\insertframetitle\par}
+\setbeamersize{text margin left=0.5cm, text margin right=0.5cm}
 
 \beamertemplatenavigationsymbolsempty % 去除 Beamer 導覽工具列
 \setbeamertemplate{footline}[frame number]{}
@@ -30,13 +31,13 @@
 %\DefineVerbatimEnvironment{MyVerbatim}{Verbatim}{fontsize=\tiny}
 
 %% 西文字配置
-\linespread{1.1}
+\linespread{1.15}
 \usepackage{arevmath}
 \usepackage[no-math]{fontspec}
 \setmainfont[Mapping=tex-text, LetterSpace=0, BoldFont={Lato Bold}]{Lato}
 \setsansfont[Mapping=tex-text, LetterSpace=0, BoldFont={Lato Bold}]{Lato}
 %\setmonofont[Color=verb]{Inconsolata}
-\setmonofont[Color=verb, Scale=1, LetterSpace=-4]{Fira Mono}
+\setmonofont[Color=verb, Scale=1, LetterSpace=-6]{Fira Mono Medium}
 \usefonttheme{professionalfonts}
 
 %% 中文字配置
@@ -44,7 +45,7 @@
   CJKmath=true, indentfirst=false, PunctStyle={quanjiao}, CheckSingle=false
 ]{xeCJK}
 \setCJKmainfont[Scale=1, BoldFont={LiHei Pro}]{Heiti TC Medium}
-\setCJKmonofont[Scale=1,Color=verb]{Heiti TC Medium}
+\setCJKmonofont[Scale=1, BoldFont={LiHei Pro}, Color=verb]{Heiti TC Medium}
 
 \title[初學者學習R語言]{初學R語言的60分鐘}
 \author[廖鎮磐]{廖鎮磐 \\ \texttt{<andrew.43@gmail.com>}\\ 東海大學生命科學系}
@@ -70,10 +71,10 @@
 \titlepage
 \end{frame}
 
-\begin{frame}{歡迎下載本投影片複本}
+\begin{frame}{請先下載}
 \begin{center}
-\includegraphics[width=2.75in]{url.pdf}\\
-\footnotesize\url{http://www.slideshare.net/chenpanliao/slide-44171070}
+\LARGE\url{http://goo.gl/YRCOaN}\\
+\includegraphics[width=2.75in]{url-dropbox.pdf}
 \end{center}
 \end{frame}
 
@@ -290,12 +291,12 @@
 \begin{frame}[fragile]{讀取CSV資料檔案}
 \begin{enumerate}
 \item 前往 \url{http://goo.gl/YRCOaN}，下載 \verb+exam.xlsx+ 並開啟這個試算表。
-\item 看一眼 \verb+exam.xlsx+，注意第一列必需有一列「變數名」。
+\item 開啟 \verb+exam.xlsx+，注意第一列必需有一列「變數名」。
 \item 另存新檔 $\rightarrow$ 檔名為「exam」，類型為「CSV」，儲存在C disk下的LearnR2015資料夾中。
 \item \verb+getwd()+ 顯示目前R所在的路徑。
 \item \verb+setwd("C:/LearnR2015")+ 到達該資料夾。
 \item \verb+dt <- read.csv("exam.csv")+ 或是 \\
-      \verb+dt <- read.csv("C:/LearnR2015/exam.csv")+ 以讀取該檔，並取名為 \verb+dt+。\\
+      \verb+dt <- read.csv("C:/LearnR2015/exam.csv")+ 以讀取該檔成為一個資料框（data frame），並取名為 \verb+dt+。\\
 \item \verb+dt+ 的結果是什麼？
 \end{enumerate}
 \end{frame}
@@ -341,6 +342,31 @@
 
 
 \section{統計分析與繪圖}\subsection{}
+
+\begin{frame}[fragile]{單樣本\emph{T}檢驗}
+\end{frame}
+
+\begin{frame}[fragile]{雙樣本成對\emph{T}檢驗}
+\end{frame}
+
+\begin{frame}[fragile]{雙樣本獨立\emph{T}檢驗}
+\end{frame}
+
+\begin{frame}[fragile]{單因子變異數分析}
+\end{frame}
+
+\begin{frame}[fragile]{簡單線性迴歸}
+\end{frame}
+
+\begin{frame}[fragile]{簡單線性相關}
+\end{frame}
+
+\begin{frame}[fragile]{卡方適合度檢驗}
+\end{frame}
+
+\begin{frame}[fragile]{卡方獨立性檢驗}
+\end{frame}
+
 
 \section{學習與討論資源}\subsection{}
 

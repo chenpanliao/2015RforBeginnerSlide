@@ -4,25 +4,28 @@
 \documentclass[12pt]{beamer}
 \usepackage{amsmath, fancyvrb, textcomp}
 \usepackage{xcolor}
-\definecolor{verb}{rgb}{0.0,0.4,0.0}
+\definecolor{verb}{rgb}{0.0,0.5,0.0}
 \definecolor{white}{rgb}{1,1,1}
 
 
 %% Beamer 版面配置
 \mode<presentation>
 
+%\usecolortheme{rose}
 
-\beamertemplatenavigationsymbolsempty % 去除 Beamer 導覽工具列
-\setbeamertemplate{footline}[frame number]{}
 %\useoutertheme[subsection=false]{miniframes}
-\usecolortheme{rose}
 
 \let\oldfootnote\footnote
 \renewcommand\footnote[1]{\hspace{-0.6em}\oldfootnote{\scriptsize\ignorespaces#1}\hspace{0.6em}}
 \setbeamerfont{footnote mark}{size=\tiny}
 
-%\setbeamercolor{frametitle}{bg=red!5}
-%\setbeamertemplate{frametitle}{\vskip-0.1cm\hskip-0.7cm\insertframetitle\par}
+%\usefonttheme{structurebold}
+
+%\setbeamertemplate{frametitle}{\vskip-5pt\hskip-0.7cm\insertframetitle\par}
+
+\beamertemplatenavigationsymbolsempty % 去除 Beamer 導覽工具列
+\setbeamertemplate{footline}[frame number]{}
+
 
 %\DefineVerbatimEnvironment{MyVerbatim}{Verbatim}{fontsize=\tiny}
 
@@ -30,22 +33,22 @@
 \linespread{1.1}
 \usepackage{arevmath}
 \usepackage[no-math]{fontspec}
-\setmainfont[Mapping=tex-text, LetterSpace=0]{PT Sans}
-\setsansfont[Mapping=tex-text, LetterSpace=0]{PT Sans}
+\setmainfont[Mapping=tex-text, LetterSpace=0, BoldFont={Lato Bold}]{Lato}
+\setsansfont[Mapping=tex-text, LetterSpace=0, BoldFont={Lato Bold}]{Lato}
 %\setmonofont[Color=verb]{Inconsolata}
-\setmonofont[Color=verb, Scale=0.9, LetterSpace=-0]{PT Mono}
+\setmonofont[Color=verb, Scale=1, LetterSpace=-4]{Fira Mono}
 \usefonttheme{professionalfonts}
 
 %% 中文字配置
 \usepackage[
   CJKmath=true, indentfirst=false, PunctStyle={quanjiao}, CheckSingle=false
 ]{xeCJK}
-\setCJKmainfont[Scale=1]{cwTeX Q Yuan}
-\setCJKmonofont[Scale=0.9,Color=verb]{cwTeX Q Yuan}
+\setCJKmainfont[Scale=1, BoldFont={LiHei Pro}]{Heiti TC Medium}
+\setCJKmonofont[Scale=1,Color=verb]{Heiti TC Medium}
 
 \title[初學者學習R語言]{初學R語言的60分鐘}
 \author[廖鎮磐]{廖鎮磐 \\ \texttt{<andrew.43@gmail.com>}\\ 東海大學生命科學系}
-\institute{\normalsize 2015年3月14日於蓮華池}
+\institute{\normalsize 2015年台灣生態研究網年會 \\ \footnotesize 2015年3月14日於蓮華池研究中心}
 \date{\scriptsize \includegraphics[width=2cm]{cc.pdf}\\
 本文件採用姓名標示-相同方式分享 4.0 國際（CC BY-SA 4.0，詳情請見 \url{http://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW}）。}
 
@@ -159,14 +162,20 @@
 \end{frame}
 
 
-\begin{frame}[fragile]{充滿疑惑的時間到了}
+\begin{frame}[fragile]{Q\&A的時間到囉}
 \begin{itemize}
 \item[Q] 有什麼方式可以學R學得快一點？
 \item[A] 肯看英文、肯多嘗試累積經驗、肯問人。
-\item [ ] \pause
+\end{itemize}
+\begin{itemize}
 \item[Q] 阿盤學多久才叫「上手」、「有生產力」？
 \item[A] 自學半年以上，但我今天就要把八成功力都傳給你了！
-\item [ ] \pause
+\end{itemize}
+\begin{itemize}
+\item[Q] 如何快速累積經驗？
+\item[A] 拿出統計學課本的例題，用R做做看；做過的程式碼要建檔，以後就只要複製貼上。
+\end{itemize}
+\begin{itemize}
 \item[Q] 如何找能做某件事的套件？
 \item[A] 請Google大神幫你找最快。真的。
 \end{itemize}
@@ -195,6 +204,7 @@
 \begin{frame}[fragile]{函數的使用手冊}
 \begin{itemize}
 \item 觀看某個函數的使用手冊：\verb+?函數名+ 或 \verb+help(函數名)+。
+\item 請看看 \verb+?seq+。
 \item 使用手冊中都有以下資訊：
 \begin{description}[longest item]
 	\item [Description] 函數的功能。
@@ -259,14 +269,16 @@
 
 
 
-\begin{frame}[fragile]{充滿疑惑的時間又到了}
+\begin{frame}[fragile]{Q\&A的時間又到囉}
 \begin{itemize}
 \item[Q] 成千上萬的函數哪學得完？
 \item[A] 不用學完！沒人學得完！學常用的就好。
-\item [ ] \pause
+\end{itemize}
+\begin{itemize}
 \item[Q] 函數的使用手冊看不懂耶。
-\item[A] 我也常看不懂。儘量看。多嘗試。
-\item [ ] \pause
+\item[A] 我也常看不懂。儘量看，多嘗試，特別是 Example 部份。
+\end{itemize}
+\begin{itemize}
 \item[Q] 如何找能做某件事的函數？
 \item[A] 請Google大神幫你找最快。真的。
 \end{itemize}
@@ -275,7 +287,7 @@
 
 \section{資料的讀取與整理}\subsection{}
 
-\begin{frame}[fragile]{讀取檔案}
+\begin{frame}[fragile]{讀取CSV資料檔案}
 \begin{enumerate}
 \item 前往 \url{http://goo.gl/YRCOaN}，下載 \verb+exam.xlsx+ 並開啟這個試算表。
 \item 看一眼 \verb+exam.xlsx+，注意第一列必需有一列「變數名」。
@@ -290,15 +302,14 @@
 
 
 \begin{frame}[fragile]{提取特定變數（欄）}
-\begin{block}{\texttt{> dt}}
 \begin{verbatim}
+> dt
   ID Gender Group Literature Science
 1 23      m     A         36      63
 ...
 \end{verbatim}
-\end{block}
 
-如何取得 \texttt{Science}？直接輸入 \verb+Science+ 是不行的，因為它是在 \verb+dt+ 裡的變數。
+如何取得Science變數？直接輸入 \verb+Science+ 是不行的，因為它是在 \verb+dt+ 裡的變數。
 \begin{itemize}
 \item \verb+dt$Science+ 意思是「dt裡的Science變數」
 \item \verb+dt[ , 5]+ 意思是「dt裡的第5欄變數」
@@ -317,11 +328,12 @@
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{充滿疑惑的時間又到了}
+\begin{frame}[fragile]{Q\&A的時間又到囉}
 \begin{itemize}
 \item[Q] 可否直接讀取 xlsx 檔？\\
 \item[A] 可以！請日後自行研究 \verb+xlsx+ 這個套件。
-\item [ ] \pause
+\end{itemize}
+\begin{itemize}
 \item[Q] 可不可以資料排序？\\
 \item[A] 可以！請日後自行研究 \verb+order()+ 和 \verb+sort()+。
 \end{itemize}

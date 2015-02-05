@@ -4,7 +4,7 @@
 \documentclass[12pt]{beamer}
 \usepackage{amsmath, fancyvrb, textcomp}
 \usepackage{xcolor}
-\definecolor{verb}{rgb}{0.1,0.3,0.0}
+\definecolor{verb}{rgb}{0.0,0.4,0.0}
 \definecolor{white}{rgb}{1,1,1}
 
 
@@ -36,8 +36,8 @@
 \usepackage[no-math]{fontspec}
 \setmainfont[Mapping=tex-text, LetterSpace=0, BoldFont={Lato Bold}]{Lato}
 \setsansfont[Mapping=tex-text, LetterSpace=0, BoldFont={Lato Bold}]{Lato}
-%\setmonofont[Color=verb]{Inconsolata}
-\setmonofont[Color=verb, Scale=0.9, LetterSpace=-0]{PT Mono}
+\setmonofont[Color=verb, Scale=1]{Osaka-Mono}
+%\setmonofont[Color=verb, Scale=0.9, LetterSpace=-0]{PT Mono}
 \usefonttheme{professionalfonts}
 
 %% 中文字配置
@@ -45,8 +45,8 @@
   CJKmath=true, indentfirst=false, PunctStyle={quanjiao}, CheckSingle=false
 ]{xeCJK}
 \setCJKmainfont[Scale=1, BoldFont={LiHei Pro}]{Heiti TC Medium}
-\setCJKmonofont[Scale=1, BoldFont={cwTeX Q Kai}, Color=verb]{cwTeX Q Kai}
-%\setCJKmonofont[Scale=1, BoldFont={LiHei Pro}, Color=verb]{Heiti TC Medium}
+%\setCJKmonofont[Scale=1, BoldFont={Osaka-Mono}, Color=verb]{Osaka-Mono}
+\setCJKmonofont[Scale=1, BoldFont={LiHei Pro}, Color=verb]{Heiti TC Light}
 
 \title[初學者學習R語言]{初學R語言的100分鐘}
 \author[廖鎮磐]{廖鎮磐 \\ \texttt{<andrew.43@gmail.com>}\\ 東海大學生命科學系}
@@ -161,6 +161,20 @@
 \begin{frame}[fragile]{R的官方套件庫}
 \url{http://cran.r-project.org/web/packages/available_packages_by_name.html}\\
 官方的套件一覽表（目前有六千多個）。可直接以 \verb+install.packages()+ 安裝。
+\end{frame}
+
+
+\begin{frame}[fragile]{初次見面：R是計算機}
+\begin{verbatim}
+> 2.4 + 42
+[1] 44.4
+> 4^2
+[1] 16
+> sqrt(100)
+[1] 10
+> 100 ^ 0.5
+[1] 10
+\end{verbatim}
 \end{frame}
 
 

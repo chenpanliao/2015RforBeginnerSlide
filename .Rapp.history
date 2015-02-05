@@ -1,0 +1,345 @@
+install.packages("pwr")
+library(pwr)
+pwr.t.test(d=1,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
+pwr.t.test(d=10,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
+pwr.t.test(d=3,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
+pwr.t.test(d=0.5,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
+pwr.t.test(d=0.25,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
+pwr.t.test(d=0.1,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
+pwr.t.test(d=0.15,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
+pwr.t.test(d=0.2,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
+pwr.t.test(d=0.18,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
+pwr.t.test(d=0.17,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
+pwr.t.test(d=0.19,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
+pwr.t.test(d=0.185,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
+pwr.t.test(d=0.184,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
+pwr.t.test(d=0.1855,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
+pwr.t.test(d=0.1854,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
+pwr.t.test(d=0.1853,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
+pwr.t.test(d=0.1852,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
+pwr.t.test(d=0.18525,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
+pwr.t.test(d=0.18526,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
+pwr.t.test(d=0.18523,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
+pwr.t.test(d=0.18522,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
+pwr.t.test(d=0.18521,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
+pwr.t.test(d=0.18520,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
+pwr.t.test(d=0.18521,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
+pwr.t.test(d=0.185205,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
+pwr.t.test(d=0.185204,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
+pwr.t.test(d=0.185206,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
+pwr.t.test(d=0.185207,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
+pwr.t.test(d=0.185208,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
+pwr.t.test(d=0.185209,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
+d<-0.185209
+pwr.t.test(d=d,power=0.9,sig.level=0.05,type="one.sample",alternative="two.sided")
+?pwr.t.test
+pwr.t.test(n=100, power=0.45, sig.level=0.05, type="one.sample",alternative="two.sided")
+library(pwr)
+pwr.t.test(n=100, power=0.45, sig.level=0.05, type="one.sample",alternative="two.sided")
+x <- pwr.t.test(n=100, power=0.45, sig.level=0.05, type="one.sample",alternative="two.sided")
+str(s)
+str(x)
+x$d
+x <- pwr.t.test(n=100, power=0.45, sig.level=0.05, type="one.sample",alternative="one.sided")
+x <- pwr.t.test(n=100, power=0.45, sig.level=0.05, type="one.sample",alternative="less")
+x
+pwr.t.test(d=x$d, power=0.9, sig.level=0.05, type="one.sample",alternative="less")
+x <- pwr.t.test(n=100, power=0.45, sig.level=0.05, type="one.sample",alternative="less")
+x <- pwr.t.test(n=100, power=0.45, sig.level=0.05, type="one.sample",alternative="greater")
+x
+pwr.t.test(d=x$d, power=0.9, sig.level=0.05, type="one.sample",alternative="greater")
+pwr.t.test(d=-1*x$d, power=0.9, sig.level=0.05, type="one.sample",alternative="greater")
+x <- pwr.t.test(n=100, power=0.45, sig.level=0.05, type="one.sample",alternative="greater")
+x
+pwr.t.test(n=100, power=0.45, sig.level=0.05, type="one.sample",alternative="less")
+pwr.t.test(n=100, power=0.45, sig.level=0.05, type="one.sample",alternative="greater")
+pwr.t.test(d=0.1529814, power=0.9, sig.level=0.05, type="one.sample",alternative="greater")
+pwr.t.test(n=100, power=0.45, sig.level=0.05, type="one.sample",alternative="two.sides")
+pwr.t.test(n=100, power=0.45, sig.level=0.05, type="one.sample",alternative="two.sided")
+install.packages(lmtest)
+install.packages("lmtest")
+factor(2, 20)
+gl(2, 20)
+gl(4, 20)
+library(lmtest)#
+#
+## 建立一組虛假資料#
+y <- c(rep(0, 17), rep(1, 23))#
+x1 <- gl(2, 20)#
+x2 <- gl(4, 10)#
+x3 <- gl(4, 10)
+library(lmtest)#
+#
+## 建立一組虛假資料#
+y <- c(rep(0, 17), rep(1, 23))#
+x1 <- gl(2, 20)#
+x2 <- gl(4, 10)#
+x3 <- gl(4, 10)#
+#
+fit <- glm(y ~ x1 + x2 + x3, family = binomial)#
+summary(fit)
+library(lmtest)#
+#
+## 建立一組虛假資料#
+y <- c(rep(0, 17), rep(1, 23))#
+fa <- gl(2, 20)#
+fb <- gl(4, 10)#
+fc <- gl(4, 10)#
+#
+fit <- glm(y ~ fa + fb + fc, family = binomial)#
+summary(fit)
+fa
+fb
+fc
+library(lmtest)#
+#
+## 建立一組虛假資料#
+y <- c(rep(0, 17), rep(1, 23))#
+fa <- gl(2, 20)#
+fb <- gl(4, 10)#
+fc <- gl(4, 1, 20)#
+#
+fit <- glm(y ~ fa + fb + fc, family = binomial)#
+summary(fit)
+fa
+fb
+fc
+library(lmtest)#
+#
+## 建立一組虛假資料#
+y <- c(rep(0, 17), rep(1, 23))#
+fa <- gl(2, 20)#
+fb <- gl(4, 10)#
+fc <- gl(4, 1, 40)#
+#
+fit <- glm(y ~ fa + fb + fc, family = binomial)#
+summary(fit)
+gl(4, 10)
+library(lmtest)#
+#
+## 建立一組虛假資料#
+y <- c(rep(0, 15), rep(1, 25))#
+fa <- gl(2, 20)#
+fb <- gl(4, 10)#
+fc <- gl(4, 1, 40)#
+#
+fit <- glm(y ~ fa + fb + fc, family = binomial)#
+summary(fit)
+fb
+fa
+fb
+fc
+library(lmtest)#
+#
+## 建立一組虛假資料#
+y <- c(rep(0, 15), rep(1, 25))#
+fa <- gl(2, 20)#
+fb <- gl(4, 2, 20)#
+fc <- gl(4, 1, 40)#
+#
+fit <- glm(y ~ fa + fb + fc, family = binomial)#
+summary(fit)
+library(lmtest)#
+#
+## 建立一組虛假資料#
+y <- c(rep(0, 15), rep(1, 25))#
+fa <- gl(2, 20)#
+fb <- gl(4, 2, 40)#
+fc <- gl(4, 1, 40)#
+#
+fit <- glm(y ~ fa + fb + fc, family = binomial)#
+summary(fit)
+library(lmtest)#
+#
+## 建立一組虛假資料#
+y <- c(rep(0, 16), rep(1, 26))#
+fa <- gl(2, 20)#
+fb <- gl(4, 2, 40)#
+fc <- gl(4, 1, 40)#
+#
+fit <- glm(y ~ fa + fb + fc, family = binomial)#
+summary(fit)
+library(lmtest)#
+#
+## 建立一組虛假資料#
+y <- c(rep(0, 16), rep(1, 26))#
+fa <- gl(2, 20)#
+fb <- gl(4, 2, 40)#
+fc <- gl(4, 5, 40)#
+#
+fit <- glm(y ~ fa + fb + fc, family = binomial)#
+summary(fit)
+fa
+fb
+fc
+library(lmtest)#
+#
+## 建立一組虛假資料#
+y <- c(rep(0, 16), rep(1, 26))#
+fa <- gl(2, 20)#
+fb <- gl(4, 2, 40)#
+#
+fit <- glm(y ~ fa + fb, family = binomial)#
+summary(fit)
+y <- c(rep(0, 16), rep(1, 26))#
+fa <- gl(2, 20)#
+fb <- gl(4, 2, 40)
+fa
+fb
+y
+library(lmtest)#
+#
+## 建立一組虛假資料#
+y <- c(rep(0, 16), rep(1, 24))#
+fa <- gl(2, 20)#
+fb <- gl(4, 2, 40)#
+#
+fit <- glm(y ~ fa + fb, family = binomial)#
+summary(fit)
+library(lmtest)#
+#
+## 建立一組虛假資料#
+y <- c(rep(0, 21), rep(1, 19))#
+fa <- gl(2, 20)#
+fb <- gl(4, 2, 40)#
+#
+fit <- glm(y ~ fa + fb, family = binomial)#
+summary(fit)
+library(lmtest)#
+#
+## 建立一組虛假資料#
+y <- c(rep(0, 21), rep(1, 19))#
+fa <- gl(2, 20)#
+fb <- gl(4, 1, 40)#
+#
+fit <- glm(y ~ fa + fb, family = binomial)#
+summary(fit)
+data.frame(y,fa,fb)
+library(lmtest)#
+#
+## 建立一組虛假資料#
+y <- c(rep(0, 1), rep(1, 19), rep(0, 18), rep(1, 2))#
+fa <- gl(2, 20)#
+fb <- gl(4, 1, 40)#
+#
+fit <- glm(y ~ fa + fb, family = binomial)#
+summary(fit)
+data.frame(y,fa,fb)
+library(lmtest)#
+#
+## 建立一組虛假資料#
+y <- c(rep(0, 2), rep(1, 18), rep(0, 11), rep(1, 9))#
+fa <- gl(2, 20)#
+fb <- gl(4, 1, 40)#
+#
+fit <- glm(y ~ fa + fb, family = binomial)#
+summary(fit)
+library(lmtest)#
+#
+## 建立一組虛假資料#
+y <- c(rep(0, 2), rep(1, 18), rep(0, 13), rep(1, 7))#
+fa <- gl(2, 20)#
+fb <- gl(4, 1, 40)#
+#
+fit <- glm(y ~ fa + fb, family = binomial)#
+summary(fit)
+library(lmtest)#
+#
+## 建立一組虛假資料#
+y <- c(rep(0, 1), rep(1, 19), rep(0, 13), rep(1, 7))#
+fa <- gl(2, 20)#
+fb <- gl(4, 1, 40)#
+#
+fit <- glm(y ~ fa + fb, family = binomial)#
+summary(fit)
+library(lmtest)#
+#
+## 建立一組虛假資料#
+y <- c(rep(0, 1), rep(1, 19), rep(0, 17), rep(1, 3))#
+fa <- gl(2, 20)#
+fb <- gl(4, 1, 40)#
+#
+fit <- glm(y ~ fa + fb, family = binomial)#
+summary(fit)
+library(lmtest)#
+#
+## 建立一組虛假資料#
+y <- c(rep(0, 1), rep(1, 19), rep(0, 16), rep(1, 4))#
+fa <- gl(2, 20)#
+fb <- gl(4, 1, 40)#
+#
+fit <- glm(y ~ fa + fb, family = binomial)#
+summary(fit)
+str(summary(fit))
+coef(fit)
+summary(fit)$coefficients
+print(summary(fit)$coefficients, digits=10)
+?waldtest
+coeftest(fit)
+## 建立一組虛假資料並進行 2 x 4 設計的 logistic regression#
+y <- c(rep(0, 1), rep(1, 19), rep(0, 16), rep(1, 4))#
+fa <- gl(2, 20)#
+fb <- gl(4, 1, 40)#
+fit <- glm(y ~ fa + fb, family = binomial)#
+summary(fit)#
+#
+## 想看很多小數點#
+print(summary(fit)$coefficients, digits=10)#
+#
+## 針對 fa 的 Wald test#
+library(lmtest)#
+coeftest(fit)#
+waldtest(fit, . ~ . - fa)
+waldtest(fit)
+?waldtest
+waldtest(fit, . ~ . - fa, test = "Chisq")
+seq(0,10,2)
+?seq
+library(xlsx)
+?read.xlsx
+?seq
+seq(from = 0, to = 9)
+\verb+seq(0, 9)
+seq(0, 9)
+install.packages("Matrix")
+install.packages("Vegan")
+install.packages("vegan")
+dt <- read.csv("exam.csv")
+dt
+?t.test
+t.test(dt$Science, alternative = "t", mu = 60)
+dt
+t.test(dt$Literature, dt$Science, pair = T)  # 預設雙尾；預設平均差為零
+df
+dt
+t.test(subset(dt, gender == "m")$Literature, subset(dt, gender == "f")$Literature, var.equal = F)
+t.test(#
+  subset(dt, Gender == "m")$Literature,#
+  subset(dt, Gender == "f")$Literature,#
+  var.equal = F)#
+# 預設雙尾；預設平均差為零
+t.test(Literature ~ Gender, data = dt, var = F)
+boxplot(Literature ~ Gender, data = dt)
+boxplot(Literature ~ Gender, data = dt, ylab="Literature score", xlab="Gender")
+boxplot(Literature ~ Gender, data = dt, ylab="Literature score", xlab="Gender")
+boxplot(Literature ~ Gender, data = dt, ylab="Literature score", xlab="Gender")
+dt
+fit <- aov(Literature ~ Group, data = dt)#
+summary(fit)
+tukeyHSD(fit)
+?tukey
+?TukeyHSD
+fit <- aov(Literature ~ Group, data = dt)#
+summary(fit)#
+TukeyHSD(fit, "Group")#
+plot(TukeyHSD(fm1, "Group"))
+fit <- aov(Literature ~ Group, data = dt)#
+summary(fit)#
+TukeyHSD(fit, "Group")#
+plot(TukeyHSD(fit, "Group"))
+?TukeyHSD
+boxplot(#
+  Literature ~ Group, data = dt, #
+  ylab = "Literature score", xlab = "Group"#
+)
+t.test(Literature ~ Gender, data = dt, var = F)

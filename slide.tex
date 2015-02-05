@@ -4,7 +4,7 @@
 \documentclass[12pt]{beamer}
 \usepackage{amsmath, fancyvrb, textcomp}
 \usepackage{xcolor}
-\definecolor{verb}{rgb}{0.0,0.5,0.0}
+\definecolor{verb}{rgb}{0.1,0.3,0.0}
 \definecolor{white}{rgb}{1,1,1}
 
 
@@ -37,7 +37,7 @@
 \setmainfont[Mapping=tex-text, LetterSpace=0, BoldFont={Lato Bold}]{Lato}
 \setsansfont[Mapping=tex-text, LetterSpace=0, BoldFont={Lato Bold}]{Lato}
 %\setmonofont[Color=verb]{Inconsolata}
-\setmonofont[Color=verb, Scale=1, LetterSpace=-6]{Fira Mono Medium}
+\setmonofont[Color=verb, Scale=0.9, LetterSpace=-0]{PT Mono}
 \usefonttheme{professionalfonts}
 
 %% 中文字配置
@@ -45,9 +45,10 @@
   CJKmath=true, indentfirst=false, PunctStyle={quanjiao}, CheckSingle=false
 ]{xeCJK}
 \setCJKmainfont[Scale=1, BoldFont={LiHei Pro}]{Heiti TC Medium}
-\setCJKmonofont[Scale=1, BoldFont={LiHei Pro}, Color=verb]{Heiti TC Medium}
+\setCJKmonofont[Scale=1, BoldFont={cwTeX Q Kai}, Color=verb]{cwTeX Q Kai}
+%\setCJKmonofont[Scale=1, BoldFont={LiHei Pro}, Color=verb]{Heiti TC Medium}
 
-\title[初學者學習R語言]{初學R語言的60分鐘}
+\title[初學者學習R語言]{初學R語言的100分鐘}
 \author[廖鎮磐]{廖鎮磐 \\ \texttt{<andrew.43@gmail.com>}\\ 東海大學生命科學系}
 \institute{\normalsize 2015年台灣生態研究網年會 \\ \footnotesize 2015年3月14日於蓮華池研究中心}
 \date{\scriptsize \includegraphics[width=2cm]{cc.pdf}\\
@@ -71,7 +72,7 @@
 \titlepage
 \end{frame}
 
-\begin{frame}{請先下載}
+\begin{frame}{請先下載投影片和練習資料}
 \begin{center}
 \LARGE\url{http://goo.gl/YRCOaN}\\
 \includegraphics[width=2.75in]{url-dropbox.pdf}
@@ -344,28 +345,137 @@
 \section{統計分析與繪圖}\subsection{}
 
 \begin{frame}[fragile]{單樣本\emph{T}檢驗}
+
+\begin{block}{目標}
+檢驗Science的平均是否為60。
+\end{block}
+\begin{block}{\texttt{t.test}基本語法}
+\verb+t.test(+
+  \verb+資料, alternative = "t" 或 "l" 或 "g",+
+  \verb+mu = 假說平均數)+
+\end{block}
+\begin{verbatim}
+t.test(dt$Science, alternative = "t", mu = 60) #雙尾
+t.test(dt$Science, alternative = "g", mu = 60) #右單尾
+t.test(dt$Science, alternative = "l", mu = 60) #左單尾
+\end{verbatim}
 \end{frame}
 
 \begin{frame}[fragile]{雙樣本成對\emph{T}檢驗}
+\begin{block}{目標}
+檢驗Literature和Science差之平均是否為0。
+\end{block}
+\begin{block}{\texttt{t.test()}基本語法}
+\verb+t.test(+
+\verb+資料一, 資料二, alternative = "t" 或 "l" 或 "g",+
+\verb+mu = 假說中配對差的平均數, pair = true)+
+\end{block}
+\begin{verbatim}
+t.test(dt$Literature, dt$Science, pair = T)
+# 預設雙尾；預設平均差為零
+\end{verbatim}
 \end{frame}
 
+
 \begin{frame}[fragile]{雙樣本獨立\emph{T}檢驗}
+\begin{block}{目標}
+檢驗二種Gender的Literature之平均是否相等。
+\end{block}
+\begin{block}{\texttt{t.test()}基本語法}
+\verb+t.test(+
+\verb+資料一, 資料二, alternative = "t" 或 "l" 或 "g",+
+\verb+mu = 假說中平均數的差, pair = F, var.equal = T)+
+\end{block}
+\begin{verbatim}
+t.test(
+  subset(dt, Gender == "m")$Literature,
+  subset(dt, Gender == "f")$Literature,
+  var.equal = F)
+# 預設雙尾；預設平均差為零；假設變方相等
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{雙樣本獨立\emph{T}檢驗（以formula表示）}
+\begin{block}{目標}
+檢驗二種Gender的Literature之平均是否相等。
+\end{block}
+\begin{block}{\texttt{t.test()}基本語法}
+\verb+t.test(+
+\verb+應變數 ~ 類別因子, data = 數據框, ...)+
+\end{block}
+\begin{verbatim}
+t.test(Literature ~ Gender, data = dt, var = F)
+# 預設雙尾；預設平均差為零；假設變方相等
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{盒形圖}
+
+\begin{block}{\texttt{boxplot()}基本語法}
+\verb+boxplot(應變數 ~ 類別因子, data = 資料框)+
+\end{block}
+
+\begin{verbatim}
+boxplot(
+  Literature ~ Gender, data = dt, 
+  ylab = "Literature score", xlab = "Gender"
+)
+\end{verbatim}
+
+\begin{center}
+\includegraphics[width=0.4\textwidth]{Rplot-two-group.pdf}
+\end{center}
 \end{frame}
 
 \begin{frame}[fragile]{單因子變異數分析}
+\begin{block}{目標}
+檢驗三種Group的Literature之平均是否相等，並進行Tukey事後檢驗
+\end{block}
+
+\begin{block}{\texttt{aov()}語法}
+\verb+aov(+
+\verb+應變數 ~ 三組以上類別自變數, data = 數據框, ...)+
+\end{block}
+
+\begin{block}{\texttt{TukeyHSD()}語法}
+\verb+TukeyHSD(aov物件, "分組因子", ...)+
+\end{block}
+
+\begin{verbatim}
+fit <- aov(Literature ~ Group, data = dt)
+summary(fit)
+TukeyHSD(fit, "Group")
+\end{verbatim}
+
 \end{frame}
 
-\begin{frame}[fragile]{簡單線性迴歸}
+\begin{frame}[fragile]{盒形圖}
+
+\begin{block}{\texttt{boxplot()}基本語法}
+\verb+boxplot(應變數 ~ 類別因子, data = 資料框)+
+\end{block}
+
+\begin{verbatim}
+boxplot(
+  Literature ~ Group, data = dt, 
+  ylab = "Literature score", xlab = "Group"
+)
+\end{verbatim}
+
+\begin{center}
+\includegraphics[width=0.7\textwidth]{Rplot-three-group.pdf}
+\end{center}
 \end{frame}
 
-\begin{frame}[fragile]{簡單線性相關}
+\begin{frame}[fragile]{簡單線性迴歸與相關}
 \end{frame}
 
-\begin{frame}[fragile]{卡方適合度檢驗}
-\end{frame}
 
-\begin{frame}[fragile]{卡方獨立性檢驗}
-\end{frame}
+%\begin{frame}[fragile]{卡方適合度檢驗}
+%\end{frame}
+
+%\begin{frame}[fragile]{卡方獨立性檢驗}
+%\end{frame}
 
 
 \section{學習與討論資源}\subsection{}

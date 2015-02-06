@@ -37,7 +37,7 @@
 
 
 \let\oldfootnote\footnote
-\renewcommand\footnote[1]{\hspace{-0.6em}\oldfootnote{\scriptsize\ignorespaces#1}\hspace{0.6em}}
+\renewcommand\footnote[1]{\hspace{-0.6em}\oldfootnote{\tiny\ignorespaces#1}\hspace{0.6em}}
 \setbeamerfont{footnote mark}{size=\tiny}
 
 \usefonttheme{structurebold}
@@ -62,9 +62,18 @@
 \usepackage[
   CJKmath=true, indentfirst=false, PunctStyle={quanjiao}, CheckSingle=false
 ]{xeCJK}
-\setCJKmainfont[Scale=1, BoldFont={LiHei Pro}]{Heiti TC Medium}
+
 %\setCJKmonofont[Scale=1, BoldFont={Osaka-Mono}, Color=verb]{Osaka-Mono}
-\setCJKmonofont[Scale=1, BoldFont={LiHei Pro}, Color=verb]{Heiti TC Light}
+%\setCJKmainfont[Scale=1, BoldFont={LiHei Pro}]{Heiti TC Medium}
+%\setCJKmonofont[Scale=1, BoldFont={LiHei Pro}, Color=verb]{Heiti TC Light}
+
+\setCJKmainfont[Scale=1, BoldFont={LiHei Pro}]{LiHei Pro}
+\setCJKmonofont[Scale=1, BoldFont={LiHei Pro}, Color=verb]{LiHei Pro}
+\setCJKfallbackfamilyfont{\CJKsfdefault}[AutoFakeSlant]{[BoldFont=SimHei]{SimSun}}
+
+%\setCJKmainfont[Scale=1, BoldFont={Lantinghei TC Heavy}]{Lantinghei TC}
+%\setCJKmonofont[Scale=1, BoldFont={Lantinghei TC Heavy}, Color=verb]{Lantinghei TC}
+
 
 \title[初學者學習R語言]{初學R語言的100分鐘}
 \author[廖鎮磐]{廖鎮磐 \\ \texttt{<andrew.43@gmail.com>}\\ 東海大學生命科學系}
@@ -125,12 +134,6 @@
 \item 強大的視覺化工具，畫專業的圖，但需要經驗。
 \item 套件豐富，不同自己重新寫程式。
 \end{itemize}
-%\begin{block}{怎麼入門？}
-%\begin{itemize}
-%\item 買（可能不只一本）書。
-%\item 網路教學和論壇。
-%\end{itemize}
-%\end{block}
 \end{frame}
 
 \begin{frame}[fragile]{安裝R語言}
@@ -216,18 +219,6 @@
 
 
 \begin{frame}[fragile]{Q\&A的時間到囉}
-\begin{itemize}
-\item[Q] 有什麼方式可以學R學得快一點？
-\item[A] 肯看英文、肯多嘗試累積經驗、肯問人。
-\end{itemize}
-\begin{itemize}
-\item[Q] 阿盤學多久才叫「上手」、「有生產力」？
-\item[A] 自學半年以上，但我今天就要把八成功力都傳給你了！
-\end{itemize}
-\begin{itemize}
-\item[Q] 如何快速累積經驗？
-\item[A] 拿出統計學課本的例題，用R做做看；做過的程式碼要建檔，以後就只要複製貼上。
-\end{itemize}
 \begin{itemize}
 \item[Q] 如何找能做某件事的套件？
 \item[A] 請Google大神幫你找最快。真的。
@@ -340,7 +331,7 @@
 
 \begin{frame}[fragile]{讀取CSV資料檔案}
 \begin{enumerate}
-\item 前往 \url{http://goo.gl/YRCOaN}，下載 \verb+exam.xlsx+ 並開啟這個試算表。
+\item 前往 \url{http://goo.gl/YRCOaN}，下載 \verb+exam.xlsx+。
 \item 開啟 \verb+exam.xlsx+，注意第一列必需有一列「變數名」。
 \item 另存新檔 $\rightarrow$ 檔名為「exam」，類型為「CSV」，儲存在C disk下的LearnR2015資料夾中。
 \item \verb+getwd()+ 顯示目前R所在的路徑。
@@ -393,6 +384,24 @@
 
 \section{統計分析與繪圖}\subsection{}
 
+\begin{frame}[fragile]{描述性統計}
+\begin{verbatim}
+length(dt$Science)   #個數
+mean(dt$Science)     #平均數
+sd(dt$Science)       #標準偏差
+quantile(dt$Science) #百分位數
+\end{verbatim}
+
+如果要求各組的描述性統計呢？使用 \verb+tapply()+。
+\begin{block}{\texttt{tapply}基本語法}
+\verb+tapply(變數, 分組因子, 運算函數)+
+\end{block}
+例如，要計算Science在不同Gender內的平均數：\\
+\verb+tapply(dt$Science, dt$Gender, mean)+\\
+或是用\verb+subset()+切出子集，例如\\
+\verb+mean( subset(dt, Gender == "m")$Science )+ \\
+\end{frame}
+
 \begin{frame}[fragile]{單樣本\emph{T}檢驗}
 
 \begin{block}{目標}
@@ -430,6 +439,8 @@ t.test(dt$Literature, dt$Science, pair = T)
 \begin{block}{目標}
 檢驗二種Gender的Literature之平均是否相等。
 \end{block}
+\verb+tapply(dt$Literature, dt$Gender, mean) #分組平均+
+\verb+tapply(dt$Literature, dt$Gender, sd)   #分組標準差+
 \begin{block}{\texttt{t.test()}基本語法}
 \verb+t.test(+
 \verb+資料一, 資料二, alternative = "t" 或 "l" 或 "g",+
@@ -440,7 +451,6 @@ t.test(
   subset(dt, Gender == "m")$Literature,
   subset(dt, Gender == "f")$Literature,
   var.equal = F)
-# 預設雙尾；預設平均差為零；假設變方相等
 \end{verbatim}
 \end{frame}
 
@@ -465,16 +475,20 @@ t.test(Literature ~ Gender, data = dt, var = F)
 \end{block}
 
 \begin{verbatim}
-boxplot(
-  Literature ~ Gender, data = dt, 
-  ylab = "Literature score", xlab = "Gender"
-)
+boxplot(Literature ~ Gender, data = dt, 
+  ylab = "Literature score", xlab = "Gender")
 \end{verbatim}
 
 \begin{center}
-\includegraphics[width=0.4\textwidth]{Rplot-two-group.pdf}
+\includegraphics[width=0.8\textwidth]{Rplot-two-group.pdf}
 \end{center}
 \end{frame}
+
+%pdf("Rplot-two-group.pdf", width=5, height=2.5)
+%par(mar=c(4,4,0.5,0.1))
+%boxplot(Literature ~ Gender, data = dt, 
+%  ylab = "Literature score", xlab = "Gender")
+%dev.off()
 
 \begin{frame}[fragile]{單因子變異數分析}
 \begin{block}{目標}
@@ -505,19 +519,93 @@ TukeyHSD(fit, "Group")
 \end{block}
 
 \begin{verbatim}
-boxplot(
-  Literature ~ Group, data = dt, 
-  ylab = "Literature score", xlab = "Group"
-)
+boxplot(Literature ~ Group, data = dt, 
+  ylab = "Literature score", xlab = "Group")
 \end{verbatim}
 
 \begin{center}
-\includegraphics[width=0.7\textwidth]{Rplot-three-group.pdf}
+\includegraphics[width=0.8\textwidth]{Rplot-three-group.pdf}
 \end{center}
 \end{frame}
 
-\begin{frame}[fragile]{簡單線性迴歸與相關}
+%
+%pdf("Rplot-three-group.pdf", width=5, height=2.5)
+%par(mar=c(4,4,0.5,0.1))
+%boxplot(Literature ~ Group, data = dt, 
+%  ylab = "Literature score", xlab = "Group")
+%dev.off()
+
+
+\begin{frame}[fragile]{簡單線性迴歸}
+\begin{block}{目標}
+建立Science對應Literatur的簡單線性迴歸模型，並檢驗斜率是否為零。
+\end{block}
+\begin{block}{\texttt{lm()}基本語法}
+\verb+lm(應變數 ~ 連續自變數, data = 數據框, ...)+
+\end{block}
+\begin{verbatim}
+fit <- lm(Literature ~ Science, data = dt)
+summary(fit)
+anova(fit)
+\end{verbatim}
 \end{frame}
+
+
+\begin{frame}[fragile]{簡單線性相關}
+\begin{block}{目標}
+計算Science與Literatur的簡單線性相關係數是否為零。
+\end{block}
+\begin{block}{\texttt{cor.test()}基本語法}
+\verb+lm(第一群資料, 第二群資料, ...)+
+\end{block}
+\begin{verbatim}
+cor.test(dt$Literature, dt$Science)
+\end{verbatim}
+\end{frame}
+
+
+\begin{frame}[fragile]{散佈圖}
+\begin{block}{\texttt{plot.formula()}基本語法}
+\verb+plot(縱軸資料 ~ 橫軸資料, data = 資料框, ...)+\oldfootnote{\texttt{plot.formula()}可簡寫成\texttt{plot()}。}
+\end{block}
+
+\begin{block}{\texttt{coef()}基本語法}
+\verb+coef(lm物件)+ 取出各迴歸係數
+\end{block}
+
+\begin{block}{\texttt{abline()}基本語法}
+\verb+abline(a = 截距, b = 斜率)+ 畫上迴歸線
+\end{block}
+
+\begin{verbatim}
+fit <- lm(Literature ~ Science, data = dt)
+plot(Literature ~ Science, data = dt)
+abline(a = coef(fit)[1], b = coef(fit)[2], lty = 3)
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{散佈圖}
+
+\begin{verbatim}
+fit <- lm(Literature ~ Science, data = dt)
+plot(Literature ~ Science, data = dt)
+abline(a = coef(fit)[1], b = coef(fit)[2], lty = 3)
+\end{verbatim}
+
+\begin{center}
+\includegraphics[width=0.8\textwidth]{Rplot-sct.pdf}
+\end{center}
+\end{frame}
+
+%
+%pdf("Rplot-sct.pdf", width=5, height=2.5)
+%par(mar=c(4,4,0.5,0.1))
+%fit <- lm(Literature ~ Science, data = dt)
+%plot(Literature ~ Science, data = dt)
+%abline(a = coef(fit)[1], b = coef(fit)[2], lty = 3)
+%dev.off()
+
+
 
 
 %\begin{frame}[fragile]{卡方適合度檢驗}
@@ -527,9 +615,81 @@ boxplot(
 %\end{frame}
 
 
-\section{學習與討論資源}\subsection{}
+\begin{frame}[fragile]{Q\&A的時間又到囉}
+\begin{itemize}
+\item[Q] 我怎麼知道我做對了？
+\item[A] 拿出你的統計學課本的例題，用R做做看。
+\end{itemize}
+\end{frame}
+
+
+
+\section{學習心得與討論資源}\subsection{}
+
+\begin{frame}{阿盤的個人學習心得}
+\begin{itemize}
+\item 去修使用R的課會是最快的方法。
+\item 多「玩」。把新學到的函數裡的 Example 玩一玩、改一改。
+\item 肯問人。逛逛網路教學和論壇。只要誠心有禮都有好結果。
+\item 買（可能不只一本）書。
+\item 拿出統計學課本的例題，用R做做看。
+\item 做過的程式碼要建檔，以後就只要小修改即可再使用。
+\item 卡關時，先用英文問Google大神。很容易就找到解法。
+\pause
+\item 做出答案時，不要直接相信這是正解。\\
+ 做出答案時，不要直接相信這是正解。\\
+ 做出答案時，不要直接相信這是正解。\\
+（因為很重要，所以要說三次。）\\
+ 應該以專業人士、書籍、網頁資料驗證。
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{中文書籍推薦}
+繁體中文書非常少，但簡體中文書不少。去圖書館或書局翻翻。能看懂有收穫就有參考價值。初學程式語言者應該都需要一本。
+\begin{itemize}
+\item 《R軟體：應用統計方法》陳景祥著，東華出版社。\\ 對初學者很有幫助的一本。
+\item 《R 錦囊妙計》 Paul Teetor著，張夏菁譯，歐萊禮出版社。\\ 內容適合需要以R進行統計工作的研究人員。
+\item {\CJKfontspec{Hei}《R语言实用教程》薛毅、陈立萍著，清华大学出版社。}
+\item {\CJKfontspec{Hei}《统计建模与R软件》薛毅、陈立萍著，清华大学出版社。} \\ 以數理統計為主，R語言實作為輔。
+\end{itemize}
+\end{frame}
+
+\begin{frame}{網路教學}
+\begin{itemize}
+\item 《R 演習室》\makeatletter @ \makeatother youtube.com\oldfootnote{\url{https://www.youtube.com/playlist?list=PL5AC0ADBF65924EAD}} \\ 針對初學者的 R 視訊教學系列。有廣告（歡迎多看幾秒），但有提供影片載點。
+\item ``Quick-R''\oldfootnote{\url{http://www.statmethods.net/}} by Robert I.~Kabacoff
+\item 請自行 Google「R turorial」，實在太多了。
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{網路討論區}
+\begin{itemize}
+\item PTT的R\_Language板 \\ 路徑：戰略高手 $\rightarrow$ CompScience $\rightarrow$ R\_Language\\ 有幾位高手。對初學者友善。歡迎來和安德魯大大認親。
+\item R軟體使用者論壇\oldfootnote{\url{https://groups.google.com/forum/?hl=zh-TW\#!forum/taiwanruser}}
+\item Tag ``R''  \makeatletter @ \makeatother stackoverflow.com\oldfootnote{\url{http://stackoverflow.com/questions/tagged/r}}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]{Q\&A的時間又到囉}
+\begin{itemize}
+\item[Q] 阿盤學多久才叫「上手」、「有生產力」？
+\item[A] 自學半年以上，但我今天就要把八成功力都傳給你了！
+\item[Q] 聽到這裡，我想認輸了$\cdots\cdots$我想重回SPSS用滑鼠搞定的世界。
+\item[A] 只要是適合自己的工具，就是好工具。（當然，也要買得起才行。我就是買不起才$\cdots\cdots$）
+\end{itemize}
+\end{frame}
 
 \section{小試身手}\subsection{}
 
+
+\begin{frame}[fragile]{請按今天的課程內容完成以下練習}
+\begin{enumerate}
+\item 前往 \url{http://goo.gl/YRCOaN}，下載 \verb+test.xlsx+。想辦法將它讓R可以讀取。
+\item 
+\end{enumerate}
+\end{frame}
 
 \end{document}

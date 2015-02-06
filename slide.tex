@@ -13,25 +13,33 @@
 
 \usecolortheme{rose}
 
-%\useoutertheme[subsection=false]{miniframes}
+\useoutertheme[subsection=false]{miniframes}
+
+    \setbeamercolor{postit}{fg=black,bg=blue!5}    \setbeamertemplate{headline}    {%      \begin{beamercolorbox}[wd=1\paperwidth]{postit}        \vskip1pt\insertnavigation{1\paperwidth}\vskip1pt      \end{beamercolorbox}%    }
+
+    \setbeamertemplate{frametitle}    {%      \vskip-5pt%
+      \begin{beamercolorbox}[wd=1\paperwidth,ht=2.3ex,dp=0.8ex,left]{postit}        \hskip0.5cm\insertframetitle\par      \end{beamercolorbox}%
+    }
+    %\setbeamercolor{frametitle}{fg=black}
+
+%\setbeamertemplate{frametitle}{\vskip-5pt\hskip0cm\insertframetitle\par}
+\setbeamersize{text margin left=0.5cm, text margin right=0.5cm}
+
 
 \let\oldfootnote\footnote
 \renewcommand\footnote[1]{\hspace{-0.6em}\oldfootnote{\scriptsize\ignorespaces#1}\hspace{0.6em}}
 \setbeamerfont{footnote mark}{size=\tiny}
 
-%\usefonttheme{structurebold}
+\usefonttheme{structurebold}
 
-%\setbeamertemplate{frametitle}{\vskip-0pt\hskip0cm\insertframetitle\par}
-\setbeamersize{text margin left=0.5cm, text margin right=0.5cm}
 
 \beamertemplatenavigationsymbolsempty % 去除 Beamer 導覽工具列
 \setbeamertemplate{footline}[frame number]{}
 
-
 %\DefineVerbatimEnvironment{MyVerbatim}{Verbatim}{fontsize=\tiny}
 
 %% 西文字配置
-\linespread{1.15}
+\linespread{1.1}
 \usepackage{arevmath}
 \usepackage[no-math]{fontspec}
 \setmainfont[Mapping=tex-text, LetterSpace=0, BoldFont={Lato Bold}]{Lato}
@@ -72,10 +80,18 @@
 \titlepage
 \end{frame}
 
+\begin{frame}
+\frametitle{大綱}
+\tableofcontents
+\end{frame}
+
+\section{事前準備}\subsection{}
+
+
 \begin{frame}{請先下載投影片和練習資料}
 \begin{center}
-\LARGE\url{http://goo.gl/YRCOaN}\\
-\includegraphics[width=2.75in]{url-dropbox.pdf}
+\Huge\url{http://goo.gl/YRCOaN}\\
+\includegraphics[width=2.5in]{url-dropbox.pdf}
 \end{center}
 \end{frame}
 
@@ -89,12 +105,6 @@
 \end{frame}
 
 
-\begin{frame}
-\frametitle{大綱}
-\tableofcontents
-\end{frame}
-
-\section{事前準備}\subsection{}
 
 
 \begin{frame}{為什麼我選擇R？}
@@ -141,7 +151,7 @@
 安裝在R系統裡的外掛，讓你「不用重新造輪子」。
 \end{block}
 
-如何安裝、更新及引入套件？
+\begin{block}{如何安裝、更新及引入套件？}
 \begin{itemize}
 \item 連上網路之後，輸入
 \verb+install.packages("套件名稱")+
@@ -152,6 +162,7 @@
 \verb+library(套件名稱)+
 可引入該套件，之後才可以使用它的功能。
 \end{itemize}
+\end{block}
 
 \begin{block}{練習}
 安裝一個名叫「\verb+vegan+」的套件，並將之引入R中。
@@ -165,16 +176,32 @@
 
 
 \begin{frame}[fragile]{初次見面：R是計算機}
+\begin{columns}
+\column{0.4\textwidth}
 \begin{verbatim}
 > 2.4 + 42
 [1] 44.4
-> 4^2
+> 4 ^ 2
 [1] 16
 > sqrt(100)
 [1] 10
 > 100 ^ 0.5
 [1] 10
 \end{verbatim}
+
+\column{0.4\textwidth}
+\begin{verbatim}
+> a <- 1
+> a
+[1] 1
+> 1 -> b
+> b
+[1] 1
+> a + b
+[1] 2
+\end{verbatim}
+
+\end{columns}
 \end{frame}
 
 
@@ -200,16 +227,14 @@
 \section{R的函數}\subsection{}
 
 \begin{frame}[fragile]{什麼是程式語言的函數（function）}
-\begin{itemize}
-\item 操作R的過程，幾乎就是使用各種function的過程。
-\item 就像數學裡的函數一樣：把x放到f裡，得到一個f(x)。
-\end{itemize}
 
 \begin{block}{使用某函數的語法通則}
 \verb+函數名(第一引數名 = 某值, 第二引數名 = 某值, ...)+ 
 \end{block}
 
 \begin{itemize}
+\item 操作R的過程，幾乎就是使用各種function的過程。
+\item 就像數學裡的函數一樣：把x放到f裡，得到一個f(x)。
 \item 試試看 \verb+seq(from = 0, to = 9)+ 的回傳值是什麼？
 \item 用中文說明上面的程式：「在 \verb+seq()+ 這個function中，第一個引數名為 \verb+from+，表示起始值，其值為 \verb+0+；第二個引數名為 \verb+to+，表示終點值，其值是 \verb+9+。」
 \end{itemize}
@@ -443,7 +468,7 @@ boxplot(
 
 \begin{frame}[fragile]{單因子變異數分析}
 \begin{block}{目標}
-檢驗三種Group的Literature之平均是否相等，並進行Tukey事後檢驗
+檢驗三種Group的Literature之平均是否相等，並進行Tukey事後檢驗。
 \end{block}
 
 \begin{block}{\texttt{aov()}語法}
@@ -495,17 +520,6 @@ boxplot(
 \section{學習與討論資源}\subsection{}
 
 \section{小試身手}\subsection{}
-
-\begin{frame}[fragile]{計算機}
-\begin{verbatim}
-> 2.4 + 42
-[1] 44.4
-> sqrt(100)
-[1] 10
-\end{verbatim}
-\end{frame}
-
-
 
 
 \end{document}

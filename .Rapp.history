@@ -343,3 +343,5 @@ boxplot(#
   ylab = "Literature score", xlab = "Group"#
 )
 t.test(Literature ~ Gender, data = dt, var = F)
+4^2
+100^0.5

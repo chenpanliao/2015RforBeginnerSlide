@@ -1,44 +1,43 @@
 %!TEX TS-program = xelatex
 %!TEX encoding = UTF-8 Unicode
 
-\documentclass[12pt]{beamer}
+\documentclass[12pt, aspectratio=43]{beamer}
 \usepackage{amsmath, fancyvrb, textcomp}
 \usepackage{xcolor}
-\definecolor{verb}{rgb}{0.0,0.4,0.0}
+\definecolor{verb}{rgb}{0.0,0.3,0.0}
 \definecolor{white}{rgb}{1,1,1}
 
 
 %% Beamer 版面配置
 \mode<presentation>
+%\usecolortheme{rose}
 
-\usecolortheme{rose}
+%\usetheme{Pittsburgh}
+\usetheme{Singapore}
+\usecolortheme{orchid}
 
-\useoutertheme[subsection=false]{miniframes}
+
+%\useoutertheme[subsection=false]{miniframes}
 
     \setbeamercolor{postit}{fg=black,bg=blue!10}
-    \setbeamertemplate{headline}
-    {%
-      \begin{beamercolorbox}[wd=1\paperwidth]{postit}
-        \vskip1pt\insertnavigation{1\paperwidth}\vskip1pt
-      \end{beamercolorbox}%
-    }
 
-    \setbeamertemplate{frametitle}
-    {%
-      \vskip-7pt%
-      \begin{beamercolorbox}[wd=1\paperwidth,ht=2ex,dp=0.8ex,left]{postit}
-        \hskip0.5cm\insertframetitle\par
-      \end{beamercolorbox}%
-    }
-    %\setbeamercolor{frametitle}{fg=black}
+%    \setbeamertemplate{headline}
+%    {%
+%      \begin{beamercolorbox}[wd=1\paperwidth]{postit}
+%        \vskip1pt\insertnavigation{1\paperwidth}\vskip1pt
+%      \end{beamercolorbox}%
+%    }
+%
+%    \setbeamertemplate{frametitle}{\vskip-5pt\hskip0cm\insertframetitle\par}
+%    \setbeamercolor{frametitle}{fg=black, bg=black!80}
 
-%\setbeamertemplate{frametitle}{\vskip-5pt\hskip0cm\insertframetitle\par}
 \setbeamersize{text margin left=0.5cm, text margin right=0.5cm}
 
-
 \let\oldfootnote\footnote
-\renewcommand\footnote[1]{\hspace{-0.6em}\oldfootnote{\tiny\ignorespaces#1}\hspace{0.6em}}
+\renewcommand\footnote[1]{\hspace{-0.3em}\oldfootnote{\ignorespaces#1}\hspace{0.3em}}
 \setbeamerfont{footnote mark}{size=\tiny}
+\setbeamerfont{footnote}{size=\scriptsize}
+\setbeamertemplate{footnote}{\textsuperscript{\insertfootnotemark}\insertfootnotetext}
 
 \usefonttheme{structurebold}
 
@@ -54,7 +53,7 @@
 \usepackage[no-math]{fontspec}
 \setmainfont[Mapping=tex-text, LetterSpace=0, BoldFont={Lato Bold}]{Lato}
 \setsansfont[Mapping=tex-text, LetterSpace=0, BoldFont={Lato Bold}]{Lato}
-\setmonofont[Color=verb, Scale=1]{Osaka-Mono}
+\setmonofont[Color=verb, Scale=0.95, LetterSpace=-1, BoldFeatures={Color=white}, BoldFont={Consolas}]{Consolas}
 %\setmonofont[Color=verb, Scale=0.9, LetterSpace=-0]{PT Mono}
 \usefonttheme{professionalfonts}
 
@@ -64,12 +63,12 @@
 ]{xeCJK}
 
 %\setCJKmonofont[Scale=1, BoldFont={Osaka-Mono}, Color=verb]{Osaka-Mono}
-%\setCJKmainfont[Scale=1, BoldFont={LiHei Pro}]{Heiti TC Medium}
-%\setCJKmonofont[Scale=1, BoldFont={LiHei Pro}, Color=verb]{Heiti TC Light}
+\setCJKmainfont[Scale=1.0526, BoldFont={Heiti TC Medium}]{Heiti TC Medium}
+\setCJKmonofont[Scale=1, BoldFont={DFYuanMedium-B5}, Color=verb]{DFYuanMedium-B5}
 
-\setCJKmainfont[Scale=1, BoldFont={LiHei Pro}]{LiHei Pro}
-\setCJKmonofont[Scale=1, BoldFont={LiHei Pro}, Color=verb]{LiHei Pro}
-\setCJKfallbackfamilyfont{\CJKsfdefault}[AutoFakeSlant]{[BoldFont=SimHei]{SimSun}}
+%\setCJKmainfont[Scale=1, BoldFont={LiHei Pro}]{LiHei Pro}
+%\setCJKmonofont[Scale=1, BoldFont={LiHei Pro}, Color=verb]{LiHei Pro}
+%\setCJKfallbackfamilyfont{\CJKsfdefault}[AutoFakeSlant]{[BoldFont=SimHei]{SimSun}}
 
 %\setCJKmainfont[Scale=1, BoldFont={Lantinghei TC Heavy}]{Lantinghei TC}
 %\setCJKmonofont[Scale=1, BoldFont={Lantinghei TC Heavy}, Color=verb]{Lantinghei TC}
@@ -78,8 +77,8 @@
 \title[初學者學習R語言]{初學R語言的100分鐘}
 \author[廖鎮磐]{廖鎮磐 \\ \texttt{<andrew.43@gmail.com>}\\ 東海大學生命科學系}
 \institute{\normalsize 2015年台灣生態研究網年會 \\ \footnotesize 2015年3月14日於蓮華池研究中心}
-\date{\scriptsize \includegraphics[width=2cm]{cc.pdf}\\
-本文件採用姓名標示-相同方式分享 4.0 國際（CC BY-SA 4.0，詳情請見 \url{http://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW}）。}
+\date{\footnotesize \includegraphics[width=2cm]{cc.pdf}\\
+本文件採用姓名標示-相同方式分享 4.0 國際（CC BY-SA 4.0，詳情請見 \url{http://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW}）。\\ 本投及基它資料檔案可於 \url{https://www.dropbox.com/sh/7p9cluglptyk25a/AAAmPWrSMVf_tC9-cL4JSscCa?dl=0} 下載。}
 
 
 
@@ -104,29 +103,34 @@
 \tableofcontents
 \end{frame}
 
-\section{事前準備}\subsection{}
+\section{R簡介與操作環境}\subsection{}
 
+\begin{frame}{今天主題$\cdots\cdots$}
 
-\begin{frame}{請先下載投影片和練習資料}
-\begin{center}
-\Huge\url{http://goo.gl/YRCOaN}\\
-\includegraphics[width=2.5in]{url-dropbox.pdf}
-\end{center}
-\end{frame}
+\begin{block}{預設聽眾}
+\begin{itemize}
+\item 修過至少3學分的統計學。
+\item 從沒使用過R或其它統計軟體。
+\item 從沒學過任何程式語言。
+\end{itemize}
+\end{block}
 
-\begin{frame}{我今天希望讓諸位達成\ldots\ldots}
+\begin{block}{目標}
 \begin{itemize}
 \item 不怕害使用R這類以文字指令進行的工作方式。
 \item 如何自己救自己。
 \item 如何請別人救自己。
 \item 實作一些常見的統計分析與繪圖。
 \end{itemize}
+\end{block}
+
 \end{frame}
 
 
 
 
-\begin{frame}{為什麼我選擇R？}
+\begin{frame}{R的特色}
+\framesubtitle{為什麼我選擇R？}
 \begin{itemize}
 \item 自由、免費、跨平台。
 \item 是一種「程式語言」，像Python、Perl、JAVA等。
@@ -141,7 +145,7 @@
 \item 到達 \url{http://www.r-project.org/}
 \item 點選Download, Packages (CRAN) \\
 \item 選擇作業平台
-	\begin{center}\includegraphics[width=0.7\textwidth]{downloadR.png}\end{center}
+	\begin{center}\includegraphics[width=0.5\textwidth]{downloadR.png}\end{center}
 \end{enumerate}
 \end{frame}
 
@@ -150,41 +154,12 @@
 \item 建議以純文字編輯器撰寫R程式碼，並儲存成「\verb+.R+」檔。
 \item 「語法多色支援」、「語法提示」、「即時執行」等功能，增加撰寫效率。
 \item 支援R語言的編輯器很多，有興趣請自行試用。
-\begin{description}
+\begin{description}[longest item]
 	\item [RStudio] 強大、整合性高、專為R程式員設計。\footnote{\url{http://www.rstudio.com/}}
 	\item [Notepad++] 老字號的純文字編輯器，有和R相配合的外掛。\footnote{\url{http://notepad-plus-plus.org/}}
 	\item [Atom] 與GitHub配合度高。\footnote{\url{https://atom.io/}}
 \end{description}
 \end{itemize}
-\end{frame}
-
-
-\begin{frame}[fragile]{R的套件}
-\begin{block}{什麼是套件（package）？}
-安裝在R系統裡的外掛，讓你「不用重新造輪子」。
-\end{block}
-
-\begin{block}{如何安裝、更新及引入套件？}
-\begin{itemize}
-\item 連上網路之後，輸入
-\verb+install.packages("套件名稱")+
-可以安裝某套件，而
-\verb+update.packages()+
-可以更新所有已安裝套件。
-\item 在已安裝某套件之後，輸入
-\verb+library(套件名稱)+
-可引入該套件，之後才可以使用它的功能。
-\end{itemize}
-\end{block}
-
-\begin{block}{練習}
-安裝一個名叫「\verb+vegan+」的套件，並將之引入R中。
-\end{block}
-\end{frame}
-
-\begin{frame}[fragile]{R的官方套件庫}
-\url{http://cran.r-project.org/web/packages/available_packages_by_name.html}\\
-官方的套件一覽表（目前有六千多個）。可直接以 \verb+install.packages()+ 安裝。
 \end{frame}
 
 
@@ -218,12 +193,12 @@
 \end{frame}
 
 
-\begin{frame}[fragile]{Q\&A的時間到囉}
-\begin{itemize}
-\item[Q] 如何找能做某件事的套件？
-\item[A] 請Google大神幫你找最快。真的。
-\end{itemize}
-\end{frame}
+%\begin{frame}[fragile]{Q\&A的時間到囉}
+%\begin{itemize}
+%\item[Q] 如何找能做某件事的套件？
+%\item[A] 請Google大神幫你找最快。真的。
+%\end{itemize}
+%\end{frame}
 
 \section{R的函數}\subsection{}
 
@@ -237,7 +212,7 @@
 \item 操作R的過程，幾乎就是使用各種function的過程。
 \item 就像數學裡的函數一樣：把x放到f裡，得到一個f(x)。
 \item 試試看 \verb+seq(from = 0, to = 9)+ 的回傳值是什麼？
-\item 用中文說明上面的程式：「在 \verb+seq()+ 這個function中，第一個引數名為 \verb+from+，表示起始值，其值為 \verb+0+；第二個引數名為 \verb+to+，表示終點值，其值是 \verb+9+。」
+\item 用中文說明上面的程式：「在 \verb+seq()+ 這個function中，第一個引數名為 \verb+from+，表示起始值，其值為0；第二個引數名為 \verb+to+，表示終點值，其值是9。」
 \end{itemize}
 \end{frame}
 
@@ -264,7 +239,7 @@
 
 \begin{frame}[fragile]{引數的預設值}
 
-\begin{block}{\texttt{seq()} 的使用語法}
+\begin{block}{\texttt{seq()} 的基本語法}
 \verb+seq(from = 1, to = 1, ...)+ \\
 \end{block}
 \begin{itemize}
@@ -282,7 +257,7 @@
 
 \begin{frame}[fragile]{引數的順序}
 
-\begin{block}{\texttt{seq()}的使用語法}
+\begin{block}{\texttt{seq()}的基本語法}
 \verb+seq(from = 1, to = 1, ...)+ \\
 \end{block}
 
@@ -295,7 +270,7 @@
 
 \begin{frame}[fragile]{引數的綜合練習}
 
-\begin{block}{\texttt{seq()}的使用語法}
+\begin{block}{\texttt{seq()}的基本語法}
 \verb+seq(from = 1, to = 1, ...)+ \\
 \end{block}
 
@@ -329,11 +304,29 @@
 
 \section{資料的讀取與整理}\subsection{}
 
+
+\begin{frame}[fragile]{檔案下載}
+\begin{enumerate}
+\item 至 \url{http://goo.gl/YRCOaN} 下載以下三個檔案。
+\begin{description}
+\item [\texttt{slide.pdf}]投影片
+\item [\texttt{exam.xlsx}]例範資料
+\item [\texttt{text.xlsx}]練習資料
+\end{description}
+
+\item 在C disk 下創建一個 \verb+LearnR2015+ 資料夾，並將三個檔案置入該資料夾中。
+\end{enumerate}
+%\begin{center}
+%\Huge\url{http://goo.gl/YRCOaN}\\
+%\includegraphics[width=2.5in]{url-dropbox.pdf}
+%\end{center}
+\end{frame}
+
+
 \begin{frame}[fragile]{讀取CSV資料檔案}
 \begin{enumerate}
-\item 前往 \url{http://goo.gl/YRCOaN}，下載 \verb+exam.xlsx+。
 \item 開啟 \verb+exam.xlsx+，注意第一列必需有一列「變數名」。
-\item 另存新檔 $\rightarrow$ 檔名為「exam」，類型為「CSV」，儲存在C disk下的LearnR2015資料夾中。
+\item 另存新檔 $\rightarrow$ 檔名為「exam」，類型為「CSV」，儲存在相同資料夾中。
 \item \verb+getwd()+ 顯示目前R所在的路徑。
 \item \verb+setwd("C:/LearnR2015")+ 到達該資料夾。
 \item \verb+dt <- read.csv("exam.csv")+ 或是 \\
@@ -393,13 +386,13 @@ quantile(dt$Science) #百分位數
 \end{verbatim}
 
 如果要求各組的描述性統計呢？使用 \verb+tapply()+。
-\begin{block}{\texttt{tapply}基本語法}
-\verb+tapply(變數, 分組因子, 運算函數)+
+\begin{block}{\texttt{tapply}的基本語法}
+\verb+tapply(變數, 分組因子, 運算函數, ...)+
 \end{block}
 例如，要計算Science在不同Gender內的平均數：\\
 \verb+tapply(dt$Science, dt$Gender, mean)+\\
-或是用\verb+subset()+切出子集，例如\\
-\verb+mean( subset(dt, Gender == "m")$Science )+ \\
+%或是用\verb+subset()+切出子集，例如\\
+%\verb+mean( subset(dt, Gender == "m")$Science )+ \\
 \end{frame}
 
 \begin{frame}[fragile]{單樣本\emph{T}檢驗}
@@ -407,10 +400,10 @@ quantile(dt$Science) #百分位數
 \begin{block}{目標}
 檢驗Science的平均是否為60。
 \end{block}
-\begin{block}{\texttt{t.test}基本語法}
+\begin{block}{\texttt{t.test}的基本語法}
 \verb+t.test(+
   \verb+資料, alternative = "t" 或 "l" 或 "g",+
-  \verb+mu = 假說平均數)+
+  \verb+mu = 假說平均數, ...)+
 \end{block}
 \begin{verbatim}
 t.test(dt$Science, alternative = "t", mu = 60) #雙尾
@@ -423,10 +416,9 @@ t.test(dt$Science, alternative = "l", mu = 60) #左單尾
 \begin{block}{目標}
 檢驗Literature和Science差之平均是否為0。
 \end{block}
-\begin{block}{\texttt{t.test()}基本語法}
-\verb+t.test(+
-\verb+資料一, 資料二, alternative = "t" 或 "l" 或 "g",+
-\verb+mu = 假說中配對差的平均數, pair = true)+
+\begin{block}{\texttt{t.test()}的基本語法}
+\verb+t.test(資料一, 資料二, alternative = "t" 或 "l" 或 "g",+
+\verb+mu = 假說中配對差的平均數, pair = true, ...)+
 \end{block}
 \begin{verbatim}
 t.test(dt$Literature, dt$Science, pair = T)
@@ -439,12 +431,12 @@ t.test(dt$Literature, dt$Science, pair = T)
 \begin{block}{目標}
 檢驗二種Gender的Literature之平均是否相等。
 \end{block}
-\verb+tapply(dt$Literature, dt$Gender, mean) #分組平均+
-\verb+tapply(dt$Literature, dt$Gender, sd)   #分組標準差+
-\begin{block}{\texttt{t.test()}基本語法}
+%\verb+tapply(dt$Literature, dt$Gender, mean) #分組平均+
+%\verb+tapply(dt$Literature, dt$Gender, sd)   #分組標準差+
+\begin{block}{\texttt{t.test()}的基本語法}
 \verb+t.test(+
 \verb+資料一, 資料二, alternative = "t" 或 "l" 或 "g",+
-\verb+mu = 假說中平均數的差, pair = F, var.equal = T)+
+\verb+mu = 假說中平均數的差, pair = F, var.equal = T, ...)+
 \end{block}
 \begin{verbatim}
 t.test(
@@ -458,7 +450,7 @@ t.test(
 \begin{block}{目標}
 檢驗二種Gender的Literature之平均是否相等。
 \end{block}
-\begin{block}{\texttt{t.test()}基本語法}
+\begin{block}{\texttt{t.test()}的基本語法}
 \verb+t.test(+
 \verb+應變數 ~ 類別因子, data = 數據框, ...)+
 \end{block}
@@ -470,8 +462,8 @@ t.test(Literature ~ Gender, data = dt, var = F)
 
 \begin{frame}[fragile]{盒形圖}
 
-\begin{block}{\texttt{boxplot()}基本語法}
-\verb+boxplot(應變數 ~ 類別因子, data = 資料框)+
+\begin{block}{\texttt{boxplot()}的基本語法}
+\verb+boxplot(應變數 ~ 類別因子, data = 資料框, ...)+
 \end{block}
 
 \begin{verbatim}
@@ -480,7 +472,7 @@ boxplot(Literature ~ Gender, data = dt,
 \end{verbatim}
 
 \begin{center}
-\includegraphics[width=0.8\textwidth]{Rplot-two-group.pdf}
+\includegraphics[width=0.6\textwidth]{Rplot-two-group.pdf}
 \end{center}
 \end{frame}
 
@@ -495,12 +487,9 @@ boxplot(Literature ~ Gender, data = dt,
 檢驗三種Group的Literature之平均是否相等，並進行Tukey事後檢驗。
 \end{block}
 
-\begin{block}{\texttt{aov()}語法}
+\begin{block}{\texttt{aov()}和\texttt{TukeyHSD()}的基本語法}
 \verb+aov(+
-\verb+應變數 ~ 三組以上類別自變數, data = 數據框, ...)+
-\end{block}
-
-\begin{block}{\texttt{TukeyHSD()}語法}
+\verb+應變數 ~ 三組以上類別自變數, data = 數據框, ...)+\\
 \verb+TukeyHSD(aov物件, "分組因子", ...)+
 \end{block}
 
@@ -514,8 +503,8 @@ TukeyHSD(fit, "Group")
 
 \begin{frame}[fragile]{盒形圖}
 
-\begin{block}{\texttt{boxplot()}基本語法}
-\verb+boxplot(應變數 ~ 類別因子, data = 資料框)+
+\begin{block}{\texttt{boxplot()}的基本語法}
+\verb+boxplot(應變數 ~ 類別因子, data = 資料框, ...)+
 \end{block}
 
 \begin{verbatim}
@@ -524,7 +513,7 @@ boxplot(Literature ~ Group, data = dt,
 \end{verbatim}
 
 \begin{center}
-\includegraphics[width=0.8\textwidth]{Rplot-three-group.pdf}
+\includegraphics[width=0.6\textwidth]{Rplot-three-group.pdf}
 \end{center}
 \end{frame}
 
@@ -538,9 +527,9 @@ boxplot(Literature ~ Group, data = dt,
 
 \begin{frame}[fragile]{簡單線性迴歸}
 \begin{block}{目標}
-建立Science對應Literatur的簡單線性迴歸模型，並檢驗斜率是否為零。
+建立Science對應Literature的簡單線性迴歸模型，並檢驗斜率是否為零。
 \end{block}
-\begin{block}{\texttt{lm()}基本語法}
+\begin{block}{\texttt{lm()}的基本語法}
 \verb+lm(應變數 ~ 連續自變數, data = 數據框, ...)+
 \end{block}
 \begin{verbatim}
@@ -553,9 +542,9 @@ anova(fit)
 
 \begin{frame}[fragile]{簡單線性相關}
 \begin{block}{目標}
-計算Science與Literatur的簡單線性相關係數是否為零。
+計算Science與Literature的簡單線性相關係數是否為零。
 \end{block}
-\begin{block}{\texttt{cor.test()}基本語法}
+\begin{block}{\texttt{cor.test()}的基本語法}
 \verb+lm(第一群資料, 第二群資料, ...)+
 \end{block}
 \begin{verbatim}
@@ -565,15 +554,13 @@ cor.test(dt$Literature, dt$Science)
 
 
 \begin{frame}[fragile]{散佈圖}
-\begin{block}{\texttt{plot.formula()}基本語法}
-\verb+plot(縱軸資料 ~ 橫軸資料, data = 資料框, ...)+\oldfootnote{\texttt{plot.formula()}可簡寫成\texttt{plot()}。}
+
+\begin{block}{\texttt{coef()}的基本語法}
+\verb+coef(lm物件, ...)+ 取出各迴歸係數
 \end{block}
 
-\begin{block}{\texttt{coef()}基本語法}
-\verb+coef(lm物件)+ 取出各迴歸係數
-\end{block}
-
-\begin{block}{\texttt{abline()}基本語法}
+\begin{block}{\texttt{plot.formula()}和\texttt{abline()}的基本語法}
+\verb+plot(縱軸資料 ~ 橫軸資料, data = 資料框, ...)+\oldfootnote{\texttt{plot.formula()}可簡寫成\texttt{plot()}。}\\
 \verb+abline(a = 截距, b = 斜率)+ 畫上迴歸線
 \end{block}
 
@@ -593,7 +580,7 @@ abline(a = coef(fit)[1], b = coef(fit)[2], lty = 3)
 \end{verbatim}
 
 \begin{center}
-\includegraphics[width=0.8\textwidth]{Rplot-sct.pdf}
+\includegraphics[width=0.6\textwidth]{Rplot-sct.pdf}
 \end{center}
 \end{frame}
 
@@ -619,6 +606,9 @@ abline(a = coef(fit)[1], b = coef(fit)[2], lty = 3)
 \begin{itemize}
 \item[Q] 我怎麼知道我做對了？
 \item[A] 拿出你的統計學課本的例題，用R做做看。
+\item[Q] R畫的圖想做更多調整$\cdots\cdots$
+\item[A1] 這件工作不是非常容易，需要經驗。有空看看 \verb+par()+ 和 \verb+plot()+ 的使用手冊。
+\item[A2] 初學者可以先用 R 畫好概要圖，再以其它圖片編輯軟體後製。
 \end{itemize}
 \end{frame}
 
@@ -628,19 +618,14 @@ abline(a = coef(fit)[1], b = coef(fit)[2], lty = 3)
 
 \begin{frame}{阿盤的個人學習心得}
 \begin{itemize}
-\item 去修使用R的課會是最快的方法。
-\item 多「玩」。把新學到的函數裡的 Example 玩一玩、改一改。
-\item 肯問人。逛逛網路教學和論壇。只要誠心有禮都有好結果。
+\item 修使用R的課。
+\item 多「玩」。把函數裡的 Example 玩一玩、改一改。
+\item 肯問人。逛逛網路教學和論壇。
 \item 買（可能不只一本）書。
 \item 拿出統計學課本的例題，用R做做看。
-\item 做過的程式碼要建檔，以後就只要小修改即可再使用。
-\item 卡關時，先用英文問Google大神。很容易就找到解法。
-\pause
-\item 做出答案時，不要直接相信這是正解。\\
- 做出答案時，不要直接相信這是正解。\\
- 做出答案時，不要直接相信這是正解。\\
-（因為很重要，所以要說三次。）\\
- 應該以專業人士、書籍、網頁資料驗證。
+\item 做過的程式碼要建檔，方便日後使用。
+\item 卡關時，先用英文問Google大神。
+\item 做出答案時，不要直接相信這是正解。應該以專業人士、書籍、網頁資料驗證。
 \end{itemize}
 \end{frame}
 
@@ -648,18 +633,29 @@ abline(a = coef(fit)[1], b = coef(fit)[2], lty = 3)
 \begin{frame}{中文書籍推薦}
 繁體中文書非常少，但簡體中文書不少。去圖書館或書局翻翻。能看懂有收穫就有參考價值。初學程式語言者應該都需要一本。
 \begin{itemize}
-\item 《R軟體：應用統計方法》陳景祥著，東華出版社。\\ 對初學者很有幫助的一本。
-\item 《R 錦囊妙計》 Paul Teetor著，張夏菁譯，歐萊禮出版社。\\ 內容適合需要以R進行統計工作的研究人員。
-\item {\CJKfontspec{Hei}《R语言实用教程》薛毅、陈立萍著，清华大学出版社。}
-\item {\CJKfontspec{Hei}《统计建模与R软件》薛毅、陈立萍著，清华大学出版社。} \\ 以數理統計為主，R語言實作為輔。
+\item 《R軟體：應用統計方法》陳景祥著，東華出版社。\\ 對初學者很有幫助的一本。R語言和統計學併重。
+\item 《R 錦囊妙計》 Paul Teetor著，張夏菁譯，歐萊禮出版社。\\ 前半本內容是R語言，後半本是以R進行統計工作。
+\item {\CJKfontspec{Heiti SC Medium}《R语言实用教程》薛毅、陈立萍著，清华大学出版社。}
+\item {\CJKfontspec{Heiti SC Medium}《统计建模与R软件》薛毅、陈立萍著，清华大学出版社。} \\ 以數理統計為主，R語言實作為輔。
 \end{itemize}
 \end{frame}
+
+\begin{frame}{英文書籍推薦}
+英文書選擇極多。我推薦以下幾本我喜歡或值得閱讀的。
+\begin{itemize}
+\item ``Biostatistical Design and Analysis Using R: A Practical Guide'' by Murray Logan. Wiley-Blackwell Press.\\ 實驗設計和R並重，非常推薦。
+\item ``The R Book, 2nd Edition'' by Michael J.~Crawley. Wiley Press. \\ 較不易閱讀，但仍值得細讀。R語言和統計併重。
+\item ``A First Course in Statistical Programming with R'' by W.~John Braun \& Duncan J.~Murdoch. Cambridge University Press. \\ 易讀。統計學基礎內容為主，但實驗設計部份少。
+\end{itemize}
+\end{frame}
+
 
 \begin{frame}{網路教學}
 \begin{itemize}
 \item 《R 演習室》\makeatletter @ \makeatother youtube.com\oldfootnote{\url{https://www.youtube.com/playlist?list=PL5AC0ADBF65924EAD}} \\ 針對初學者的 R 視訊教學系列。有廣告（歡迎多看幾秒），但有提供影片載點。
-\item ``Quick-R''\oldfootnote{\url{http://www.statmethods.net/}} by Robert I.~Kabacoff
+\item ``Quick-R''by Robert I.~Kabacoff\oldfootnote{\url{http://www.statmethods.net/}}
 \item 請自行 Google「R turorial」，實在太多了。
+\item 中文教學網頁極少。還是找英文的比較實在。
 \end{itemize}
 \end{frame}
 
@@ -673,21 +669,62 @@ abline(a = coef(fit)[1], b = coef(fit)[2], lty = 3)
 \end{frame}
 
 
+
+\begin{frame}[fragile]{R的套件}
+\begin{block}{什麼是套件（package）？}
+安裝在R系統裡的外掛，讓你「不用重新造輪子」。
+\end{block}
+
+\begin{block}{如何安裝、更新及引入套件？}
+\begin{itemize}
+\item 連上網路之後，輸入 \verb+install.packages("套件名稱")+ 可以安裝某套件
+\item 在已安裝某套件之後，輸入 \verb+library(套件名稱)+ 可引入該套件，之後才可以使用它的功能。
+\item 連上網路之後，輸入 \verb+update.packages()+ 可以更新所有已安裝套件。
+\end{itemize}
+\end{block}
+
+%\begin{block}{練習}
+%安裝一個名叫「\verb+vegan+」的套件，並將之引入R中。
+%\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{R的官方套件庫}
+R官方收錄有六千多個的套件。\footnote{\url{http://cran.r-project.org/web/packages/available_packages_by_name.html}}可直接以 \verb+install.packages()+ 安裝。
+\begin{block}{我常用的套件}
+\begin{itemize}
+\item （一般／廣義）線性模型：gmodels、lmtest、aod
+\item 混合模型：lme4、nlme、MCMCglmm
+\item 蒙地卡羅、隨機化：permute、boot
+\item 多變量、群落生態、生物多樣性：vegan
+\end{itemize}
+\end{block}
+\end{frame}
+
+
 \begin{frame}[fragile]{Q\&A的時間又到囉}
 \begin{itemize}
+\item[Q] 如何找能做某件事的套件？
+\item[A] 請Google大神幫你找最快。真的。
+
 \item[Q] 阿盤學多久才叫「上手」、「有生產力」？
 \item[A] 自學半年以上，但我今天就要把八成功力都傳給你了！
-\item[Q] 聽到這裡，我想認輸了$\cdots\cdots$我想重回SPSS用滑鼠搞定的世界。
-\item[A] 只要是適合自己的工具，就是好工具。（當然，也要買得起才行。我就是買不起才$\cdots\cdots$）
+\item[Q] 聽到這裡，我想認輸了$\cdots\cdots$我想重回用滑鼠搞定的世界。
+\item[A] 只要是適合自己的工具，就是好工具。
 \end{itemize}
 \end{frame}
 
 \section{小試身手}\subsection{}
 
+\begin{frame}[fragile]{今日的總複習}
+\begin{description}[longest item]
+\item[]
+\end{description}
+\end{frame}
 
-\begin{frame}[fragile]{請按今天的課程內容完成以下練習}
+
+\begin{frame}[fragile]{試著完成以下練習}
 \begin{enumerate}
-\item 前往 \url{http://goo.gl/YRCOaN}，下載 \verb+test.xlsx+。想辦法將它讓R可以讀取。
+\item 前往 \url{http://goo.gl/YRCOaN}，下載 \verb+test.xlsx+。想辦法將它讓R可以讀取，並命名為 \verb+mydt0+ 的資料框。
 \item 
 \end{enumerate}
 \end{frame}

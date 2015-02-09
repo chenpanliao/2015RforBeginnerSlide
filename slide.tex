@@ -12,8 +12,9 @@
 \mode<presentation>
 %\usecolortheme{rose}
 
-%\usetheme{Pittsburgh}
-\usetheme{Singapore}
+\usetheme{Pittsburgh}
+%\usetheme[height = 1.4cm]{Rochester}
+%\usetheme{Singapore}
 \usecolortheme{orchid}
 
 
@@ -31,7 +32,7 @@
 %    \setbeamertemplate{frametitle}{\vskip-5pt\hskip0cm\insertframetitle\par}
 %    \setbeamercolor{frametitle}{fg=black, bg=black!80}
 
-\setbeamersize{text margin left=0.5cm, text margin right=0.5cm}
+\setbeamersize{text margin left=0.7cm, text margin right=0.7cm}
 
 \let\oldfootnote\footnote
 \renewcommand\footnote[1]{\hspace{-0.3em}\oldfootnote{\ignorespaces#1}\hspace{0.3em}}
@@ -63,8 +64,8 @@
 ]{xeCJK}
 
 %\setCJKmonofont[Scale=1, BoldFont={Osaka-Mono}, Color=verb]{Osaka-Mono}
-\setCJKmainfont[Scale=1.0526, BoldFont={Heiti TC Medium}]{Heiti TC Medium}
-\setCJKmonofont[Scale=1, BoldFont={DFYuanMedium-B5}, Color=verb]{DFYuanMedium-B5}
+\setCJKmainfont[Scale=1, BoldFont={Heiti TC Medium}]{Heiti TC Medium}
+\setCJKmonofont[Scale=0.95, BoldFont={DFYuanMedium-B5}, Color=verb]{DFYuanMedium-B5}
 
 %\setCJKmainfont[Scale=1, BoldFont={LiHei Pro}]{LiHei Pro}
 %\setCJKmonofont[Scale=1, BoldFont={LiHei Pro}, Color=verb]{LiHei Pro}
@@ -74,11 +75,26 @@
 %\setCJKmonofont[Scale=1, BoldFont={Lantinghei TC Heavy}, Color=verb]{Lantinghei TC}
 
 
-\title[初學者學習R語言]{初學R語言的100分鐘}
-\author[廖鎮磐]{廖鎮磐 \\ \texttt{<andrew.43@gmail.com>}\\ 東海大學生命科學系}
-\institute{\normalsize 2015年台灣生態研究網年會 \\ \footnotesize 2015年3月14日於蓮華池研究中心}
-\date{\footnotesize \includegraphics[width=2cm]{cc.pdf}\\
-本文件採用姓名標示-相同方式分享 4.0 國際（CC BY-SA 4.0，詳情請見 \url{http://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW}）。\\ 本投及基它資料檔案可於 \url{https://www.dropbox.com/sh/7p9cluglptyk25a/AAAmPWrSMVf_tC9-cL4JSscCa?dl=0} 下載。}
+\title{初學R語言的60分鐘}
+\author{廖鎮磐 \texttt{<andrew.43@gmail.com>}}
+\institute{東海大學生命科學系}
+\date{2015年台灣生態研究網年會 -- 2015年3月14日於蓮華池研究中心}
+
+
+\setbeamertemplate{title page}{
+  \vskip0pt plus 1filll
+    \huge{初學\hspace{0.2em}\includegraphics[width=3cm]{Rlogo-novo.pdf}\hspace{0.2em}語言的60分鐘}\\[20pt]
+    \normalsize{廖鎮磐 \texttt{<andrew.43@gmail.com>}\\東海大學生命科學系}\\[10pt]
+    \normalsize{2015年台灣生態研究網年會\\ 2015年3月14日於蓮華池研究中心}\\[10pt]
+    \vskip0pt plus 0.5filll
+    \tiny{
+     \includegraphics[width=2cm]{cc.pdf} \newline
+	 本文件採用姓名標示-相同方式分享 4.0 國際授權（CC BY-SA 4.0，詳情請見 \url{http://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW}）。}\\
+	\tiny{下載本投影片及資料檔案：\url{https://www.dropbox.com/sh/7p9cluglptyk25a/AAAmPWrSMVf_tC9-cL4JSscCa?dl=0} 
+	}
+}
+
+
 
 
 
@@ -145,7 +161,7 @@
 \item 到達 \url{http://www.r-project.org/}
 \item 點選Download, Packages (CRAN) \\
 \item 選擇作業平台
-	\begin{center}\includegraphics[width=0.5\textwidth]{downloadR.png}\end{center}
+	\begin{center}\includegraphics[width=0.75\textwidth]{downloadR.png}\end{center}
 \end{enumerate}
 \end{frame}
 
@@ -437,28 +453,31 @@ t.test(dt$Literature, dt$Science, pair = T)
 \verb+t.test(+
 \verb+資料一, 資料二, alternative = "t" 或 "l" 或 "g",+
 \verb+mu = 假說中平均數的差, pair = F, var.equal = T, ...)+
+\verb+t.test(+
+\verb+應變數 ~ 類別因子, data = 數據框, ...)+
 \end{block}
 \begin{verbatim}
 t.test(
   subset(dt, Gender == "m")$Literature,
   subset(dt, Gender == "f")$Literature,
   var.equal = F)
+t.test(Literature ~ Gender, data = dt, var.equal = F)
 \end{verbatim}
 \end{frame}
-
-\begin{frame}[fragile]{雙樣本獨立\emph{T}檢驗（以formula表示）}
-\begin{block}{目標}
-檢驗二種Gender的Literature之平均是否相等。
-\end{block}
-\begin{block}{\texttt{t.test()}的基本語法}
-\verb+t.test(+
-\verb+應變數 ~ 類別因子, data = 數據框, ...)+
-\end{block}
-\begin{verbatim}
-t.test(Literature ~ Gender, data = dt, var = F)
-# 預設雙尾；預設平均差為零；假設變方相等
-\end{verbatim}
-\end{frame}
+%
+%\begin{frame}[fragile]{雙樣本獨立\emph{T}檢驗（以formula表示）}
+%\begin{block}{目標}
+%檢驗二種Gender的Literature之平均是否相等。
+%\end{block}
+%\begin{block}{\texttt{t.test()}的基本語法}
+%\verb+t.test(+
+%\verb+應變數 ~ 類別因子, data = 數據框, ...)+
+%\end{block}
+%\begin{verbatim}
+%t.test(Literature ~ Gender, data = dt, var = F)
+%# 預設雙尾；預設平均差為零；假設變方相等
+%\end{verbatim}
+%\end{frame}
 
 \begin{frame}[fragile]{盒形圖}
 
@@ -472,7 +491,7 @@ boxplot(Literature ~ Gender, data = dt,
 \end{verbatim}
 
 \begin{center}
-\includegraphics[width=0.6\textwidth]{Rplot-two-group.pdf}
+\includegraphics[width=0.75\textwidth]{Rplot-two-group.pdf}
 \end{center}
 \end{frame}
 
@@ -494,8 +513,8 @@ boxplot(Literature ~ Gender, data = dt,
 \end{block}
 
 \begin{verbatim}
-fit <- aov(Literature ~ Group, data = dt)
-summary(fit)
+fit.1 <- aov(Literature ~ Group, data = dt)
+summary(fit.1)
 TukeyHSD(fit, "Group")
 \end{verbatim}
 
@@ -513,7 +532,7 @@ boxplot(Literature ~ Group, data = dt,
 \end{verbatim}
 
 \begin{center}
-\includegraphics[width=0.6\textwidth]{Rplot-three-group.pdf}
+\includegraphics[width=0.75\textwidth]{Rplot-three-group.pdf}
 \end{center}
 \end{frame}
 
@@ -533,9 +552,9 @@ boxplot(Literature ~ Group, data = dt,
 \verb+lm(應變數 ~ 連續自變數, data = 數據框, ...)+
 \end{block}
 \begin{verbatim}
-fit <- lm(Literature ~ Science, data = dt)
-summary(fit)
-anova(fit)
+fit.2 <- lm(Literature ~ Science, data = dt)
+summary(fit.2)
+anova(fit.2)
 \end{verbatim}
 \end{frame}
 
@@ -565,22 +584,20 @@ cor.test(dt$Literature, dt$Science)
 \end{block}
 
 \begin{verbatim}
-fit <- lm(Literature ~ Science, data = dt)
 plot(Literature ~ Science, data = dt)
-abline(a = coef(fit)[1], b = coef(fit)[2], lty = 3)
+abline(a = coef(fit.2)[1], b = coef(fit.2)[2], lty = 3)
 \end{verbatim}
 \end{frame}
 
 \begin{frame}[fragile]{散佈圖}
 
 \begin{verbatim}
-fit <- lm(Literature ~ Science, data = dt)
 plot(Literature ~ Science, data = dt)
-abline(a = coef(fit)[1], b = coef(fit)[2], lty = 3)
+abline(a = coef(fit.2)[1], b = coef(fit.2)[2], lty = 3)
 \end{verbatim}
 
 \begin{center}
-\includegraphics[width=0.6\textwidth]{Rplot-sct.pdf}
+\includegraphics[width=0.75\textwidth]{Rplot-sct.pdf}
 \end{center}
 \end{frame}
 
@@ -689,7 +706,7 @@ abline(a = coef(fit)[1], b = coef(fit)[2], lty = 3)
 \end{frame}
 
 \begin{frame}[fragile]{R的官方套件庫}
-R官方收錄有六千多個的套件。\footnote{\url{http://cran.r-project.org/web/packages/available_packages_by_name.html}}可直接以 \verb+install.packages()+ 安裝。
+R官方收錄有六千多個的套件，\footnote{\url{http://cran.r-project.org/web/packages/available_packages_by_name.html}}可直接以 \verb+install.packages()+ 安裝。
 \begin{block}{我常用的套件}
 \begin{itemize}
 \item （一般／廣義）線性模型：gmodels、lmtest、aod
@@ -724,7 +741,7 @@ R官方收錄有六千多個的套件。\footnote{\url{http://cran.r-project.org
 
 \begin{frame}[fragile]{試著完成以下練習}
 \begin{enumerate}
-\item 前往 \url{http://goo.gl/YRCOaN}，下載 \verb+test.xlsx+。想辦法將它讓R可以讀取，並命名為 \verb+mydt0+ 的資料框。
+\item 前往 \url{http://goo.gl/YRCOaN}，下載 \verb+test.xlsx+。想辦法將它讓R讀取並命名為 \verb+mydt0+ 資料框。
 \item 
 \end{enumerate}
 \end{frame}

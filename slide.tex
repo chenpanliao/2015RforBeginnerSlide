@@ -7,54 +7,70 @@
 \definecolor{verb}{rgb}{0.0,0.3,0.0}
 \definecolor{white}{rgb}{1,1,1}
 
+% draft
+\usepackage[firstpage]{draftwatermark}
+\SetWatermarkFontSize{4cm}
+\SetWatermarkColor[rgb]{1,0.9,0.9}
+\SetWatermarkAngle{30}
+\setbeamercolor{background canvas}{bg=}%transparent canvas
 
 %% Beamer 版面配置
 \mode<presentation>
-%\usecolortheme{rose}
 
 \usetheme{Pittsburgh}
 %\usetheme[height = 1.4cm]{Rochester}
 %\usetheme{Singapore}
 \usecolortheme{orchid}
-
-
+%\usecolortheme{rose}
 %\useoutertheme[subsection=false]{miniframes}
 
-    \setbeamercolor{postit}{fg=black,bg=blue!10}
 
+% page number shown on top-right corner
+    \setbeamertemplate{headline}{%
+        \vskip3pt\hspace*{\fill}\insertframenumber\hspace*{3pt}\vspace*{-10pt}%
+    }
+    \setbeamercolor{headline}{fg=black!50, bg=black!50}
+    \setbeamerfont{headline}{size=\scriptsize}
+
+
+%    \setbeamercolor{postit}{bg=blue!10}
 %    \setbeamertemplate{headline}
 %    {%
 %      \begin{beamercolorbox}[wd=1\paperwidth]{postit}
 %        \vskip1pt\insertnavigation{1\paperwidth}\vskip1pt
-%      \end{beamercolorbox}%
+%      \end{beamercolorbox}\vspace*{-15pt}%
 %    }
 %
-%    \setbeamertemplate{frametitle}{\vskip-5pt\hskip0cm\insertframetitle\par}
-%    \setbeamercolor{frametitle}{fg=black, bg=black!80}
 
-\setbeamersize{text margin left=0.7cm, text margin right=0.7cm}
+% frametitle
+    \setbeamertemplate{frametitle}{\vspace*{8pt}\hspace*{\fill}\insertframetitle\par}
+%    \setbeamercolor{frametitle}{fg=black}
+
+\setbeamersize{text margin left=0.5cm, text margin right=0.5cm}
 
 \let\oldfootnote\footnote
 \renewcommand\footnote[1]{\hspace{-0.3em}\oldfootnote{\ignorespaces#1}\hspace{0.3em}}
 \setbeamerfont{footnote mark}{size=\tiny}
 \setbeamerfont{footnote}{size=\scriptsize}
-\setbeamertemplate{footnote}{\textsuperscript{\insertfootnotemark}\insertfootnotetext}
+%\setbeamertemplate{footnote}{\textsuperscript{\insertfootnotemark}\insertfootnotetext}
+
+%\setbeamerfont{page number in head/foot}{size = \scriptsize}
+%\setbeamertemplate{footline}[frame number]{}
 
 \usefonttheme{structurebold}
 
 
 \beamertemplatenavigationsymbolsempty % 去除 Beamer 導覽工具列
-\setbeamertemplate{footline}[frame number]{}
 
 %\DefineVerbatimEnvironment{MyVerbatim}{Verbatim}{fontsize=\tiny}
 
 %% 西文字配置
-\linespread{1.1}
+\linespread{1.2}
 \usepackage{arevmath}
 \usepackage[no-math]{fontspec}
 \setmainfont[Mapping=tex-text, LetterSpace=0, BoldFont={Lato Bold}]{Lato}
 \setsansfont[Mapping=tex-text, LetterSpace=0, BoldFont={Lato Bold}]{Lato}
-\setmonofont[Color=verb, Scale=0.95, LetterSpace=-1, BoldFeatures={Color=white}, BoldFont={Consolas}]{Consolas}
+\setmonofont[Color=verb, Scale=0.95, LetterSpace=-2, BoldFeatures={Color=white}, BoldFont={Consolas}]{Consolas}
 %\setmonofont[Color=verb, Scale=0.9, LetterSpace=-0]{PT Mono}
 \usefonttheme{professionalfonts}
 
@@ -79,19 +95,37 @@
 \author{廖鎮磐 \texttt{<andrew.43@gmail.com>}}
 \institute{東海大學生命科學系}
 \date{2015年台灣生態研究網年會 -- 2015年3月14日於蓮華池研究中心}
-
+\hypersetup{
+    bookmarks=true,         % show bookmarks bar?
+    unicode=true,           % non-Latin characters in Acrobat’s bookmarks
+    pdftoolbar=true,        % show Acrobat’s toolbar?
+    pdfmenubar=true,        % show Acrobat’s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitH},
+    pdfpagelayout={OneColumn},
+%    pdfpagemode={FullScreen},
+    pdfpagemode={UseOutlines},
+    pdfdisplaydoctitle=true,
+    pdfinfo={License={Attribution-ShareAlike 4.0 International}},
+    pdftitle={初學R語言的60分鐘},    % title
+    pdfauthor={廖鎮磐 <andrew.43@gmail.com>},     % author
+    pdflang={zh-TW},
+    xetex
+}
 
 \setbeamertemplate{title page}{
   \vskip0pt plus 1filll
-    \huge{初學\hspace{0.2em}\includegraphics[width=3cm]{Rlogo-novo.pdf}\hspace{0.2em}語言的60分鐘}\\[20pt]
+    \huge{\usebeamercolor[fg]{title}初學\hspace{0.2em}\includegraphics[width=3cm]{Rlogo-novo.png}\hspace{0.2em}語言的60分鐘}\\[8pt]
     \normalsize{廖鎮磐 \texttt{<andrew.43@gmail.com>}\\東海大學生命科學系}\\[10pt]
-    \normalsize{2015年台灣生態研究網年會\\ 2015年3月14日於蓮華池研究中心}\\[10pt]
+    \normalsize{2015年台灣生態研究網年會\\ 2015年3月14日於蓮華池研究中心}
     \vskip0pt plus 0.5filll
-    \tiny{
-     \includegraphics[width=2cm]{cc.pdf} \newline
-	 本文件採用姓名標示-相同方式分享 4.0 國際授權（CC BY-SA 4.0，詳情請見 \url{http://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW}）。}\\
-	\tiny{下載本投影片及資料檔案：\url{https://www.dropbox.com/sh/7p9cluglptyk25a/AAAmPWrSMVf_tC9-cL4JSscCa?dl=0} 
-	}
+    {\scriptsize
+         © 2015 廖鎮磐（Chen-Pan Liao）。\\[8pt]
+        \vskip-1pt\includegraphics[height=5ex]{by-sa.pdf} \newline
+	 本文件採用姓名標示-相同方式分享 4.0 國際授權（CC BY-SA 4.0）。\footnote{詳情請見 \url{http://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW}。}\\[-6pt]
+	 歡迎下載本投影片及資料檔案。\footnote{\url{https://www.dropbox.com/sh/7p9cluglptyk25a/AAAmPWrSMVf_tC9-cL4JSscCa?dl=0}} 
+	 \vspace{10pt}
+    }
 }
 
 
@@ -108,7 +142,6 @@
 } 
 
 \begin{document}
-
 
 \begin{frame}
 \titlepage
@@ -161,8 +194,8 @@
 \item 到達 \url{http://www.r-project.org/}
 \item 點選Download, Packages (CRAN) \\
 \item 選擇作業平台
-	\begin{center}\includegraphics[width=0.75\textwidth]{downloadR.png}\end{center}
 \end{enumerate}
+	\begin{center}\includegraphics[width=0.6\textwidth]{downloadR.png}\end{center}
 \end{frame}
 
 \begin{frame}[fragile]{選用適當的R程式編輯器}
@@ -218,15 +251,16 @@
 
 \section{R的函數}\subsection{}
 
-\begin{frame}[fragile]{什麼是程式語言的函數（function）}
+\begin{frame}[fragile]{什麼是程式語言的函數}
 
 \begin{block}{使用某函數的語法通則}
 \verb+函數名(第一引數名 = 某值, 第二引數名 = 某值, ...)+ 
 \end{block}
 
 \begin{itemize}
+\item 程式語言的函數（function）提供一個特定的功能，可以有引數（輸入值）和回傳值（輸出值）。
 \item 操作R的過程，幾乎就是使用各種function的過程。
-\item 就像數學裡的函數一樣：把x放到f裡，得到一個f(x)。
+\item 若需要進行某一套程式多次，可以將之改寫成函數以利重覆使用。
 \item 試試看 \verb+seq(from = 0, to = 9)+ 的回傳值是什麼？
 \item 用中文說明上面的程式：「在 \verb+seq()+ 這個function中，第一個引數名為 \verb+from+，表示起始值，其值為0；第二個引數名為 \verb+to+，表示終點值，其值是9。」
 \end{itemize}
@@ -394,6 +428,7 @@
 \section{統計分析與繪圖}\subsection{}
 
 \begin{frame}[fragile]{描述性統計}
+常見的描述性統計函數：
 \begin{verbatim}
 length(dt$Science)   #個數
 mean(dt$Science)     #平均數
@@ -413,9 +448,7 @@ quantile(dt$Science) #百分位數
 
 \begin{frame}[fragile]{單樣本\emph{T}檢驗}
 
-\begin{block}{目標}
-檢驗Science的平均是否為60。
-\end{block}
+目標：檢驗Science的平均是否為60。
 \begin{block}{\texttt{t.test}的基本語法}
 \verb+t.test(+
   \verb+資料, alternative = "t" 或 "l" 或 "g",+
@@ -429,12 +462,10 @@ t.test(dt$Science, alternative = "l", mu = 60) #左單尾
 \end{frame}
 
 \begin{frame}[fragile]{雙樣本成對\emph{T}檢驗}
-\begin{block}{目標}
-檢驗Literature和Science差之平均是否為0。
-\end{block}
+目標：檢驗Literature和Science差之平均是否為0。
 \begin{block}{\texttt{t.test()}的基本語法}
 \verb+t.test(資料一, 資料二, alternative = "t" 或 "l" 或 "g",+
-\verb+mu = 假說中配對差的平均數, pair = true, ...)+
+\verb+       mu = 假說中配對差的平均數, pair = true, ...)+
 \end{block}
 \begin{verbatim}
 t.test(dt$Literature, dt$Science, pair = T)
@@ -444,24 +475,21 @@ t.test(dt$Literature, dt$Science, pair = T)
 
 
 \begin{frame}[fragile]{雙樣本獨立\emph{T}檢驗}
-\begin{block}{目標}
-檢驗二種Gender的Literature之平均是否相等。
-\end{block}
+目標：檢驗二種Gender的Literature之平均是否相等。
 %\verb+tapply(dt$Literature, dt$Gender, mean) #分組平均+
 %\verb+tapply(dt$Literature, dt$Gender, sd)   #分組標準差+
 \begin{block}{\texttt{t.test()}的基本語法}
-\verb+t.test(+
-\verb+資料一, 資料二, alternative = "t" 或 "l" 或 "g",+
-\verb+mu = 假說中平均數的差, pair = F, var.equal = T, ...)+
-\verb+t.test(+
-\verb+應變數 ~ 類別因子, data = 數據框, ...)+
+\verb+t.test(資料一, 資料二, alternative = "t" 或 "l" 或 "g",+\\
+\verb+       mu = 假說中平均數的差, +\\
+\verb+       pair = F, var.equal = T 或 F, ...)+
+\verb+t.test(應變數 ~ 僅二類的類別因子, data = 資料框, ...)+
 \end{block}
 \begin{verbatim}
 t.test(
   subset(dt, Gender == "m")$Literature,
   subset(dt, Gender == "f")$Literature,
   var.equal = F)
-t.test(Literature ~ Gender, data = dt, var.equal = F)
+t.test(Literature ~ Gender, data = dt, var.equal = T)
 \end{verbatim}
 \end{frame}
 %
@@ -471,7 +499,7 @@ t.test(Literature ~ Gender, data = dt, var.equal = F)
 %\end{block}
 %\begin{block}{\texttt{t.test()}的基本語法}
 %\verb+t.test(+
-%\verb+應變數 ~ 類別因子, data = 數據框, ...)+
+%\verb+應變數 ~ 類別因子, data = 資料框, ...)+
 %\end{block}
 %\begin{verbatim}
 %t.test(Literature ~ Gender, data = dt, var = F)
@@ -502,19 +530,17 @@ boxplot(Literature ~ Gender, data = dt,
 %dev.off()
 
 \begin{frame}[fragile]{單因子變異數分析}
-\begin{block}{目標}
-檢驗三種Group的Literature之平均是否相等，並進行Tukey事後檢驗。
-\end{block}
+目標：檢驗三種Group的Literature之平均是否相等，並進行Tukey事後檢驗。
 
 \begin{block}{\texttt{aov()}和\texttt{TukeyHSD()}的基本語法}
 \verb+aov(+
-\verb+應變數 ~ 三組以上類別自變數, data = 數據框, ...)+\\
+\verb+應變數 ~ 三組以上類別自變數, data = 資料框, ...)+\\
 \verb+TukeyHSD(aov物件, "分組因子", ...)+
 \end{block}
 
 \begin{verbatim}
 fit.1 <- aov(Literature ~ Group, data = dt)
-summary(fit.1)
+summary(fit.1) # Type I sum of square
 TukeyHSD(fit, "Group")
 \end{verbatim}
 
@@ -545,29 +571,29 @@ boxplot(Literature ~ Group, data = dt,
 
 
 \begin{frame}[fragile]{簡單線性迴歸}
-\begin{block}{目標}
-建立Science對應Literature的簡單線性迴歸模型，並檢驗斜率是否為零。
-\end{block}
+目標：建立Science對應Literature的簡單線性迴歸模型，並檢驗斜率是否為零。
 \begin{block}{\texttt{lm()}的基本語法}
-\verb+lm(應變數 ~ 連續自變數, data = 數據框, ...)+
+\verb+lm(應變數 ~ 連續自變數, data = 資料框, ...)+
 \end{block}
 \begin{verbatim}
 fit.2 <- lm(Literature ~ Science, data = dt)
 summary(fit.2)
-anova(fit.2)
+anova(fit.2) # Type I sum of square
 \end{verbatim}
 \end{frame}
 
 
 \begin{frame}[fragile]{簡單線性相關}
-\begin{block}{目標}
-計算Science與Literature的簡單線性相關係數是否為零。
-\end{block}
+目標：計算Science與Literature的簡單線性相關係數是否為零。
 \begin{block}{\texttt{cor.test()}的基本語法}
-\verb+lm(第一群資料, 第二群資料, ...)+
+\verb+cor.test(第一群資料, 第二群資料,+
+\verb+         alternative = "t" 或 "l" 或 "g", ...)+
+\verb+cor.test(第一群資料 ~ 第二群資料, data = 資料框, ...)+
 \end{block}
 \begin{verbatim}
 cor.test(dt$Literature, dt$Science)
+cor.test(Literature ~ Science, data = dt)
+cor.test(Science ~ Literature, data = dt)
 \end{verbatim}
 \end{frame}
 
@@ -575,12 +601,12 @@ cor.test(dt$Literature, dt$Science)
 \begin{frame}[fragile]{散佈圖}
 
 \begin{block}{\texttt{coef()}的基本語法}
-\verb+coef(lm物件, ...)+ 取出各迴歸係數
+\verb+coef(lm物件, ...)+  \# 取出各迴歸係數
 \end{block}
 
 \begin{block}{\texttt{plot.formula()}和\texttt{abline()}的基本語法}
 \verb+plot(縱軸資料 ~ 橫軸資料, data = 資料框, ...)+\oldfootnote{\texttt{plot.formula()}可簡寫成\texttt{plot()}。}\\
-\verb+abline(a = 截距, b = 斜率)+ 畫上迴歸線
+\verb+abline(a = 截距, b = 斜率)+ \# 畫上迴歸線
 \end{block}
 
 \begin{verbatim}
@@ -623,7 +649,8 @@ abline(a = coef(fit.2)[1], b = coef(fit.2)[2], lty = 3)
 \begin{itemize}
 \item[Q] 我怎麼知道我做對了？
 \item[A] 拿出你的統計學課本的例題，用R做做看。
-\item[Q] R畫的圖想做更多調整$\cdots\cdots$
+\end{itemize}
+\begin{itemize}\item[Q] R畫的圖想做更多調整$\cdots\cdots$
 \item[A1] 這件工作不是非常容易，需要經驗。有空看看 \verb+par()+ 和 \verb+plot()+ 的使用手冊。
 \item[A2] 初學者可以先用 R 畫好概要圖，再以其它圖片編輯軟體後製。
 \end{itemize}
@@ -635,14 +662,14 @@ abline(a = coef(fit.2)[1], b = coef(fit.2)[2], lty = 3)
 
 \begin{frame}{阿盤的個人學習心得}
 \begin{itemize}
-\item 修使用R的課。
+\item 修習使用R的課。
 \item 多「玩」。把函數裡的 Example 玩一玩、改一改。
 \item 肯問人。逛逛網路教學和論壇。
 \item 買（可能不只一本）書。
 \item 拿出統計學課本的例題，用R做做看。
 \item 做過的程式碼要建檔，方便日後使用。
 \item 卡關時，先用英文問Google大神。
-\item 做出答案時，不要直接相信這是正解。應該以專業人士、書籍、網頁資料驗證。
+\item 做出答案時，不要直接相信這是正解，應該以專業人士、書籍、網頁資料驗證。
 \end{itemize}
 \end{frame}
 
@@ -722,27 +749,36 @@ R官方收錄有六千多個的套件，\footnote{\url{http://cran.r-project.org
 \begin{itemize}
 \item[Q] 如何找能做某件事的套件？
 \item[A] 請Google大神幫你找最快。真的。
-
+\end{itemize}
+\begin{itemize}
 \item[Q] 阿盤學多久才叫「上手」、「有生產力」？
 \item[A] 自學半年以上，但我今天就要把八成功力都傳給你了！
-\item[Q] 聽到這裡，我想認輸了$\cdots\cdots$我想重回用滑鼠搞定的世界。
+\end{itemize}
+\begin{itemize}\item[Q] 聽到這裡，我想認輸了$\cdots\cdots$我想重回用滑鼠搞定的世界。
 \item[A] 只要是適合自己的工具，就是好工具。
 \end{itemize}
 \end{frame}
 
 \section{小試身手}\subsection{}
 
-\begin{frame}[fragile]{今日的總複習}
-\begin{description}[longest item]
-\item[]
-\end{description}
+\begin{frame}{今日的總複習}
+\begin{itemize}
+\item 建立一個（適合自己的）R工作環境
+\item 了解R的函數與如何閱讀其使用手冊
+\item R如何讀取並整理資料
+\item 練習常見的統計方法
+\item 讓自己更厲害的資源
+\end{itemize}
 \end{frame}
 
 
-\begin{frame}[fragile]{試著完成以下練習}
+\begin{frame}[shrink=8, fragile]{按今日課程試著完成以下練習}
+想辦法以R讀取 \verb+nation-data.xlsx+ 的內容並命名為 \verb+mydt0+ 資料框。以檔案中所有國家為樣本完成以下分析。
 \begin{enumerate}
-\item 前往 \url{http://goo.gl/YRCOaN}，下載 \verb+test.xlsx+。想辦法將它讓R讀取並命名為 \verb+mydt0+ 資料框。
-\item 
+\item 利用雙樣本配對\emph{T}檢驗，考驗 \verb+Mortality.rate.child+ 之平均是否顯著高於 \verb+Mortality.rate.newborn+ 之平均。提示：不是雙尾檢驗。
+\item 以 \verb+GDP.10000+ 為組別，計算 \verb+HIV.rate+ 在各組的平均值和標準偏差，並利用雙樣本獨立\emph{T}檢驗比較組間的平均是否顯著不等，以及繪製對應的盒形圖。
+\item 以 \verb+Continent+ 為組別，計算 \verb+Age.ave+ 在各組的平均值和標準偏差，並利用單因子變異數分析比較組間的平均差異是否顯著不等，以及繪製對應的盒形圖。
+\item 以 \verb+HIV.rate+ 為反應變數（應變數），\verb+Age.ave+ 為解釋變數（自變數），建立簡單線性迴歸模型，並檢驗斜率及相關係數是否顯著不為零，以及繪製對應之散佈圖。
 \end{enumerate}
 \end{frame}
 

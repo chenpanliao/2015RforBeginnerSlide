@@ -62,7 +62,8 @@
 
 \beamertemplatenavigationsymbolsempty % 去除 Beamer 導覽工具列
 
-%\DefineVerbatimEnvironment{MyVerbatim}{Verbatim}{fontsize=\tiny}
+\DefineVerbatimEnvironment{RC}{Verbatim}{fontsize=\small, baselinestretch=0.9, samepage=true}
+\DefineVerbatimEnvironment{R}{Verbatim}{fontsize=\scriptsize, frame=single, baselinestretch=0.8, samepage=true}
 
 %% 西文字配置
 \linespread{1.2}
@@ -461,7 +462,7 @@ t.test(dt$Science, alternative = "l", mu = 60) #左單尾
 \end{verbatim}
 \end{frame}
 
-\begin{frame}[fragile]{雙樣本成對\emph{T}檢驗}
+\begin{frame}[fragile]{成對樣本\emph{T}檢驗}
 目標：檢驗Literature和Science差之平均是否為0。
 \begin{block}{\texttt{t.test()}的基本語法}
 \verb+t.test(資料一, 資料二, alternative = "t" 或 "l" 或 "g",+
@@ -474,7 +475,7 @@ t.test(dt$Literature, dt$Science, pair = T)
 \end{frame}
 
 
-\begin{frame}[fragile]{雙樣本獨立\emph{T}檢驗}
+\begin{frame}[fragile]{獨立雙樣本\emph{T}檢驗}
 目標：檢驗二種Gender的Literature之平均是否相等。
 %\verb+tapply(dt$Literature, dt$Gender, mean) #分組平均+
 %\verb+tapply(dt$Literature, dt$Gender, sd)   #分組標準差+
@@ -492,20 +493,7 @@ t.test(
 t.test(Literature ~ Gender, data = dt, var.equal = T)
 \end{verbatim}
 \end{frame}
-%
-%\begin{frame}[fragile]{雙樣本獨立\emph{T}檢驗（以formula表示）}
-%\begin{block}{目標}
-%檢驗二種Gender的Literature之平均是否相等。
-%\end{block}
-%\begin{block}{\texttt{t.test()}的基本語法}
-%\verb+t.test(+
-%\verb+應變數 ~ 類別因子, data = 資料框, ...)+
-%\end{block}
-%\begin{verbatim}
-%t.test(Literature ~ Gender, data = dt, var = F)
-%# 預設雙尾；預設平均差為零；假設變方相等
-%\end{verbatim}
-%\end{frame}
+
 
 \begin{frame}[fragile]{盒形圖}
 
@@ -778,11 +766,81 @@ R官方收錄有六千多個的套件，\footnote{\url{http://cran.r-project.org
 \begin{frame}[shrink=8, fragile]{按今日課程試著完成以下練習}
 想辦法以R讀取 \verb+nation-data.xlsx+ 的內容並命名為 \verb+mydt0+ 資料框。以檔案中所有國家為樣本完成以下分析。
 \begin{enumerate}
-\item 利用雙樣本配對\emph{T}檢驗，考驗 \verb+Mortality.rate.child+ 之平均是否顯著高於 \verb+Mortality.rate.newborn+ 之平均。提示：不是雙尾檢驗。
-\item 以 \verb+GDP.10000+ 為組別，計算 \verb+HIV.rate+ 在各組的平均值和標準偏差，並利用雙樣本獨立\emph{T}檢驗比較組間的平均是否顯著不等，以及繪製對應的盒形圖。
+\item 利用配對樣本\emph{T}檢驗，考驗 \verb+Mortality.rate.child+ 之平均是否顯著高於 \verb+Mortality.rate.newborn+ 之平均。提示：不是雙尾檢驗。
+\item 以 \verb+GDP.10000+ 為組別，計算 \verb+HIV.rate+ 在各組的平均值和標準偏差，並利用獨立雙樣本\emph{T}檢驗比較組間的平均是否顯著不等，以及繪製對應的盒形圖。
 \item 以 \verb+Continent+ 為組別，計算 \verb+Age.ave+ 在各組的平均值和標準偏差，並利用單因子變異數分析比較組間的平均差異是否顯著不等，以及繪製對應的盒形圖。
 \item 以 \verb+HIV.rate+ 為反應變數（應變數），\verb+Age.ave+ 為解釋變數（自變數），建立簡單線性迴歸模型，並檢驗斜率及相關係數是否顯著不為零，以及繪製對應之散佈圖。
 \end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile, allowframebreaks]{參考解法}
+
+\begin{RC}
+> setwd("somewhere") # 更變目前路徑
+> mydt0 <- read.csv("nation-data.csv") # 讀檔
+> mydt0
+\end{RC}
+
+\begin{R}
+                Nation Continent HIV.rate Age.ave Mortality.rate.child Mortality.rate.newborn GDP.10000
+1              Algeria   1Africa     0.10  72.904            18.090586             24.1553061       low
+2              Morocco   1Africa     0.10  71.882            13.156450             23.3366489       low
+3               Zambia   1Africa    13.50  48.513           105.545396             36.0518961       low
+...
+71     Slovak Republic   4Europe     0.06  75.242             4.203745              3.2028535       low
+72              Latvia   4Europe     0.70  73.039             4.064162              5.0153487       low
+\end{R}
+
+\framebreak 
+
+\begin{RC}
+> x.1 <- mydt0$Mortality.rate.child
+> x.2 <- mydt0$Mortality.rate.newborn
+> # two-sample paired T-test
+> t.test(x.1, x.2, paired = T, alternative = "g")
+> t.test(x.2, x.1, paired = T, alternative = "l") # 也可
+\end{RC}
+
+\begin{R}
+	Paired t-test
+
+data:  x.1 and x.2
+t = 2.1011, df = 71, p-value = 0.01959
+alternative hypothesis: true difference in means is greater than 0
+95 percent confidence interval:
+ 0.8812246       Inf
+sample estimates:
+mean of the differences 
+               4.260981
+\end{R}
+
+\framebreak 
+
+\begin{RC}
+> mean(x.1) ; mean(x.2) ; sd(x.1) ; sd(x.2)
+\end{RC}
+
+\begin{R}
+[1] 17.32948
+[1] 13.0685
+[1] 26.54228
+[1] 13.36349
+\end{R}
+
+\begin{RC}
+> boxplot(x.1, x.2, ylab = "Mortality rate (%)",
++ xlab = "Group", xaxt = "n")
+> axis(1, 1:2, labels = c("Child", "Newborn"))
+\end{RC}
+
+\begin{center}
+\includegraphics[width=0.5\textwidth]{Rplot-ex-2sample.pdf}
+\end{center}
+
+
+
+\framebreak 
+
 \end{frame}
 
 \end{document}

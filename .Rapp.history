@@ -1,17 +1,3 @@
-install.packages("pwr")
-library(pwr)
-pwr.t.test(d=1,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
-pwr.t.test(d=10,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
-pwr.t.test(d=3,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
-pwr.t.test(d=0.5,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
-pwr.t.test(d=0.25,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
-pwr.t.test(d=0.1,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
-pwr.t.test(d=0.15,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
-pwr.t.test(d=0.2,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
-pwr.t.test(d=0.18,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
-pwr.t.test(d=0.17,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
-pwr.t.test(d=0.19,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
-pwr.t.test(d=0.185,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
 pwr.t.test(d=0.184,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
 pwr.t.test(d=0.1855,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
 pwr.t.test(d=0.1854,power=0.45,sig.level=0.05,type="one.sample",alternative="two.sided")
@@ -304,44 +290,185 @@ seq(0, 9)
 install.packages("Matrix")
 install.packages("Vegan")
 install.packages("vegan")
-dt <- read.csv("exam.csv")
-dt
-?t.test
-t.test(dt$Science, alternative = "t", mu = 60)
-dt
-t.test(dt$Literature, dt$Science, pair = T)  # 預設雙尾；預設平均差為零
-df
-dt
-t.test(subset(dt, gender == "m")$Literature, subset(dt, gender == "f")$Literature, var.equal = F)
-t.test(#
-  subset(dt, Gender == "m")$Literature,#
-  subset(dt, Gender == "f")$Literature,#
-  var.equal = F)#
-# 預設雙尾；預設平均差為零
-t.test(Literature ~ Gender, data = dt, var = F)
-boxplot(Literature ~ Gender, data = dt)
-boxplot(Literature ~ Gender, data = dt, ylab="Literature score", xlab="Gender")
-boxplot(Literature ~ Gender, data = dt, ylab="Literature score", xlab="Gender")
-boxplot(Literature ~ Gender, data = dt, ylab="Literature score", xlab="Gender")
-dt
-fit <- aov(Literature ~ Group, data = dt)#
-summary(fit)
-tukeyHSD(fit)
-?tukey
-?TukeyHSD
-fit <- aov(Literature ~ Group, data = dt)#
-summary(fit)#
-TukeyHSD(fit, "Group")#
-plot(TukeyHSD(fm1, "Group"))
-fit <- aov(Literature ~ Group, data = dt)#
-summary(fit)#
-TukeyHSD(fit, "Group")#
-plot(TukeyHSD(fit, "Group"))
-?TukeyHSD
-boxplot(#
-  Literature ~ Group, data = dt, #
-  ylab = "Literature score", xlab = "Group"#
+?eval
+"a <- 1"
+expression("a <- 1")
+eval(expression("a <- 1"))
+eval(as.expression("a <- 1"))
+as.expression("a <- 1")
+?expression
+parse(text = "a <- 1")
+eval( parse(text = "a <- 1") )
+a
+eval( parse(text = "code字串") )
+run <- c("net", "fsns", "'flns")#
+for( i in run) {#
+	txt <- paste0(i, "Var_sum1=sum(", i, "_people")#
+	cat(txt, "\n")#
+	eval(parse(text = txt))#
+}
+paste0(i, "Var_sum1=sum(", i, "_people")
+paste0(i, "Var_sum1=sum(", i, "_people)")
+run <- c("net", "fsns", "'flns")#
+for( i in run) {#
+	txt <- paste0(i, "Var_sum1=sum(", i, "_people)")#
+	cat(txt, "\n")#
+	eval(parse(text = txt))#
+}
+run <- c("net", "fsns", "'flns")#
+for( i in run) {#
+	txt <- paste0(i, "Var_sum1=sum(", i, "_people)")#
+	cat(txt, "\n")#
+#	eval(parse(text = txt))#
+}
+run <- c("net", "fsns", "flns")#
+for( i in run) {#
+	txt <- paste0(i, "Var_sum1=sum(", i, "_people)")#
+	cat(txt, "\n")#
+#	eval(parse(text = txt))#
+}
+a <- 1
+a
+1 -> b
+b
+a + b
+ID <- 1:100
+Subject <- 1:100
+?binom.test
+matrix(c(21, 5, 0, 24),2)
+m <- matrix(c(21, 5, 0, 24),2)
+mcnemar.test(m)
+m <- matrix(c(210, 5, 0, 240),2)
+mcnemar.test(m)
+m <- matrix(c(210, 50, 20, 240),2)
+mcnemar.test(m)
+binom.test(50,70)
+m <- matrix(c(210, 50, 550, 240),2)
+m <- matrix(c(210, 50, 55, 240),2)
+binom.test(50,70)
+mcnemar.test(m)
+binom.test(50,55)
+binom.test(50,105)
+1/0.95
+c(1.1,2,5,3,1.1)
+table(c(1.1,2,5,3,1.1))
+length(table(c(1.1,2,5,3,1.1)))
+is.boolean
+is.boolen
+is.boolan
+is.boolaenn
+T
+class(T)
+?boolean
+?is.boolean
+??boolean
+?T
+is.logical(T)
+is.logical(1)
+is.logical(0)
+??combi
+combn(letters[1:4], 2)
+combn(1:10, 9)
+combn(1:30, 29)
+x.w <- scan()
+x.b <- scan()
+wilcox.test(x.w, x.b)
+?wilcox.test
+wilcox.test(x.w, x.b, exact = FALSE, correct = FALSE)
+update.packages()
+qnorm(0.27)
+qnorm(0.28)
+qnorm(0.27)
+qnorm(0.26)
+qnorm(0.27)
+setwd("~/2015RforBeginnerSlide")#
+mydt0 <- read.csv("nation-data.csv")#
+mydt0
+x.1 <- mydt0$Mortality.rate.child
+x.2 <- mydt0$Mortality.rate.newborn
+t.test(x1, x2, alternative = "g")
+t.test(x.1, x.2, alternative = "g")
+mean(x.1)
+mean(x.2)
+sd(x.1)
+sd(x.2)
+boxplot(x1,x2)
+boxplot(x.1, x.2)
+t.test(x.1, x.2, paired = T, alternative = "g")
+t.test(x.2, x.1, paired = T, alternative = "l")
+mean(x.1) ; mean(x.2) ; sd(x.1) ; sd(x.2)
+?boxplot
+boxplot(x.1, x.2)
+boxplot(x.1, x.2, ylab = "Mortality rate (%)")
+boxplot(x.1, x.2, ylab = "Mortality rate (%), xlab="")
 )
-t.test(Literature ~ Gender, data = dt, var = F)
-4^2
-100^0.5
+boxplot(x.1, x.2, ylab = "Mortality rate (%)", xlab="")
+boxplot(x.1, x.2, ylab = "Mortality rate (%)", xlab="")
+?boxplot
+bx <- boxplot(weight ~ group, data = PlantGrowth,#
+              subset = group == "ctrl", plot = FALSE)#
+bxp(bx, show.names=TRUE)#
+par(op)
+op <- par(mfrow = c(1, 2))#
+#
+## single group -- no label#
+boxplot (weight ~ group, data = PlantGrowth, subset = group == "ctrl")#
+## with label#
+bx <- boxplot(weight ~ group, data = PlantGrowth,#
+              subset = group == "ctrl", plot = FALSE)#
+bxp(bx, show.names=TRUE)#
+par(op)
+op <- par(mfrow = c(1, 2))#
+#
+## single group -- no label#
+boxplot (weight ~ group, data = PlantGrowth, subset = group == "ctrl")#
+## with label#
+bx <- boxplot(weight ~ group, data = PlantGrowth,#
+              subset = group == "ctrl", plot = FALSE)#
+bxp(bx, show.names=TRUE)#
+par(op)
+?axis
+boxplot(x.1, x.2, ylab = "Mortality rate (%)", xlab="")
+bx <- boxplot(x.1, x.2, ylab = "Mortality rate (%)", xlab="")
+axis(1, bx, c("Child", "Newborn"))
+bx <- boxplot(x.1, x.2, ylab = "Mortality rate (%)", xlab="", xaxt = "n")
+axis(1, bx, c("Child", "Newborn"))
+axis(2, bx, c("Child", "Newborn"))
+axis(1, bx, c("Child", "Newborn"))
+axis(2, xaxp=c(1,2), c("Child", "Newborn"))
+plot(1:10, xaxt = "n")#
+axis(1, xaxp = c(2, 9, 7))
+bx <- boxplot(x.1, x.2, ylab = "Mortality rate (%)", xlab="", xaxt = "n")
+axis(2, label = c("Child", "Newborn"))
+axis(2, labels = c("Child", "Newborn"))
+?axis
+axis(2, labels = c("Child", "Newborn"), pos=bx)
+bx <- boxplot(x.1, x.2, ylab = "Mortality rate (%)", xlab="")
+axis(2, labels = c("Child", "Newborn"))
+axis(2, at = bx, labels = c("Child", "Newborn"))
+axis(1, at = bx, labels = c("Child", "Newborn"))
+axis(1, 1:2, labels = c("Child", "Newborn"))
+boxplot(x.1, x.2, ylab = "Mortality rate (%)", xlab="")
+axis(1, 1:2, labels = c("Child", "Newborn"))
+bx <- boxplot(x.1, x.2, ylab = "Mortality rate (%)", xlab="Group", xaxt = "n")
+axis(1, 1:2, labels = c("Child", "Newborn"))
+bx <- boxplot(x.1, x.2, ylab = "Mortality rate (%)",
+xlab = "Group", xaxt = "n")
+axis(1, 1:2, labels = c("Child", "Newborn"))
+xlab = "Group", xaxt = "n")
+bx <- boxplot(x.1, x.2, ylab = "Mortality rate (%)",
+xlab = "Group", xaxt = "n")
+bx <- boxplot(x.1, x.2, ylab = "Mortality rate (%)",
+xlab = "Group", xaxt = "n")
+axis(1, 1:2, labels = c("Child", "Newborn"))
+boxplot(x.1, x.2, ylab = "Mortality rate (%)",
+xlab = "Group", xaxt = "n")
+axis(1, 1:2, labels = c("Child", "Newborn"))
+par(mar=c(4,4,0,0)+0.1)
+boxplot(x.1, x.2, ylab = "Mortality rate (%)",
+axis(1, 1:2, labels = c("Child", "Newborn"))
+xlab = "Group", xaxt = "n")
+par(mar=c(4,4,0,0)+0.1)
+boxplot(x.1, x.2, ylab = "Mortality rate (%)",
+xlab = "Group", xaxt = "n")
+axis(1, 1:2, labels = c("Child", "Newborn"))

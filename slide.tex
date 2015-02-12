@@ -70,7 +70,7 @@
 \usepackage[no-math]{fontspec}
 \setmainfont[Mapping=tex-text, LetterSpace=0, BoldFont={Lato Bold}]{Lato}
 \setsansfont[Mapping=tex-text, LetterSpace=0, BoldFont={Lato Bold}]{Lato}
-\setmonofont[Color=verb, Scale=0.95, LetterSpace=-2, BoldFeatures={Color=white}, BoldFont={Consolas}]{Consolas}
+\setmonofont[Color=verb, Scale=0.975, LetterSpace=-2, BoldFeatures={Color=white}, BoldFont={Consolas}]{Consolas}
 %\setmonofont[Color=verb, Scale=0.9, LetterSpace=-0]{PT Mono}
 \usefonttheme{professionalfonts}
 
@@ -81,7 +81,7 @@
 
 %\setCJKmonofont[Scale=1, BoldFont={Osaka-Mono}, Color=verb]{Osaka-Mono}
 \setCJKmainfont[Scale=1, BoldFont={Heiti TC Medium}]{Heiti TC Medium}
-\setCJKmonofont[Scale=0.95, BoldFont={DFYuanMedium-B5}, Color=verb]{DFYuanMedium-B5}
+\setCJKmonofont[Scale=0.975, BoldFont={DFYuanMedium-B5}, Color=verb]{DFYuanMedium-B5}
 
 %\setCJKmainfont[Scale=1, BoldFont={LiHei Pro}]{LiHei Pro}
 %\setCJKmonofont[Scale=1, BoldFont={LiHei Pro}, Color=verb]{LiHei Pro}
@@ -91,10 +91,10 @@
 %\setCJKmonofont[Scale=1, BoldFont={Lantinghei TC Heavy}, Color=verb]{Lantinghei TC}
 
 
-\title{初學R語言的60分鐘}
-\author{廖鎮磐 \texttt{<andrew.43@gmail.com>}}
-\institute{東海大學生命科學系}
-\date{2015年台灣生態研究網年會 -- 2015年3月14日於蓮華池研究中心}
+%\title{初學R語言的60分鐘}
+%\author{廖鎮磐 \texttt{<andrew.43@gmail.com>}}
+%\institute{東海大學生命科學系}
+%\date{2015年台灣生態研究網年會 -- 2015年3月14日於蓮華池研究中心}
 \hypersetup{
     bookmarks=true,         % show bookmarks bar?
     unicode=true,           % non-Latin characters in Acrobat’s bookmarks
@@ -108,7 +108,7 @@
     pdfdisplaydoctitle=true,
     pdfinfo={License={Attribution-ShareAlike 4.0 International}},
     pdftitle={初學R語言的60分鐘},    % title
-    pdfauthor={廖鎮磐 <andrew.43@gmail.com>},     % author
+    pdfauthor={廖鎮磐 (Chen-Pan Liao) <andrew.43@gmail.com>},     % author
     pdflang={zh-TW},
     xetex
 }
@@ -119,10 +119,10 @@
     \normalsize{廖鎮磐 \texttt{<andrew.43@gmail.com>}\\東海大學生命科學系}\\[10pt]
     \normalsize{2015年台灣生態研究網年會\\ 2015年3月14日於蓮華池研究中心}
     \vskip0pt plus 0.5filll
-    {\scriptsize
+    {\footnotesize
          © 2015 廖鎮磐（Chen-Pan Liao）。\\[8pt]
-        \vskip-1pt\includegraphics[height=5ex]{by-sa.pdf} \newline
-	 本文件採用姓名標示-相同方式分享 4.0 國際授權（CC BY-SA 4.0）。\footnote{詳情請見 \url{http://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW}。}\\[-6pt]
+        \vskip-1pt\includegraphics[height=3ex]{by-sa-small.pdf} \newline
+	 本文件採用姓名標示-相同方式分享 4.0 國際授權（CC BY-SA 4.0）。\footnote{詳情請見 \url{http://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW}。}\\[-2pt]
 	 歡迎下載本投影片及資料檔案。\footnote{\url{https://www.dropbox.com/sh/7p9cluglptyk25a/AAAmPWrSMVf_tC9-cL4JSscCa?dl=0}} 
 	 \vspace{10pt}
     }
@@ -156,20 +156,20 @@
 
 \begin{frame}{今天主題$\cdots\cdots$}
 
-\begin{block}{預設聽眾}
-\begin{itemize}
-\item 修過至少3學分的統計學。
-\item 從沒使用過R或其它統計軟體。
-\item 從沒學過任何程式語言。
-\end{itemize}
-\end{block}
-
 \begin{block}{目標}
 \begin{itemize}
 \item 不怕害使用R這類以文字指令進行的工作方式。
 \item 如何自己救自己。
 \item 如何請別人救自己。
 \item 實作一些常見的統計分析與繪圖。
+\end{itemize}
+\end{block}
+
+\begin{block}{預設聽眾}
+\begin{itemize}
+\item 修過至少3學分的統計學。
+\item 從沒使用過R或其它統計軟體。
+\item 從沒學過任何程式語言。
 \end{itemize}
 \end{block}
 
@@ -359,7 +359,7 @@
 \begin{enumerate}
 \item 至 \url{http://goo.gl/YRCOaN} 下載以下三個檔案。
 \begin{description}
-\item [\texttt{slide.pdf}]投影片
+\item [\texttt{slide.pdf}]本投影片
 \item [\texttt{exam.xlsx}]例範資料
 \item [\texttt{text.xlsx}]練習資料
 \end{description}
@@ -437,7 +437,7 @@ quantile(dt$Science) #百分位數
 \end{verbatim}
 
 如果要求各組的描述性統計呢？使用 \verb+tapply()+。
-\begin{block}{\texttt{tapply}的基本語法}
+\begin{block}{\texttt{tapply()}的基本語法}
 \verb+tapply(變數, 分組因子, 運算函數, ...)+
 \end{block}
 例如，要計算Science在不同Gender內的平均數：\\
@@ -449,7 +449,7 @@ quantile(dt$Science) #百分位數
 \begin{frame}[fragile]{單樣本\emph{T}檢驗}
 
 目標：檢驗Science的平均是否為60。
-\begin{block}{\texttt{t.test}的基本語法}
+\begin{block}{\texttt{t.test()}的基本語法}
 \verb+t.test(+
   \verb+資料, alternative = "t" 或 "l" 或 "g",+
   \verb+mu = 假說平均數, ...)+
@@ -554,7 +554,7 @@ TukeyHSD(fit, "Group")
 
 \begin{verbatim}
 boxplot(Literature ~ Group, data = dt, 
-  ylab = "Literature score", xlab = "Group")
+        ylab = "Literature score", xlab = "Group")
 \end{verbatim}
 
 \begin{center}
@@ -606,12 +606,14 @@ cor.test(Science ~ Literature, data = dt)
 
 \begin{block}{\texttt{plot.formula()}和\texttt{abline()}的基本語法}
 \verb+plot(縱軸資料 ~ 橫軸資料, data = 資料框, ...)+\oldfootnote{\texttt{plot.formula()}可簡寫成\texttt{plot()}。}\\
-\verb+abline(a = 截距, b = 斜率)+ \# 畫上迴歸線
+\verb+abline(a = coef(迴歸物件)[1], b = coef(迴歸物件)[2],+
+\verb+       lty = 3) # 畫上迴歸線 +
 \end{block}
 
 \begin{verbatim}
 plot(Literature ~ Science, data = dt)
-abline(a = coef(fit.2)[1], b = coef(fit.2)[2], lty = 3)
+abline(a = coef(fit.2)[1], b = coef(fit.2)[2],
+       lty = 3)
 \end{verbatim}
 \end{frame}
 
@@ -619,7 +621,8 @@ abline(a = coef(fit.2)[1], b = coef(fit.2)[2], lty = 3)
 
 \begin{verbatim}
 plot(Literature ~ Science, data = dt)
-abline(a = coef(fit.2)[1], b = coef(fit.2)[2], lty = 3)
+abline(a = coef(fit.2)[1], b = coef(fit.2)[2],
+       lty = 3)
 \end{verbatim}
 
 \begin{center}

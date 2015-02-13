@@ -46,7 +46,7 @@
     \setbeamertemplate{frametitle}{\vspace*{8pt}\hspace*{\fill}\insertframetitle\par}
 %    \setbeamercolor{frametitle}{fg=black}
 
-\setbeamersize{text margin left=0.5cm, text margin right=0.5cm}
+\setbeamersize{text margin left=0.7cm, text margin right=0.7cm}
 
 \let\oldfootnote\footnote
 \renewcommand\footnote[1]{\hspace{-0.3em}\oldfootnote{\ignorespaces#1}\hspace{0.3em}}
@@ -70,12 +70,12 @@
 \usepackage{arevmath}
 \usepackage[no-math]{fontspec}
 \setmainfont[Mapping=tex-text, LetterSpace=0, BoldFont={Lato Bold}]{Lato}
-\setsansfont[Mapping=tex-text, LetterSpace=0, BoldFont={Lato Bold}, Scale=0.95]{Lato}
-\setmonofont[Color=verb, Scale=0.95, LetterSpace=-0, BoldFeatures={Color=white}, BoldFont={Consolas}]{Consolas}
+\setsansfont[Mapping=tex-text, LetterSpace=0, BoldFont={Lato Black}, Scale=0.95]{Lato}
+%\setmonofont[Color=verb, Scale=0.95, LetterSpace=-0, BoldFeatures={Color=white}, BoldFont={Consolas}]{Consolas}
 %\setmonofont[Color=verb, Scale=0.9, LetterSpace=-0]{PT Mono}
-%\setmainfont[Mapping=tex-text, Scale=0.9, LetterSpace=0, BoldFont={DejaVu Sans}]{DejaVu Sans}
-%\setsansfont[Mapping=tex-text, Scale=0.9, LetterSpace=0, BoldFont={DejaVu Sans Condensed}]{DejaVu Sans Condensed}
-%\setmonofont[Color=verb, Scale=0.85, LetterSpace=-3, BoldFont={DejaVu Sans Mono},BoldFeatures={Color=white}]{DejaVu Sans Mono}
+%\setmainfont[Mapping=tex-text, Scale=1, LetterSpace=0, BoldFont={DejaVu Sans}]{DejaVu Sans}
+%\setsansfont[Mapping=tex-text, Scale=1, LetterSpace=0, BoldFont={Myriad Pro Semibold}]{Myriad Pro Semibold}
+\setmonofont[Color=verb, Scale=0.85, LetterSpace=0, BoldFont={DejaVu Sans Mono Bold},BoldFeatures={Color=white}]{DejaVu Sans Mono}
 \usefonttheme{professionalfonts}
 
 %% 中文字配置
@@ -83,9 +83,8 @@
   CJKmath=true, indentfirst=false, PunctStyle={quanjiao}, CheckSingle=false
 ]{xeCJK}
 
-%\setCJKmonofont[Scale=1, BoldFont={Osaka-Mono}, Color=verb]{Osaka-Mono}
-\setCJKmainfont[Scale=1, BoldFont={Heiti TC Medium}]{Heiti TC Medium}
-\setCJKmonofont[Scale=0.95, BoldFont={DFYuanMedium-B5}, Color=verb]{DFYuanMedium-B5}
+\setCJKmainfont[Scale=1, BoldFont={Lantinghei TC Heavy}]{Heiti TC Medium}
+\setCJKmonofont[Scale=0.85, BoldFont={DFYuanMedium-B5}, Color=verb]{DFYuanMedium-B5}
 
 %\setCJKmainfont[Scale=1, BoldFont={LiHei Pro}]{LiHei Pro}
 %\setCJKmonofont[Scale=1, BoldFont={LiHei Pro}, Color=verb]{LiHei Pro}
@@ -119,7 +118,7 @@
 
 \setbeamertemplate{title page}{
   \vskip0pt plus 1filll
-    \huge{\usebeamercolor[fg]{title}初學\hspace{0.2em}\includegraphics[width=3cm]{Rlogo-novo.png}\hspace{0.2em}語言的60分鐘}\\[8pt]
+    \huge{\bfseries\usebeamercolor[fg]{title}初學\hspace{0.2em}\includegraphics[width=3cm]{Rlogo-novo.png}\hspace{0.2em}語言的60分鐘}\\[8pt]
     \normalsize{廖鎮磐 \texttt{<andrew.43@gmail.com>}\\東海大學生命科學系}\\[10pt]
     \normalsize{2015年台灣生態研究網年會\\ 2015年3月14日於蓮華池研究中心}
     \vskip0pt plus 0.5filll
@@ -391,12 +390,12 @@
 
 
 \begin{frame}[fragile]{提取特定變數（欄）}
-\begin{verbatim}
+\begin{R}
 > dt
   ID Gender Group Literature Science
 1 23      m     A         36      63
 ...
-\end{verbatim}
+\end{R}
 
 如何取得Science變數？直接輸入 \verb+Science+ 是不行的，因為它是在 \verb+dt+ 裡的變數。
 \begin{itemize}
@@ -579,7 +578,7 @@ anova(fit.2) # Type I sum of square
 \begin{block}{\texttt{cor.test()}的基本語法}
 \verb+cor.test(第一群資料, 第二群資料,+
 \verb+         alternative = "t" 或 "l" 或 "g", ...)+
-\verb+cor.test(~ 第一群資料 + 第二群資料, data = 資料框, ...)+
+\verb#cor.test(~ 第一群資料 + 第二群資料, data = 資料框, ...)#
 \end{block}
 \begin{verbatim}
 cor.test(dt$Literature, dt$Science)
@@ -598,7 +597,7 @@ cor.test(~ Science + Literature, data = dt)
 \begin{block}{\texttt{plot.formula()}和\texttt{abline()}的基本語法}
 \verb+plot(縱軸資料 ~ 橫軸資料, data = 資料框, ...)+\oldfootnote{\texttt{plot.formula()}可簡寫成\texttt{plot()}。}\\
 \verb+abline(a = coef(迴歸物件)[1], b = coef(迴歸物件)[2],+
-\verb+       lty = 3) # 畫上迴歸線 +
+\verb+       lty, col, ...) # 畫上迴歸線 +
 \end{block}
 
 \begin{verbatim}
@@ -1026,7 +1025,7 @@ sample estimates:
 %dev.off()
 
 \end{frame}
-\LARGE
+\Large
 \begin{frame}[fragile]{謝謝收看}
 \begin{verbatim}
 > cat("See you next time :) \n")

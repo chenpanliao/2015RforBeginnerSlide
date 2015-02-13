@@ -4,8 +4,10 @@
 \documentclass[12pt, aspectratio=43]{beamer}
 \usepackage{amsmath, fancyvrb, textcomp}
 \usepackage{xcolor}
-\definecolor{verb}{rgb}{0.0,0.3,0.0}
+\definecolor{codecolor}{rgb}{0.0,0.3,0.0}
 \definecolor{white}{rgb}{1,1,1}
+
+\usepackage{attachfile2}
 
 % draft
 \usepackage[firstpage]{draftwatermark}
@@ -17,8 +19,7 @@
 %% Beamer 版面配置
 \mode<presentation>
 
-\usetheme{Pittsburgh}
-%\usetheme[height = 1.4cm]{Rochester}
+%\usetheme{Pittsburgh}
 %\usetheme{Singapore}
 \usecolortheme{orchid}
 %\usecolortheme{rose}
@@ -52,7 +53,9 @@
 \renewcommand\footnote[1]{\hspace{-0.3em}\oldfootnote{\ignorespaces#1}\hspace{0.3em}}
 \setbeamerfont{footnote mark}{size=\tiny}
 \setbeamerfont{footnote}{size=\scriptsize}
-%\setbeamertemplate{footnote}{\textsuperscript{\insertfootnotemark}\insertfootnotetext}
+\setbeamertemplate{footnote}{\textsuperscript{\insertfootnotemark}\insertfootnotetext}
+
+\setbeamertemplate{itemize item}{\LARGE\raise-3.5pt\hbox{\textbullet}}
 
 %\setbeamerfont{page number in head/foot}{size = \scriptsize}
 %\setbeamertemplate{footline}[frame number]{}
@@ -66,38 +69,40 @@
 \DefineVerbatimEnvironment{R}{Verbatim}{fontsize=\scriptsize, frame=single, baselinestretch=0.95, samepage=true}
 
 %% 西文字配置
-\linespread{1.15}
+\linespread{1.2}
 \usepackage{arevmath}
 \usepackage[no-math]{fontspec}
-\setmainfont[Mapping=tex-text, LetterSpace=0, BoldFont={Lato Bold}]{Lato}
-\setsansfont[Mapping=tex-text, LetterSpace=0, BoldFont={Lato Black}, Scale=0.95]{Lato}
-%\setmonofont[Color=verb, Scale=0.95, LetterSpace=-0, BoldFeatures={Color=white}, BoldFont={Consolas}]{Consolas}
-%\setmonofont[Color=verb, Scale=0.9, LetterSpace=-0]{PT Mono}
+%\setmainfont[Mapping=tex-text, LetterSpace=0, BoldFont={Lato}]{Lato}
+%\setsansfont[Mapping=tex-text, LetterSpace=0, BoldFont={Lato}, Scale=0.95]{Lato}
+\setmainfont[Mapping=tex-text, LetterSpace=0, BoldFont={Fira Sans Book}]{Fira Sans Book}
+\setsansfont[Mapping=tex-text, LetterSpace=0, BoldFont={Fira Sans Book}]{Fira Sans Book}
+%\setmonofont[Color=codecolor, Scale=0.95, LetterSpace=-0, BoldFeatures={Color=white}, BoldFont={Consolas}]{Consolas}
+%\setmonofont[Color=codecolor, Scale=0.9, LetterSpace=-0]{PT Mono}
 %\setmainfont[Mapping=tex-text, Scale=1, LetterSpace=0, BoldFont={DejaVu Sans}]{DejaVu Sans}
 %\setsansfont[Mapping=tex-text, Scale=1, LetterSpace=0, BoldFont={Myriad Pro Semibold}]{Myriad Pro Semibold}
-\setmonofont[Color=verb, Scale=0.85, LetterSpace=0, BoldFont={DejaVu Sans Mono Bold},BoldFeatures={Color=white}]{DejaVu Sans Mono}
+\setmonofont[Color=codecolor, Scale=0.9, LetterSpace=-1, BoldFont={Fira Mono Medium},BoldFeatures={Color=white}]{Fira Mono Medium}
 \usefonttheme{professionalfonts}
 
 %% 中文字配置
 \usepackage[
-  CJKmath=true, indentfirst=false, PunctStyle={quanjiao}, CheckSingle=false
+  CJKmath=true, indentfirst=false, PunctStyle={quanjiao}, CheckSingle=false, Verb=true, AutoFallBack=true, AutoFakeBold=false, AutoFakeSlant=false, 
 ]{xeCJK}
 
-\setCJKmainfont[Scale=1, BoldFont={Lantinghei TC Heavy}]{Heiti TC Medium}
-\setCJKmonofont[Scale=0.85, BoldFont={DFYuanMedium-B5}, Color=verb]{DFYuanMedium-B5}
+\setCJKmainfont[Scale=1, BoldFont={Heiti TC Medium}]{Heiti TC Medium}
+%\setCJKmonofont[Scale=0.9, BoldFont={DFYuanMedium-B5}, Color=codecolor]{DFYuanMedium-B5}
 
 %\setCJKmainfont[Scale=1, BoldFont={LiHei Pro}]{LiHei Pro}
 %\setCJKmonofont[Scale=1, BoldFont={LiHei Pro}, Color=verb]{LiHei Pro}
 %\setCJKfallbackfamilyfont{\CJKsfdefault}[AutoFakeSlant]{[BoldFont=SimHei]{SimSun}}
 
 %\setCJKmainfont[Scale=1, BoldFont={Lantinghei TC Heavy}]{Lantinghei TC}
-%\setCJKmonofont[Scale=1, BoldFont={Lantinghei TC Heavy}, Color=verb]{Lantinghei TC}
+\setCJKmonofont[Scale=0.9, BoldFont={Lantinghei TC}, Color=codecolor]{Lantinghei TC}
 
 
-%\title{初學R語言的60分鐘}
-%\author{廖鎮磐 \texttt{<andrew.43@gmail.com>}}
-%\institute{東海大學生命科學系}
-%\date{2015年台灣生態研究網年會 -- 2015年3月14日於蓮華池研究中心}
+\title{初學R語言的60分鐘}
+\author{廖鎮磐 \texttt{<andrew.43@gmail.com>}}
+\institute{東海大學生命科學系}
+\date{2015年台灣生態研究網年會 -- 2015年3月14日於蓮華池研究中心}
 \hypersetup{
     bookmarks=true,         % show bookmarks bar?
     unicode=true,           % non-Latin characters in Acrobat’s bookmarks
@@ -122,11 +127,15 @@
     \normalsize{廖鎮磐 \texttt{<andrew.43@gmail.com>}\\東海大學生命科學系}\\[10pt]
     \normalsize{2015年台灣生態研究網年會\\ 2015年3月14日於蓮華池研究中心}
     \vskip0pt plus 0.5filll
-    {\footnotesize
-         © 2015 廖鎮磐（Chen-Pan Liao）。\\[8pt]
-        \vskip-1pt\includegraphics[height=3ex]{by-sa-small.pdf} \newline
-	 本文件採用姓名標示-相同方式分享 4.0 國際授權（CC BY-SA 4.0）。\footnote{詳情請見 \url{http://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW}。}\\[-2pt]
-	 歡迎下載本投影片及資料檔案。\footnote{\url{https://www.dropbox.com/sh/7p9cluglptyk25a/AAAmPWrSMVf_tC9-cL4JSscCa?dl=0}} 
+    {\tiny
+        \parbox[c]{2.4cm}{% 
+          \includegraphics[width=2.4cm]{by-sa.pdf}%
+        }\hspace{6pt}%
+        \parbox[c]{8.2cm}{% 
+           © 2015 廖鎮磐（Chen-Pan Liao）\\[-0pt]
+	   本文件採用姓名標示-相同方式分享 4.0 國際授權（CC BY-SA 4.0）。\footnote{詳情請見 \url{http://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW}。}\\[-0pt]
+	   歡迎下載本投影片及資料檔案。\footnote{\url{https://www.dropbox.com/sh/7p9cluglptyk25a/AAAmPWrSMVf_tC9-cL4JSscCa?dl=0}}
+	 }% 
 	 \vspace{10pt}
     }
 }
@@ -145,6 +154,8 @@
 } 
 
 \begin{document}
+\xeCJKOffVerbAddon
+
 
 \begin{frame}
 \titlepage
@@ -431,13 +442,12 @@
 \section{統計分析與繪圖}\subsection{}
 
 \begin{frame}[fragile]{描述性統計}
-常見的描述性統計函數：
-\begin{verbatim}
-length(dt$Science)   #個數
-mean(dt$Science)     #平均數
-sd(dt$Science)       #標準偏差
-quantile(dt$Science) #百分位數
-\end{verbatim}
+\begin{block}{常見的描述性統計函數}
+\verb+length(dt$Science)   #個數+ \\
+\verb+mean(dt$Science)     #平均數+ \\
+\verb+sd(dt$Science)       #標準偏差+ \\
+\verb+quantile(dt$Science) #百分位數+ \\
+\end{block}
 
 如果要求各組的描述性統計呢？使用 \verb+tapply()+。
 \begin{block}{\texttt{tapply()}的基本語法}
@@ -453,26 +463,29 @@ quantile(dt$Science) #百分位數
 
 目標：檢驗Science的平均是否為60。
 \begin{block}{\texttt{t.test()}的基本語法}
-\verb+t.test(+
-  \verb+資料, alternative = "t" 或 "l" 或 "g",+
-  \verb+mu = 假說平均數, ...)+
+\verb+t.test(資料, alternative = "t" 或 "l" 或 "g",+
+\verb+       mu = 假說平均數, ...)+
 \end{block}
 \begin{verbatim}
-t.test(dt$Science, alternative = "t", mu = 60) #雙尾
-t.test(dt$Science, alternative = "g", mu = 60) #右單尾
-t.test(dt$Science, alternative = "l", mu = 60) #左單尾
+#雙尾：
+t.test(dt$Science, alternative = "t", mu = 60) 
+#右單尾：
+t.test(dt$Science, alternative = "g", mu = 60) 
+#左單尾：
+t.test(dt$Science, alternative = "l", mu = 60) 
 \end{verbatim}
 \end{frame}
 
 \begin{frame}[fragile]{成對樣本\emph{T}檢驗}
 目標：檢驗Literature和Science差之平均是否為0。
 \begin{block}{\texttt{t.test()}的基本語法}
-\verb+t.test(資料一, 資料二, alternative = "t" 或 "l" 或 "g",+
-\verb+       mu = 假說中配對差的平均數, pair = true, ...)+
+\verb+t.test(資料1, 資料2,+
+\verb+       alternative = "t" 或 "l" 或 "g",+
+\verb+       mu = 假說中配對差的平均數, pair = T, ...)+
 \end{block}
 \begin{verbatim}
-t.test(dt$Literature, dt$Science, pair = T)
 # 預設雙尾；預設平均差為零
+t.test(dt$Literature, dt$Science, pair = T)
 \end{verbatim}
 \end{frame}
 
@@ -482,16 +495,14 @@ t.test(dt$Literature, dt$Science, pair = T)
 %\verb+tapply(dt$Literature, dt$Gender, mean) #分組平均+
 %\verb+tapply(dt$Literature, dt$Gender, sd)   #分組標準差+
 \begin{block}{\texttt{t.test()}的基本語法}
-\verb+t.test(資料一, 資料二, alternative = "t" 或 "l" 或 "g",+\\
-\verb+       mu = 假說中平均數的差, +\\
-\verb+       pair = F, var.equal = T 或 F, ...)+
+\verb+t.test(資料1, 資料2, alternative = "t" 或 "l" 或 "g",+\\
+\verb+       mu = 假說中平均數的差, var.equal = T 或 F, ...)+
 \verb+t.test(應變數 ~ 僅二類的類別因子, data = 資料框, ...)+
 \end{block}
 \begin{verbatim}
-t.test(
-  subset(dt, Gender == "m")$Literature,
-  subset(dt, Gender == "f")$Literature,
-  var.equal = F)
+t.test(subset(dt, Gender == "m")$Literature,
+       subset(dt, Gender == "f")$Literature,
+       var.equal = F)
 t.test(Literature ~ Gender, data = dt, var.equal = T)
 \end{verbatim}
 \end{frame}
@@ -797,8 +808,8 @@ R官方收錄有六千多個的套件，\footnote{\url{http://cran.r-project.org
 > names(mydt0)  # 查看變數名
 \end{RC}
 \begin{R}
-[1] "Nation"                 "Continent"              "HIV.rate"              
-[4] "Age.ave"                "Mortality.rate.child"   "Mortality.rate.newborn"
+[1] "Nation"           "Continent"              "HIV.rate"              
+[4] "Age.ave"          "Mortality.rate.child"   "Mortality.rate.newborn"
 [7] "GDP.10000" 
 \end{R}
 \begin{RC}
@@ -835,7 +846,7 @@ mean of the differences
 以 \verb+GDP.10000+ 分組對 \verb+HIV.rate+ 之描述：
 \begin{RC}
 > tapply(mydt0$HIV.rate, mydt0$GDP.10000, mean))
-> with(mydt0, {tapply(HIV.rate, GDP.10000, mean)})  # 也可以
+> with(mydt0, {tapply(HIV.rate, GDP.10000, mean)}) #亦可
 \end{RC}
 \begin{R}
     high      low 
@@ -853,7 +864,8 @@ mean of the differences
 
 以 \verb+GDP.10000+ 分組對 \verb+HIV.rate+ 之獨立雙樣本\emph{T}檢驗：
 \begin{RC}
-> t.test(HIV.rate ~ GDP.10000, data = mydt0, var.equal = T)
+> t.test(HIV.rate ~ GDP.10000,
+         data = mydt0, var.equal = T)
 \end{RC}
 \begin{R}
 	Two Sample t-test
@@ -1012,7 +1024,7 @@ sample estimates:
 \verb+HIV.rate+ vs \verb+Age.ave+ 的散佈圖：
 \begin{RC}
 > plot(HIV.rate ~ Age.ave, data = mydt0,
-+         xlab = "Average of age", ylab = "HIV rate (%)")
++      xlab = "Average of age", ylab = "HIV rate (%)")
 > abline(a = coef(fit.reg)[1], b = coef(fit.reg)[2],
 +        lty = 2, col = 6)
 \end{RC}
@@ -1033,6 +1045,8 @@ See you next time :)
 > q()
 Save workspace image? [y/n/c]: n
 \end{verbatim}
+\textattachfile[appearance=false, mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"]{exam.xlsx}{}
+\textattachfile[appearance=false, mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"]{nation-data.xlsx}{}
 \end{frame}
 
 \end{document}

@@ -27,10 +27,10 @@
 
 % page number shown on top-right corner
     \setbeamertemplate{headline}{%
-        \vskip3pt\hspace*{\fill}\insertframenumber\hspace*{3pt}\vspace*{-10pt}%
+        \vskip3pt\hspace*{\fill}\insertpagenumber\hspace*{3pt}\vspace*{-10pt}%
     }
     \setbeamercolor{headline}{fg=black!50, bg=black!50}
-    \setbeamerfont{headline}{size=\scriptsize}
+    \setbeamerfont{headline}{size=\footnotesize}
 
 
 %    \setbeamercolor{postit}{bg=blue!10}
@@ -63,16 +63,19 @@
 \beamertemplatenavigationsymbolsempty % 去除 Beamer 導覽工具列
 
 \DefineVerbatimEnvironment{RC}{Verbatim}{fontsize=\small, baselinestretch=0.9, samepage=true}
-\DefineVerbatimEnvironment{R}{Verbatim}{fontsize=\scriptsize, frame=single, baselinestretch=0.8, samepage=true}
+\DefineVerbatimEnvironment{R}{Verbatim}{fontsize=\scriptsize, frame=single, baselinestretch=0.95, samepage=true}
 
 %% 西文字配置
-\linespread{1.2}
+\linespread{1.15}
 \usepackage{arevmath}
 \usepackage[no-math]{fontspec}
 \setmainfont[Mapping=tex-text, LetterSpace=0, BoldFont={Lato Bold}]{Lato}
-\setsansfont[Mapping=tex-text, LetterSpace=0, BoldFont={Lato Bold}]{Lato}
-\setmonofont[Color=verb, Scale=0.975, LetterSpace=-2, BoldFeatures={Color=white}, BoldFont={Consolas}]{Consolas}
+\setsansfont[Mapping=tex-text, LetterSpace=0, BoldFont={Lato Bold}, Scale=0.95]{Lato}
+\setmonofont[Color=verb, Scale=0.95, LetterSpace=-0, BoldFeatures={Color=white}, BoldFont={Consolas}]{Consolas}
 %\setmonofont[Color=verb, Scale=0.9, LetterSpace=-0]{PT Mono}
+%\setmainfont[Mapping=tex-text, Scale=0.9, LetterSpace=0, BoldFont={DejaVu Sans}]{DejaVu Sans}
+%\setsansfont[Mapping=tex-text, Scale=0.9, LetterSpace=0, BoldFont={DejaVu Sans Condensed}]{DejaVu Sans Condensed}
+%\setmonofont[Color=verb, Scale=0.85, LetterSpace=-3, BoldFont={DejaVu Sans Mono},BoldFeatures={Color=white}]{DejaVu Sans Mono}
 \usefonttheme{professionalfonts}
 
 %% 中文字配置
@@ -82,7 +85,7 @@
 
 %\setCJKmonofont[Scale=1, BoldFont={Osaka-Mono}, Color=verb]{Osaka-Mono}
 \setCJKmainfont[Scale=1, BoldFont={Heiti TC Medium}]{Heiti TC Medium}
-\setCJKmonofont[Scale=0.975, BoldFont={DFYuanMedium-B5}, Color=verb]{DFYuanMedium-B5}
+\setCJKmonofont[Scale=0.95, BoldFont={DFYuanMedium-B5}, Color=verb]{DFYuanMedium-B5}
 
 %\setCJKmainfont[Scale=1, BoldFont={LiHei Pro}]{LiHei Pro}
 %\setCJKmonofont[Scale=1, BoldFont={LiHei Pro}, Color=verb]{LiHei Pro}
@@ -507,7 +510,7 @@ boxplot(Literature ~ Gender, data = dt,
 \end{verbatim}
 
 \begin{center}
-\includegraphics[width=0.75\textwidth]{Rplot-two-group.pdf}
+\includegraphics[width=0.8\textwidth]{Rplot-two-group.pdf}
 \end{center}
 \end{frame}
 
@@ -546,7 +549,7 @@ boxplot(Literature ~ Group, data = dt,
 \end{verbatim}
 
 \begin{center}
-\includegraphics[width=0.75\textwidth]{Rplot-three-group.pdf}
+\includegraphics[width=0.8\textwidth]{Rplot-three-group.pdf}
 \end{center}
 \end{frame}
 
@@ -576,12 +579,12 @@ anova(fit.2) # Type I sum of square
 \begin{block}{\texttt{cor.test()}的基本語法}
 \verb+cor.test(第一群資料, 第二群資料,+
 \verb+         alternative = "t" 或 "l" 或 "g", ...)+
-\verb+cor.test(第一群資料 ~ 第二群資料, data = 資料框, ...)+
+\verb+cor.test(~ 第一群資料 + 第二群資料, data = 資料框, ...)+
 \end{block}
 \begin{verbatim}
 cor.test(dt$Literature, dt$Science)
-cor.test(Literature ~ Science, data = dt)
-cor.test(Science ~ Literature, data = dt)
+cor.test(~ Literature + Science, data = dt)
+cor.test(~ Science + Literature, data = dt)
 \end{verbatim}
 \end{frame}
 
@@ -614,7 +617,7 @@ abline(a = coef(fit.2)[1], b = coef(fit.2)[2],
 \end{verbatim}
 
 \begin{center}
-\includegraphics[width=0.75\textwidth]{Rplot-sct.pdf}
+\includegraphics[width=0.8\textwidth]{Rplot-sct.pdf}
 \end{center}
 \end{frame}
 
@@ -764,8 +767,8 @@ R官方收錄有六千多個的套件，\footnote{\url{http://cran.r-project.org
 
 
 \begin{frame}[shrink=8, fragile]{按今日課程試著完成以下練習}
-想辦法以R讀取 \verb+nation-data.xlsx+ 的內容並命名為 \verb+mydt0+ 資料框。以檔案中所有國家為樣本完成以下分析。
 \begin{enumerate}
+\item 想辦法以R讀取 \verb+nation-data.xlsx+ 的內容並命名為 \verb+mydt0+ 資料框。以檔案中所有國家為樣本完成以下分析。
 \item 利用配對樣本\emph{T}檢驗，考驗 \verb+Mortality.rate.child+ 之平均是否顯著高於 \verb+Mortality.rate.newborn+ 之平均。提示：不是雙尾檢驗。
 \item 以 \verb+GDP.10000+ 為組別，計算 \verb+HIV.rate+ 在各組的平均值和標準偏差，並利用獨立雙樣本\emph{T}檢驗比較組間的平均是否顯著不等，以及繪製對應的盒形圖。
 \item 以 \verb+Continent+ 為組別，計算 \verb+Age.ave+ 在各組的平均值和標準偏差，並利用單因子變異數分析比較組間的平均差異是否顯著不等，以及繪製對應的盒形圖。
@@ -773,30 +776,44 @@ R官方收錄有六千多個的套件，\footnote{\url{http://cran.r-project.org
 \end{enumerate}
 \end{frame}
 
+
 \begin{frame}[fragile, allowframebreaks]{參考解法}
 
+讀入CSV檔：
 \begin{RC}
 > setwd("somewhere") # 更變目前路徑
-> mydt0 <- read.csv("nation-data.csv") # 讀檔
+> mydt0 <- read.csv("nation-data.csv")  # 讀檔
 > mydt0
 \end{RC}
-
 \begin{R}
-                Nation Continent HIV.rate Age.ave Mortality.rate.child Mortality.rate.newborn GDP.10000
-1              Algeria   1Africa     0.10  72.904            18.090586             24.1553061       low
-2              Morocco   1Africa     0.10  71.882            13.156450             23.3366489       low
-3               Zambia   1Africa    13.50  48.513           105.545396             36.0518961       low
-...
-71     Slovak Republic   4Europe     0.06  75.242             4.203745              3.2028535       low
-72              Latvia   4Europe     0.70  73.039             4.064162              5.0153487       low
+                Nation Continent HIV.rate Age.ave Mortality.rate.child ...
+1              Algeria   1Africa     0.10  72.904            18.090586 ...
+2              Morocco   1Africa     0.10  71.882            13.156450 ...
+3               Zambia   1Africa    13.50  48.513           105.545396 ...
+                   ...       ...      ...     ...                 ...  ...
+71     Slovak Republic   4Europe     0.06  75.242             4.203745 ...
+72              Latvia   4Europe     0.70  73.039             4.064162 ...
 \end{R}
-
+\begin{RC}
+> names(mydt0)  # 查看變數名
+\end{RC}
+\begin{R}
+[1] "Nation"                 "Continent"              "HIV.rate"              
+[4] "Age.ave"                "Mortality.rate.child"   "Mortality.rate.newborn"
+[7] "GDP.10000" 
+\end{R}
+\begin{RC}
+> dim(mydt0)   # 查看列數與欄數
+\end{RC}
+\begin{R}
+[1] 72  7
+\end{R}
 \framebreak 
 
+對 \verb+Mortality.rate.child+ 和 \verb+Mortality.rate.newborn+ 的配對樣本\emph{T}檢驗：
 \begin{RC}
 > x.1 <- mydt0$Mortality.rate.child
 > x.2 <- mydt0$Mortality.rate.newborn
-> # two-sample paired T-test
 > t.test(x.1, x.2, paired = T, alternative = "g")
 > t.test(x.2, x.1, paired = T, alternative = "l") # 也可
 \end{RC}
@@ -816,31 +833,207 @@ mean of the differences
 
 \framebreak 
 
+以 \verb+GDP.10000+ 分組對 \verb+HIV.rate+ 之描述：
 \begin{RC}
-> mean(x.1) ; mean(x.2) ; sd(x.1) ; sd(x.2)
+> tapply(mydt0$HIV.rate, mydt0$GDP.10000, mean))
+> with(mydt0, {tapply(HIV.rate, GDP.10000, mean)})  # 也可以
 \end{RC}
-
 \begin{R}
-[1] 17.32948
-[1] 13.0685
-[1] 26.54228
-[1] 13.36349
+    high      low 
+0.286087 1.213061 
+\end{R}
+\begin{RC}
+> with(mydt0, {tapply(HIV.rate, GDP.10000, sd)} )
+\end{RC}
+\begin{R}
+     high       low 
+0.3095707 2.7004554 
 \end{R}
 
+\framebreak
+
+以 \verb+GDP.10000+ 分組對 \verb+HIV.rate+ 之獨立雙樣本\emph{T}檢驗：
 \begin{RC}
-> boxplot(x.1, x.2, ylab = "Mortality rate (%)",
-+ xlab = "Group", xaxt = "n")
-> axis(1, 1:2, labels = c("Child", "Newborn"))
+> t.test(HIV.rate ~ GDP.10000, data = mydt0, var.equal = T)
 \end{RC}
+\begin{R}
+	Two Sample t-test
 
-\begin{center}
-\includegraphics[width=0.5\textwidth]{Rplot-ex-2sample.pdf}
-\end{center}
+data:  HIV.rate by GDP.10000
+t = -1.6351, df = 70, p-value = 0.1065
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -2.0576478  0.2036993
+sample estimates:
+mean in group high  mean in group low 
+          0.286087           1.213061
+\end{R}
+不過此例 \verb+t.test(..., var.equal = F)+ 可能較洽當，因為二組的變方差距不小。
 
+\framebreak
 
+以 \verb+GDP.10000+ 分組對 \verb+HIV.rate+ 之盒形圖：
+\begin{RC}
+> boxplot(HIV.rate ~ GDP.10000, data = mydt0,
++         xlab = "GDP", ylab = "HIV rate (%)",
++         xaxt = "n")
+> axis(1, 1:2, label = c("> 10k USD", "< 10k USD"))
+\end{RC}
+%pdf("Rplot-test-two-group.pdf", width=5, height=2.5)
+%par(mar=c(4,4,0.5,0.1))
+%boxplot(HIV.rate ~ GDP.10000, data = mydt0,
+%          xlab = "GDP", ylab = "HIV rate (%)",
+%          xaxt = "n")
+%axis(1, 1:2, label = c("> 10k USD", "< 10k USD"))
+%dev.off()
+\begin{center}\includegraphics[width=0.8\textwidth]{Rplot-test-two-group.pdf}\end{center}
 
-\framebreak 
+\framebreak
 
+以 \verb+Continent+ 分組對 \verb+Age.ave+ 之描述：
+\begin{RC}
+> with(mydt0, {tapply(Age.ave, Continent, mean)})
+\end{RC}
+\begin{R}
+ 1Africa 2America    3Asia  4Europe 
+61.11923 74.48475 72.31782 77.37283 
+\end{R}
+\begin{RC}
+> with(mydt0, {tapply(Age.ave, Continent, sd)})
+\end{RC}
+\begin{R}
+ 1Africa 2America    3Asia  4Europe 
+9.308895 4.014003 6.383229 3.820449
+\end{R}
+
+\framebreak
+
+以 \verb+Continent+ 分組對 \verb+Age.ave+ 進行單因子變異數分析：
+\begin{RC}
+> f.anova <- aov(Age.ave ~ Continent, data = mydt0)
+> summary(f.anova)
+\end{RC}
+\begin{R}
+            Df Sum Sq Mean Sq F value   Pr(>F)    
+Continent    3   2439   813.0   24.12 9.66e-11 ***
+Residuals   68   2292    33.7                     
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+\end{R}
+不過此例 \verb+oneway.test(Age.ave ~ Continent, data = mydt0)+ 可能較洽當，因為各組變方差距不小。
+
+\framebreak
+
+Tukey事後檢驗：
+\begin{RC}
+> TukeyHSD(f.anova, "Continent")
+\end{RC}
+\begin{R}
+  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = Age.ave ~ Continent, data = mydt0)
+
+$Continent
+                      diff        lwr       upr     p adj
+2America-1Africa 13.365519  7.2440030 19.487035 0.0000014
+3Asia-1Africa    11.198593  5.5646064 16.832579 0.0000102
+4Europe-1Africa  16.253603 11.1760641 21.331141 0.0000000
+3Asia-2America   -2.166926 -7.9324031  3.598550 0.7556740
+4Europe-2America  2.888083 -2.3349728  8.111139 0.4693185
+4Europe-3Asia     5.055010  0.4129029  9.697117 0.0275116
+\end{R}
+
+\framebreak
+
+以 \verb+Continent+ 分組對 \verb+Age.ave+ 繪製盒形圖：
+\begin{RC}
+> boxplot(Age.ave ~ Continent, data = mydt0,
++         xlab = "Continent", ylab = "Average of age",
++         xaxt = "n")
+> axis(1, 1:4, 
++      label = c("Africa", "America", "Asia", "Europe"))
+\end{RC}
+%pdf("Rplot-test-anova.pdf", width=5, height=2.5)
+%par(mar=c(4,4,0.5,0.1))
+%boxplot(Age.ave ~ Continent, data = mydt0,
+%        xlab = "Continent", ylab = "Average of age",
+%        xaxt = "n")
+%axis(1, 1:4, label = c("Africa", "America", "Asia", "Europe"))
+%dev.off()
+\begin{center}\includegraphics[width=0.8\textwidth]{Rplot-test-anova.pdf}\end{center}
+
+\verb+HIV.rate+ vs \verb+Age.ave+ 的簡單線性迴歸：
+\begin{RC}
+> fit.reg <- lm(HIV.rate ~ Age.ave, data = mydt0)
+> summary(fit.reg)
+\end{RC}
+\begin{R}
+Call:
+lm(formula = HIV.rate ~ Age.ave, data = mydt0)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-2.6995 -0.8609 -0.0631  0.7118  7.8572 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 15.09700    1.73463   8.703 9.27e-13 ***
+Age.ave     -0.19488    0.02369  -8.225 7.03e-12 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 1.63 on 70 degrees of freedom
+Multiple R-squared:  0.4915,	Adjusted R-squared:  0.4842 
+F-statistic: 67.65 on 1 and 70 DF,  p-value: 7.027e-12
+\end{R}
+
+\framebreak
+
+\verb+HIV.rate+ vs \verb+Age.ave+ 的簡單線性相關：
+\begin{RC}
+> cor.test( ~ HIV.rate + Age.ave, data = mydt0)
+> cor.test(mydt0$HIV.rate, mydt0$Age.ave)  # 亦可
+\end{RC}
+\begin{R}
+	Pearson's product-moment correlation
+
+data:  mydt0$HIV.rate and mydt0$Age.ave
+t = -8.2253, df = 70, p-value = 7.027e-12
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.8024053 -0.5604066
+sample estimates:
+       cor 
+-0.7010578 
+\end{R}
+
+\framebreak
+
+\verb+HIV.rate+ vs \verb+Age.ave+ 的散佈圖：
+\begin{RC}
+> plot(HIV.rate ~ Age.ave, data = mydt0,
++         xlab = "Average of age", ylab = "HIV rate (%)")
+> abline(a = coef(fit.reg)[1], b = coef(fit.reg)[2],
++        lty = 2, col = 6)
+\end{RC}
+\begin{center}\includegraphics[width=0.8\textwidth]{Rplot-test-lm.pdf}\end{center}
+%pdf("Rplot-test-lm.pdf", width=5, height=2.5)
+%par(mar=c(4,4,0.5,0.1))
+%plot(HIV.rate ~ Age.ave, data = mydt0,
+%        xlab = "Average of age", ylab = "HIV rate (%)")
+%abline(a = coef(fit.reg)[1], b = coef(fit.reg)[2], lty = 2, col = 6)
+%dev.off()
+
+\end{frame}
+\LARGE
+\begin{frame}[fragile]{謝謝收看}
+\begin{verbatim}
+> cat("See you next time :) \n")
+See you next time :)
+> q()
+Save workspace image? [y/n/c]: n
+\end{verbatim}
 \end{frame}
 
 \end{document}

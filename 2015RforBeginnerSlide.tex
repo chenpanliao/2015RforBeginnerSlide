@@ -10,11 +10,11 @@
 \usepackage{attachfile2}
 
 % draft
-\usepackage[firstpage]{draftwatermark}
-\SetWatermarkFontSize{4cm}
-\SetWatermarkColor[rgb]{1,0.9,0.9}
-\SetWatermarkAngle{30}
-\setbeamercolor{background canvas}{bg=}%transparent canvas
+%\usepackage[firstpage]{draftwatermark}
+%\SetWatermarkFontSize{4cm}
+%\SetWatermarkColor[rgb]{1,0.9,0.9}
+%\SetWatermarkAngle{30}
+%\setbeamercolor{background canvas}{bg=}%transparent canvas
 
 %% Beamer 版面配置
 \mode<presentation>
@@ -80,7 +80,7 @@
 %\setmonofont[Color=codecolor, Scale=0.9, LetterSpace=-0]{PT Mono}
 %\setmainfont[Mapping=tex-text, Scale=1, LetterSpace=0, BoldFont={DejaVu Sans}]{DejaVu Sans}
 %\setsansfont[Mapping=tex-text, Scale=1, LetterSpace=0, BoldFont={Myriad Pro Semibold}]{Myriad Pro Semibold}
-\setmonofont[Color=codecolor, Scale=0.9, LetterSpace=-1, BoldFont={Fira Mono Medium},BoldFeatures={Color=white}]{Fira Mono Medium}
+\setmonofont[Color=codecolor, Scale=0.9, LetterSpace=-2, BoldFont={Fira Mono Medium},BoldFeatures={Color=white}]{Fira Mono Medium}
 \usefonttheme{professionalfonts}
 
 %% 中文字配置
@@ -88,7 +88,7 @@
   CJKmath=true, indentfirst=false, PunctStyle={quanjiao}, CheckSingle=false, Verb=true, AutoFallBack=true, AutoFakeBold=false, AutoFakeSlant=false, 
 ]{xeCJK}
 
-\setCJKmainfont[Scale=1, BoldFont={Heiti TC Medium}]{Heiti TC Medium}
+\setCJKmainfont[Scale=1.05, BoldFont={Heiti TC Medium}]{Heiti TC Medium}
 %\setCJKmonofont[Scale=0.9, BoldFont={DFYuanMedium-B5}, Color=codecolor]{DFYuanMedium-B5}
 
 %\setCJKmainfont[Scale=1, BoldFont={LiHei Pro}]{LiHei Pro}
@@ -128,8 +128,8 @@
     \normalsize{2015年台灣生態研究網年會\\ 2015年3月14日於蓮華池研究中心}
     \vskip0pt plus 0.5filll
     {\tiny
-        \parbox[c]{2.4cm}{% 
-          \includegraphics[width=2.4cm]{by-sa.pdf}%
+        \parbox[c]{2.7cm}{% 
+          \includegraphics[width=2.7cm]{cc.pdf}%
         }\hspace{6pt}%
         \parbox[c]{8.2cm}{% 
            © 2015 廖鎮磐（Chen-Pan Liao）\\[-0pt]
@@ -502,8 +502,9 @@ t.test(dt$Literature, dt$Science, pair = T)
 \begin{verbatim}
 t.test(subset(dt, Gender == "m")$Literature,
        subset(dt, Gender == "f")$Literature,
-       var.equal = F)
-t.test(Literature ~ Gender, data = dt, var.equal = T)
+       var.equal = T)
+t.test(Literature ~ Gender, data = dt,
+       var.equal = T)
 \end{verbatim}
 \end{frame}
 
@@ -516,7 +517,7 @@ t.test(Literature ~ Gender, data = dt, var.equal = T)
 
 \begin{verbatim}
 boxplot(Literature ~ Gender, data = dt, 
-  ylab = "Literature score", xlab = "Gender")
+        ylab = "Literature score", xlab = "Gender")
 \end{verbatim}
 
 \begin{center}
@@ -931,7 +932,10 @@ Residuals   68   2292    33.7
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 \end{R}
-不過此例 \verb+oneway.test(Age.ave ~ Continent, data = mydt0)+ 可能較洽當，因為各組變方差距不小。
+
+\begin{minipage}{1\textwidth}
+\tiny 註：此例之間間變方甚不同質，故以 \verb+oneway.test(Age.ave ~ Continent, data = mydt0)+ 進行組間變方不同質之修正，或是以 \verb+kruskal.test(Age.ave ~ Continent, data = mydt0)+ 進行Kruskal-Wallis rank sum test，可能較洽當。
+\end{minipage}
 
 \framebreak
 

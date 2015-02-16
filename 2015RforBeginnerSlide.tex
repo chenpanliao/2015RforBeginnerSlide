@@ -19,7 +19,7 @@
 %% Beamer 版面配置
 \mode<presentation>
 
-%\usetheme{Pittsburgh}
+\usetheme{Pittsburgh}
 %\usetheme{Singapore}
 \usecolortheme{orchid}
 %\usecolortheme{rose}
@@ -69,18 +69,18 @@
 \DefineVerbatimEnvironment{R}{Verbatim}{fontsize=\scriptsize, frame=single, baselinestretch=0.95, samepage=true}
 
 %% 西文字配置
-\linespread{1.2}
+\linespread{1.175}
 \usepackage{arevmath}
 \usepackage[no-math]{fontspec}
-%\setmainfont[Mapping=tex-text, LetterSpace=0, BoldFont={Lato}]{Lato}
-%\setsansfont[Mapping=tex-text, LetterSpace=0, BoldFont={Lato}, Scale=0.95]{Lato}
-\setmainfont[Mapping=tex-text, LetterSpace=0, BoldFont={Fira Sans Book}]{Fira Sans Book}
-\setsansfont[Mapping=tex-text, LetterSpace=0, BoldFont={Fira Sans Book}]{Fira Sans Book}
-%\setmonofont[Color=codecolor, Scale=0.95, LetterSpace=-0, BoldFeatures={Color=white}, BoldFont={Consolas}]{Consolas}
+\setmainfont[Mapping=tex-text, LetterSpace=0, BoldFont={Lato}]{Lato}
+\setsansfont[Mapping=tex-text, LetterSpace=0, BoldFont={Lato}, Scale=1]{Lato}
+%\setmainfont[Mapping=tex-text, LetterSpace=0, BoldFont={Fira Sans Book}]{Fira Sans Book}
+%\setsansfont[Mapping=tex-text, LetterSpace=0, BoldFont={Fira Sans Book}]{Fira Sans Book}
+\setmonofont[Color=codecolor, Scale=0.95, LetterSpace=-1, BoldFeatures={Color=white}, BoldFont={Consolas}]{Consolas}
 %\setmonofont[Color=codecolor, Scale=0.9, LetterSpace=-0]{PT Mono}
 %\setmainfont[Mapping=tex-text, Scale=1, LetterSpace=0, BoldFont={DejaVu Sans}]{DejaVu Sans}
 %\setsansfont[Mapping=tex-text, Scale=1, LetterSpace=0, BoldFont={Myriad Pro Semibold}]{Myriad Pro Semibold}
-\setmonofont[Color=codecolor, Scale=0.9, LetterSpace=-2, BoldFont={Fira Mono Medium},BoldFeatures={Color=white}]{Fira Mono Medium}
+%\setmonofont[Color=codecolor, Scale=0.9, LetterSpace=-2, BoldFont={Fira Mono Medium},BoldFeatures={Color=white}]{Fira Mono Medium}
 \usefonttheme{professionalfonts}
 
 %% 中文字配置
@@ -88,7 +88,7 @@
   CJKmath=true, indentfirst=false, PunctStyle={quanjiao}, CheckSingle=false, Verb=true, AutoFallBack=true, AutoFakeBold=false, AutoFakeSlant=false, 
 ]{xeCJK}
 
-\setCJKmainfont[Scale=1.05, BoldFont={Heiti TC Medium}]{Heiti TC Medium}
+\setCJKmainfont[Scale=1.0, BoldFont={Heiti TC Medium}]{Heiti TC Medium}
 %\setCJKmonofont[Scale=0.9, BoldFont={DFYuanMedium-B5}, Color=codecolor]{DFYuanMedium-B5}
 
 %\setCJKmainfont[Scale=1, BoldFont={LiHei Pro}]{LiHei Pro}
@@ -96,7 +96,7 @@
 %\setCJKfallbackfamilyfont{\CJKsfdefault}[AutoFakeSlant]{[BoldFont=SimHei]{SimSun}}
 
 %\setCJKmainfont[Scale=1, BoldFont={Lantinghei TC Heavy}]{Lantinghei TC}
-\setCJKmonofont[Scale=0.9, BoldFont={Lantinghei TC}, Color=codecolor]{Lantinghei TC}
+\setCJKmonofont[Scale=0.95, BoldFont={Lantinghei TC}, Color=codecolor]{Lantinghei TC}
 
 
 \title{初學R語言的60分鐘}
@@ -372,8 +372,8 @@
 \begin{frame}[fragile]{檔案下載}
 \begin{enumerate}
 \item 至 \url{http://goo.gl/YRCOaN} 下載以下三個檔案。
-\begin{description}
-\item [\texttt{slide.pdf}]本投影片
+\begin{description}[longest item]
+\item [\texttt{2015RforBeginnerSlide.pdf}]本投影片
 \item [\texttt{exam.xlsx}]例範資料
 \item [\texttt{text.xlsx}]練習資料
 \end{description}
@@ -419,7 +419,8 @@
 
 \begin{frame}[fragile]{提取特定重覆數（列）}
 \begin{itemize}
-\item \verb+dt[3 , ]+ 取得「dt裡的第3列變數」
+\item \verb+dt[3 , ]+ 取得dt裡的第3列變數
+\item \verb+dt[c(3, 6) , ]+ 取得dt裡的第3及第6列變數
 \item \verb+subset(dt, Gender == "m")+ \\ 取得 Gender 是 m 的資料。
 \item \verb+subset(dt, Science >= 60)+ \\ 取得 Science 大於等於 60 的資料。
 \item \verb+subset(dt, Gender == "m" | Science >= 60)+ \\ 取得 Gender 是 m \alert{或} Science 大於等於 60 的資料。

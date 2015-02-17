@@ -1,7 +1,7 @@
 %!TEX TS-program = xelatex
 %!TEX encoding = UTF-8 Unicode
 
-\documentclass[12pt, aspectratio=43]{beamer}
+\documentclass[14pt, aspectratio=43]{beamer}
 \usepackage{amsmath, fancyvrb, textcomp}
 \usepackage{xcolor}
 \definecolor{codecolor}{rgb}{0.0,0.3,0.0}
@@ -19,19 +19,19 @@
 %% Beamer 版面配置
 \mode<presentation>
 
-\usetheme{Pittsburgh}
-%\usetheme{Singapore}
+%\usetheme{Pittsburgh}
+\usetheme{Singapore}
 \usecolortheme{orchid}
 %\usecolortheme{rose}
 %\useoutertheme[subsection=false]{miniframes}
 
 
 % page number shown on top-right corner
-    \setbeamertemplate{headline}{%
-        \vskip3pt\hspace*{\fill}\insertpagenumber\hspace*{3pt}\vspace*{-10pt}%
-    }
-    \setbeamercolor{headline}{fg=black!50, bg=black!50}
-    \setbeamerfont{headline}{size=\footnotesize}
+%    \setbeamertemplate{headline}{%
+%        \vskip3pt\hspace*{\fill}\insertpagenumber\hspace*{3pt}\vspace*{-10pt}%
+%    }
+%    \setbeamercolor{headline}{fg=black!50, bg=black!50}
+%    \setbeamerfont{headline}{size=\footnotesize}
 
 
 %    \setbeamercolor{postit}{bg=blue!10}
@@ -44,13 +44,13 @@
 %
 
 % frametitle
-    \setbeamertemplate{frametitle}{\vspace*{8pt}\hspace*{\fill}\insertframetitle\par}
+    \setbeamertemplate{frametitle}{\vspace*{-5pt}\insertframetitle\hspace*{\fill}{\scriptsize\insertpagenumber}\par}
 %    \setbeamercolor{frametitle}{fg=black}
 
 \setbeamersize{text margin left=0.7cm, text margin right=0.7cm}
 
 \let\oldfootnote\footnote
-\renewcommand\footnote[1]{\hspace{-0.3em}\oldfootnote{\ignorespaces#1}\hspace{0.3em}}
+\renewcommand\footnote[1]{\hspace{-0.6em}\oldfootnote{\ignorespaces#1}\hspace{0.3em}}
 \setbeamerfont{footnote mark}{size=\tiny}
 \setbeamerfont{footnote}{size=\scriptsize}
 \setbeamertemplate{footnote}{\textsuperscript{\insertfootnotemark}\insertfootnotetext}
@@ -66,21 +66,21 @@
 \beamertemplatenavigationsymbolsempty % 去除 Beamer 導覽工具列
 
 \DefineVerbatimEnvironment{RC}{Verbatim}{fontsize=\small, baselinestretch=0.9, samepage=true}
-\DefineVerbatimEnvironment{R}{Verbatim}{fontsize=\scriptsize, frame=single, baselinestretch=0.95, samepage=true}
+\DefineVerbatimEnvironment{R}{Verbatim}{fontsize=\footnotesize, frame=single, baselinestretch=0.9, samepage=true}
 
 %% 西文字配置
-\linespread{1.175}
+\linespread{1}
 \usepackage{arevmath}
 \usepackage[no-math]{fontspec}
-\setmainfont[Mapping=tex-text, LetterSpace=0, BoldFont={Lato}]{Lato}
-\setsansfont[Mapping=tex-text, LetterSpace=0, BoldFont={Lato}, Scale=1]{Lato}
-%\setmainfont[Mapping=tex-text, LetterSpace=0, BoldFont={Fira Sans Book}]{Fira Sans Book}
-%\setsansfont[Mapping=tex-text, LetterSpace=0, BoldFont={Fira Sans Book}]{Fira Sans Book}
-\setmonofont[Color=codecolor, Scale=0.95, LetterSpace=-1, BoldFeatures={Color=white}, BoldFont={Consolas}]{Consolas}
-%\setmonofont[Color=codecolor, Scale=0.9, LetterSpace=-0]{PT Mono}
-%\setmainfont[Mapping=tex-text, Scale=1, LetterSpace=0, BoldFont={DejaVu Sans}]{DejaVu Sans}
-%\setsansfont[Mapping=tex-text, Scale=1, LetterSpace=0, BoldFont={Myriad Pro Semibold}]{Myriad Pro Semibold}
-%\setmonofont[Color=codecolor, Scale=0.9, LetterSpace=-2, BoldFont={Fira Mono Medium},BoldFeatures={Color=white}]{Fira Mono Medium}
+
+%\setmainfont[Mapping=tex-text, LetterSpace=0, BoldFont={Lato}]{Lato}
+%\setsansfont[Mapping=tex-text, LetterSpace=0, BoldFont={Lato}, Scale=1]{Lato}
+%\setmonofont[Color=codecolor, Scale=0.95, LetterSpace=-1, BoldFeatures={Color=white}, BoldFont={Consolas}]{Consolas}
+
+\setmainfont[Mapping=tex-text, Scale=0.8, LetterSpace=-0, BoldFont={DejaVu Sans}]{DejaVu Sans}
+\setsansfont[Mapping=tex-text, Scale=0.8, LetterSpace=-4, BoldFont={DejaVu Sans}]{DejaVu Sans}
+\setmonofont[Color=codecolor, Scale=0.8, LetterSpace=-4, BoldFeatures={Color=white}, BoldFont={DejaVu Sans Mono}]{DejaVu Sans Mono}
+
 \usefonttheme{professionalfonts}
 
 %% 中文字配置
@@ -88,7 +88,7 @@
   CJKmath=true, indentfirst=false, PunctStyle={quanjiao}, CheckSingle=false, Verb=true, AutoFallBack=true, AutoFakeBold=false, AutoFakeSlant=false, 
 ]{xeCJK}
 
-\setCJKmainfont[Scale=1.0, BoldFont={Heiti TC Medium}]{Heiti TC Medium}
+%\setCJKmainfont[Scale=1.0, BoldFont={Heiti TC Medium}]{Heiti TC Medium}
 %\setCJKmonofont[Scale=0.9, BoldFont={DFYuanMedium-B5}, Color=codecolor]{DFYuanMedium-B5}
 
 %\setCJKmainfont[Scale=1, BoldFont={LiHei Pro}]{LiHei Pro}
@@ -96,7 +96,10 @@
 %\setCJKfallbackfamilyfont{\CJKsfdefault}[AutoFakeSlant]{[BoldFont=SimHei]{SimSun}}
 
 %\setCJKmainfont[Scale=1, BoldFont={Lantinghei TC Heavy}]{Lantinghei TC}
-\setCJKmonofont[Scale=0.95, BoldFont={Lantinghei TC}, Color=codecolor]{Lantinghei TC}
+%\setCJKmonofont[Scale=0.95, BoldFont={Lantinghei TC}, Color=codecolor]{Lantinghei TC}
+
+\setCJKmainfont[Scale=0.95, BoldFont={cwTeX Q Hei Bold}, LetterSpace=-20]{cwTeX Q Hei}
+\setCJKmonofont[Scale=0.95, BoldFont={cwTeX Q Hei Bold}, LetterSpace=-0, Color=codecolor]{cwTeX Q Yuan}
 
 
 \title{初學R語言的60分鐘}
@@ -123,17 +126,17 @@
 
 \setbeamertemplate{title page}{
   \vskip0pt plus 1filll
-    \huge{\bfseries\usebeamercolor[fg]{title}初學\hspace{0.2em}\includegraphics[width=3cm]{Rlogo-novo.png}\hspace{0.2em}語言的60分鐘}\\[8pt]
+    \LARGE{\bfseries\usebeamercolor[fg]{title}初學\hspace{0.2em}\includegraphics[width=3cm]{Rlogo-novo.png}\hspace{0.2em}語言的60分鐘}\\[8pt]
     \normalsize{廖鎮磐 \texttt{<andrew.43@gmail.com>}\\東海大學生命科學系}\\[10pt]
     \normalsize{2015年台灣生態研究網年會\\ 2015年3月14日於蓮華池研究中心}
     \vskip0pt plus 0.5filll
-    {\tiny
+    {\scriptsize
         \parbox[c]{2.7cm}{% 
           \includegraphics[width=2.7cm]{cc.pdf}%
         }\hspace{6pt}%
         \parbox[c]{8.2cm}{% 
-           © 2015 廖鎮磐（Chen-Pan Liao）\\[-0pt]
-	   本文件採用姓名標示-相同方式分享 4.0 國際授權（CC BY-SA 4.0）。\footnote{詳情請見 \url{http://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW}。}\\[-0pt]
+           © 2015 廖鎮磐（Chen-Pan Liao）\\[-1pt]
+	   本文件採用姓名標示-相同方式分享 4.0 國際授權（CC BY-SA 4.0）。\footnote{詳情請見 \url{http://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW}。}\\[-1pt]
 	   歡迎下載本投影片及資料檔案。\footnote{\url{https://www.dropbox.com/sh/7p9cluglptyk25a/AAAmPWrSMVf_tC9-cL4JSscCa?dl=0}}
 	 }% 
 	 \vspace{10pt}
@@ -536,8 +539,8 @@ boxplot(Literature ~ Gender, data = dt,
 目標：檢驗三種Group的Literature之平均是否相等，並進行Tukey事後檢驗。
 
 \begin{block}{\texttt{aov()}和\texttt{TukeyHSD()}的基本語法}
-\verb+aov(+
-\verb+應變數 ~ 三組以上類別自變數, data = 資料框, ...)+\\
+\verb+aov(應變數 ~ 三組以上類別自變數, +
+\verb+    data = 資料框, ...)+\\
 \verb+TukeyHSD(aov物件, "分組因子", ...)+
 \end{block}
 
@@ -589,9 +592,9 @@ anova(fit.2) # Type I sum of square
 \begin{frame}[fragile]{簡單線性相關}
 目標：計算Science與Literature的簡單線性相關係數是否為零。
 \begin{block}{\texttt{cor.test()}的基本語法}
-\verb+cor.test(第一群資料, 第二群資料,+
+\verb+cor.test(資料一, 資料二,+
 \verb+         alternative = "t" 或 "l" 或 "g", ...)+
-\verb#cor.test(~ 第一群資料 + 第二群資料, data = 資料框, ...)#
+\verb#cor.test( ~ 資料一 + 資料二, data = 資料框, ...)#
 \end{block}
 \begin{verbatim}
 cor.test(dt$Literature, dt$Science)
@@ -685,8 +688,8 @@ abline(a = coef(fit.2)[1], b = coef(fit.2)[2],
 \begin{itemize}
 \item 《R軟體：應用統計方法》陳景祥著，東華出版社。\\ 對初學者很有幫助的一本。R語言和統計學併重。
 \item 《R 錦囊妙計》 Paul Teetor著，張夏菁譯，歐萊禮出版社。\\ 前半本內容是R語言，後半本是以R進行統計工作。
-\item {\CJKfontspec{Heiti SC Medium}《R语言实用教程》薛毅、陈立萍著，清华大学出版社。}
-\item {\CJKfontspec{Heiti SC Medium}《统计建模与R软件》薛毅、陈立萍著，清华大学出版社。} \\ 以數理統計為主，R語言實作為輔。
+\item {\CJKfontspec[Scale=0.88]{WenQuanYi Zen Hei}《R语言实用教程》薛毅、陈立萍著，清华大学出版社。}
+\item {\CJKfontspec[Scale=0.88]{WenQuanYi Zen Hei}《统计建模与R软件》薛毅、陈立萍著，清华大学出版社。} \\ 以數理統計為主，R語言實作為輔。
 \end{itemize}
 \end{frame}
 
@@ -798,20 +801,23 @@ R官方收錄有六千多個的套件，\footnote{\url{http://cran.r-project.org
 > mydt0
 \end{RC}
 \begin{R}
-                Nation Continent HIV.rate Age.ave Mortality.rate.child ...
-1              Algeria   1Africa     0.10  72.904            18.090586 ...
-2              Morocco   1Africa     0.10  71.882            13.156450 ...
-3               Zambia   1Africa    13.50  48.513           105.545396 ...
-                   ...       ...      ...     ...                 ...  ...
-71     Slovak Republic   4Europe     0.06  75.242             4.203745 ...
-72              Latvia   4Europe     0.70  73.039             4.064162 ...
+            Nation Continent HIV.rate Age.ave Mortality.rate.child ...
+1          Algeria   1Africa     0.10  72.904            18.090586 ...
+2          Morocco   1Africa     0.10  71.882            13.156450 ...
+3           Zambia   1Africa    13.50  48.513           105.545396 ...
+               ...       ...      ...     ...                  ... ...
+71 Slovak Republic   4Europe     0.06  75.242             4.203745 ...
+72          Latvia   4Europe     0.70  73.039             4.064162 ...
 \end{R}
+
+\framebreak 
+
 \begin{RC}
 > names(mydt0)  # 查看變數名
 \end{RC}
 \begin{R}
-[1] "Nation"           "Continent"              "HIV.rate"              
-[4] "Age.ave"          "Mortality.rate.child"   "Mortality.rate.newborn"
+[1] "Nation"     "Continent"              "HIV.rate"              
+[4] "Age.ave"    "Mortality.rate.child"   "Mortality.rate.newborn"
 [7] "GDP.10000" 
 \end{R}
 \begin{RC}
@@ -820,6 +826,7 @@ R官方收錄有六千多個的套件，\footnote{\url{http://cran.r-project.org
 \begin{R}
 [1] 72  7
 \end{R}
+
 \framebreak 
 
 對 \verb+Mortality.rate.child+ 和 \verb+Mortality.rate.newborn+ 的配對樣本\emph{T}檢驗：
@@ -881,8 +888,10 @@ sample estimates:
 mean in group high  mean in group low 
           0.286087           1.213061
 \end{R}
-不過此例 \verb+t.test(..., var.equal = F)+ 可能較洽當，因為二組的變方差距不小。
 
+{
+\tiny 註：此例使用 \verb+t.test(..., var.equal = F)+ 可能較洽當，因為二組的變方差距不小。
+}
 \framebreak
 
 以 \verb+GDP.10000+ 分組對 \verb+HIV.rate+ 之盒形圖：
@@ -1050,8 +1059,9 @@ See you next time :)
 > q()
 Save workspace image? [y/n/c]: n
 \end{verbatim}
-\textattachfile[appearance=false, mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"]{exam.xlsx}{}
-\textattachfile[appearance=false, mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"]{nation-data.xlsx}{}
+
+%\textattachfile[appearance=false, mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"]{exam.xlsx}{}
+%\textattachfile[appearance=false, mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"]{nation-data.xlsx}{}
 \end{frame}
 
 \end{document}

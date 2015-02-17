@@ -1,3 +1,4 @@
+*.atfi
 *.aux
 *.log
 *.nav
@@ -6,4 +7,3 @@
 *.synctex.gz
 *.toc
 *.vrb
-slide.pdf

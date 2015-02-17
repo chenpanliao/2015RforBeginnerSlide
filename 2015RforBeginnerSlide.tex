@@ -4,12 +4,12 @@
 \documentclass[14pt, aspectratio=43]{beamer}
 \usepackage{amsmath, fancyvrb, textcomp}
 \usepackage{xcolor}
-\definecolor{codecolor}{rgb}{0.0,0.3,0.0}
+\definecolor{codecolor}{rgb}{0.0, 0.4, 0.1}
 \definecolor{white}{rgb}{1,1,1}
 
 \usepackage{attachfile2}
 
-% draft
+% draft watermark
 %\usepackage[firstpage]{draftwatermark}
 %\SetWatermarkFontSize{4cm}
 %\SetWatermarkColor[rgb]{1,0.9,0.9}
@@ -20,19 +20,22 @@
 \mode<presentation>
 
 %\usetheme{Pittsburgh}
-\usetheme{Singapore}
-\usecolortheme{orchid}
-%\usecolortheme{rose}
+%\usetheme{Singapore}
+%\usecolortheme{orchid}
+\usecolortheme{rose}
+\useinnertheme{circles}
 %\useoutertheme[subsection=false]{miniframes}
 
 
 % page number shown on top-right corner
-%    \setbeamertemplate{headline}{%
-%        \vskip3pt\hspace*{\fill}\insertpagenumber\hspace*{3pt}\vspace*{-10pt}%
-%    }
-%    \setbeamercolor{headline}{fg=black!50, bg=black!50}
-%    \setbeamerfont{headline}{size=\footnotesize}
+    \setbeamertemplate{headline}{%
+        \vskip5pt\hspace*{\fill}\insertpagenumber\hspace*{3pt}\vspace*{-10pt}%
+    }
+    \setbeamercolor{headline}{fg=black!50, bg=black!50}
+    \setbeamerfont{headline}{size=\footnotesize}
 
+    \setbeamerfont{frametitle continuation}{size=\normalsize}
+ 
 
 %    \setbeamercolor{postit}{bg=blue!10}
 %    \setbeamertemplate{headline}
@@ -44,13 +47,13 @@
 %
 
 % frametitle
-    \setbeamertemplate{frametitle}{\vspace*{-5pt}\insertframetitle\hspace*{\fill}{\scriptsize\insertpagenumber}\par}
+    \setbeamertemplate{frametitle}{\vspace*{-0pt}\insertframetitle\hspace*{\fill}\par}
 %    \setbeamercolor{frametitle}{fg=black}
 
 \setbeamersize{text margin left=0.6cm, text margin right=0.6cm}
 
 \let\oldfootnote\footnote
-\renewcommand\footnote[1]{\hspace{-0.6em}\oldfootnote{\ignorespaces#1}\hspace{0.3em}}
+\renewcommand\footnote[1]{\hspace{-0.7em}\oldfootnote{\ignorespaces#1}\hspace{0.5em}}
 \setbeamerfont{footnote mark}{size=\tiny}
 \setbeamerfont{footnote}{size=\scriptsize}
 \setbeamertemplate{footnote}{\textsuperscript{\insertfootnotemark}\insertfootnotetext}
@@ -77,16 +80,18 @@
 %\setsansfont[Mapping=tex-text, LetterSpace=0, BoldFont={Lato}, Scale=1]{Lato}
 %\setmonofont[Color=codecolor, Scale=0.95, LetterSpace=-1, BoldFeatures={Color=white}, BoldFont={Consolas}]{Consolas}
 
-\setmainfont[Mapping=tex-text, Scale=0.8, LetterSpace=-2, BoldFont={DejaVu Sans}]{DejaVu Sans}
-\setsansfont[Mapping=tex-text, Scale=0.8, LetterSpace=-2, BoldFont={DejaVu Sans}]{DejaVu Sans}
-%\setmonofont[Color=codecolor, Scale=0.8, LetterSpace=-2, BoldFeatures={Color=white}, BoldFont={DejaVu Sans Mono}]{Inconsolata}
-\setmonofont[Color=codecolor, Scale=MatchUppercase, LetterSpace=-1, BoldFeatures={Color=white}, BoldFont={Inconsolata}]{Inconsolata}
+\setmainfont[Mapping=tex-text, Scale=0.825, LetterSpace=-0, BoldFont={DejaVu Sans}]{DejaVu Sans}
+\setsansfont[Mapping=tex-text, Scale=0.825, LetterSpace=-0, BoldFont={DejaVu Sans}]{DejaVu Sans}
+%\setmonofont[Color=codecolor, Scale=0.825, LetterSpace=-2, BoldFeatures={Color=white}, BoldFont={DejaVu Sans Mono}]{DejaVu Sans Mono}
+\setmonofont[Color=codecolor, Scale=0.825, LetterSpace=-2, BoldFeatures={Color=white}, BoldFont={DejaVu Sans Mono}]{DejaVu Sans Mono}
 
 \usefonttheme{professionalfonts}
 
 %% 中文字配置
 \usepackage[
-  CJKmath=true, indentfirst=false, PunctStyle={quanjiao}, CheckSingle=false, Verb=true, AutoFallBack=true, AutoFakeBold=false, AutoFakeSlant=false, 
+  CJKmath=true, indentfirst=false, PunctStyle={quanjiao},
+  CheckSingle=false, Verb=true, AutoFallBack=true, AutoFakeBold=false, AutoFakeSlant=false, 
+  CJKglue = {\hskip-0.4pt plus 2pt},
 ]{xeCJK}
 
 %\setCJKmainfont[Scale=1.0, BoldFont={Heiti TC Medium}]{Heiti TC Medium}
@@ -232,7 +237,7 @@
 
 \begin{frame}[fragile]{初次見面：R是計算機}
 \begin{columns}
-\column{0.25\textwidth}
+\column{0.2\textwidth}
 \begin{verbatim}
 > 2.4 + 42
 [1] 44.4
@@ -244,7 +249,7 @@
 [1] 10
 \end{verbatim}
 
-\column{0.25\textwidth}
+\column{0.2\textwidth}
 \begin{verbatim}
 > a <- 1
 > a
@@ -256,7 +261,7 @@
 [1] 2
 \end{verbatim}
 
-\column{0.4\textwidth}
+\column{0.45\textwidth}
 \begin{verbatim}
 > m <- c(3, 6, 4)
 > n <- c(1, 2, 3)
@@ -376,7 +381,7 @@
 \end{itemize}
 \begin{itemize}
 \item[Q] 函數的使用手冊看不懂耶。
-\item[A] 我也常看不懂。儘量看，多嘗試，特別是 Example 部份。
+\item[A] 我也常看不懂。儘量看，多嘗試，特別是Example部份。
 \end{itemize}
 \begin{itemize}
 \item[Q] 如何找能做某件事的函數？
@@ -440,16 +445,16 @@
 \begin{itemize}
 \item \verb+dt[3 , ]+ 取得dt裡的第3列變數
 \item \verb+dt[c(3, 6) , ]+ 取得dt裡的第3及第6列變數
-\item \verb+subset(dt, Gender == "m")+ \\ 取得 Gender 是 m 的資料。
-\item \verb+subset(dt, Science >= 60)+ \\ 取得 Science 大於等於 60 的資料。
-\item \verb+subset(dt, Gender == "m" | Science >= 60)+ \\ 取得 Gender 是 m \alert{或} Science 大於等於 60 的資料。
-\item \verb+subset(dt, Gender == "m" & Science >= 60)+ \\ 取得 Gender 是 m \alert{且} Science 大於等於 60 的資料。
+\item \verb+subset(dt, Gender == "m")+ \\ 取得Gender是m的資料。
+\item \verb+subset(dt, Science >= 60)+ \\ 取得Science大於等於60的資料。
+\item \verb+subset(dt, Gender == "m" | Science >= 60)+ \\ 取得Gender是m \alert{或} Science大於等於60的資料。
+\item \verb+subset(dt, Gender == "m" & Science >= 60)+ \\ 取得Gender是m \alert{且} Science大於等於60的資料。
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{Q\&A的時間又到囉}
 \begin{itemize}
-\item[Q] 可否直接讀取 xlsx 檔？\\
+\item[Q] 可否直接讀取xlsx檔？\\
 \item[A] 可以！請日後自行研究 \verb+xlsx+ 這個套件。
 \end{itemize}
 \begin{itemize}
@@ -490,14 +495,14 @@
 \verb+t.test(資料, alternative = "t" 或 "l" 或 "g",+
 \verb+       mu = 假說平均數, ...)+
 \end{block}
-\begin{verbatim}
-#雙尾：
-t.test(dt$Science, alternative = "t", mu = 60) 
-#右單尾：
-t.test(dt$Science, alternative = "g", mu = 60) 
-#左單尾：
-t.test(dt$Science, alternative = "l", mu = 60) 
-\end{verbatim}
+\begin{RC}
+> # 雙尾：
+> t.test(dt$Science, alternative = "t", mu = 60) 
+> # 右單尾：
+> t.test(dt$Science, alternative = "g", mu = 60) 
+> # 左單尾：
+> t.test(dt$Science, alternative = "l", mu = 60) 
+\end{RC}
 
 \framebreak
 
@@ -525,15 +530,15 @@ mean of x
 \verb+       alternative = "t" 或 "l" 或 "g",+
 \verb+       mu = 假說中配對差的平均數, pair = T, ...)+
 \end{block}
-\begin{verbatim}
-# 預設雙尾；預設平均差為零
-t.test(dt$Literature, dt$Science, pair = T)
-\end{verbatim}
+\begin{RC}
+> # 預設雙尾；預設平均差為零
+> t.test(dt$Literature, dt$Science, pair = T)
+\end{RC}
 
 \framebreak
 
 \begin{RC}
-t.test(dt$Literature, dt$Science, pair = T)
+> t.test(dt$Literature, dt$Science, pair = T)
 \end{RC}
 \begin{R}
 	Paired t-test
@@ -558,15 +563,15 @@ mean of the differences
 \verb+t.test(資料一, 資料二, mu = 假說中平均數的差,+\\
 \verb+       alternative = "t" 或 "l" 或 "g",+\\
 \verb+       var.equal = T 或 F, ...)+
-\verb+t.test(應變數 ~ 二類類別因子, data = 資料框, ...)+
+\verb+t.test(應變數 ~ 二類類別因子,+\\
+\verb+       data = 資料框, ...)+
 \end{block}
-\begin{verbatim}
-t.test(subset(dt, Gender == "m")$Literature,
-       subset(dt, Gender == "f")$Literature,
-       var.equal = T)
-t.test(Literature ~ Gender, data = dt,
-       var.equal = T)
-\end{verbatim}
+\begin{RC}
+> t.test(subset(dt, Gender == "m")$Literature,
++        subset(dt, Gender == "f")$Literature,
++        var.equal = T)
+> t.test(Literature ~ Gender, data = dt, var.equal = T)
+\end{RC}
 
 \framebreak
 
@@ -593,10 +598,10 @@ mean in group f mean in group m
 \verb+boxplot(應變數 ~ 類別因子, data = 資料框, ...)+
 \end{block}
 
-\begin{verbatim}
-boxplot(Literature ~ Gender, data = dt, 
-        ylab = "Literature score", xlab = "Gender")
-\end{verbatim}
+\begin{RC}
+> boxplot(Literature ~ Gender, data = dt, 
++         ylab = "Literature score", xlab = "Gender")
+\end{RC}
 
 \begin{center}
 \includegraphics[width=0.75\textwidth]{Rplot-two-group.pdf}
@@ -617,11 +622,11 @@ boxplot(Literature ~ Gender, data = dt,
 \verb+    data = 資料框, ...)+\\
 \verb+TukeyHSD(aov物件, "分組因子", ...)+
 \end{block}
-\begin{verbatim}
-fit.1 <- aov(Literature ~ Group, data = dt)
-summary(fit.1) # Type I sum of square
-TukeyHSD(fit.1, "Group")
-\end{verbatim}
+\begin{RC}
+> fit.1 <- aov(Literature ~ Group, data = dt)
+> summary(fit.1) # Type I sum of square
+> TukeyHSD(fit.1, "Group")
+\end{RC}
 
 
 \framebreak
@@ -658,10 +663,10 @@ C-B 0.6666667 -56.41875 57.75209 0.9992924
 \verb+boxplot(應變數 ~ 類別因子, data = 資料框, ...)+
 \end{block}
 
-\begin{verbatim}
-boxplot(Literature ~ Group, data = dt, 
-        ylab = "Literature score", xlab = "Group")
-\end{verbatim}
+\begin{RC}
+> boxplot(Literature ~ Group, data = dt, 
++         ylab = "Literature score", xlab = "Group")
+\end{RC}
 
 \begin{center}
 \includegraphics[width=0.75\textwidth]{Rplot-three-group.pdf}
@@ -682,9 +687,9 @@ boxplot(Literature ~ Group, data = dt,
 \verb+lm(應變數 ~ 連續自變數, data = 資料框, ...)+
 \end{block}
 \begin{verbatim}
-fit.2 <- lm(Literature ~ Science, data = dt)
-summary(fit.2)
-anova(fit.2) # Type I sum of square
+> fit.2 <- lm(Literature ~ Science, data = dt)
+> summary(fit.2)
+> anova(fit.2) # Type I sum of square
 \end{verbatim}
 
 \framebreak
@@ -767,7 +772,8 @@ sample estimates:
 
 \begin{block}{\texttt{plot.formula()}和\texttt{abline()}的基本語法}
 \verb+plot(縱軸資料 ~ 橫軸資料, data = 資料框, ...)+\oldfootnote{\texttt{plot.formula()}可簡寫成\texttt{plot()}。}\\
-\verb+abline(a = coef(迴歸物件)[1], b = coef(迴歸物件)[2],+
+\verb+abline(a = coef(迴歸物件)[1],+\\
+\verb+       b = coef(迴歸物件)[2],+\\
 \verb+       lty, col, ...) # 畫上迴歸線 +
 \end{block}
 
@@ -843,8 +849,8 @@ abline(a = coef(fit.2)[1], b = coef(fit.2)[2],
 \begin{itemize}
 \item 《R軟體：應用統計方法》陳景祥著，東華出版社。\\ 對初學者很有幫助的一本。R語言和統計學併重。
 \item 《R 錦囊妙計》 Paul Teetor著，張夏菁譯，歐萊禮出版社。\\ 前半本內容是R語言，後半本是以R進行統計工作。
-\item {\CJKfontspec[Scale=0.88]{WenQuanYi Zen Hei}《R语言实用教程》薛毅、陈立萍著，清华大学出版社。}
-\item {\CJKfontspec[Scale=0.88]{WenQuanYi Zen Hei}《统计建模与R软件》薛毅、陈立萍著，清华大学出版社。} \\ 以數理統計為主，R語言實作為輔。
+\item {\CJKfontspec[Scale=0.88]{WenQuanYi Micro Hei}《R语言实用教程》薛毅、陈立萍著，清华大学出版社。}
+\item {\CJKfontspec[Scale=0.88]{WenQuanYi Micro Hei}《统计建模与R软件》薛毅、陈立萍著，清华大学出版社。} \\ 以數理統計為主，R語言實作為輔。
 \end{itemize}
 \end{frame}
 
@@ -958,12 +964,13 @@ R官方收錄有六千多個的套件，\footnote{\url{http://cran.r-project.org
 \end{enumerate}
 \end{frame}
 
+\begin{frame}{ }
+\begin{center}
+{\Huge 以下是參考解答\\ \normalsize 防雷一下}
+\end{center}
+\end{frame}
 
 \begin{frame}[fragile, allowframebreaks]{參考解法}
-
-{\Huge 我是防雷頁}
-
-\framebreak
 
 讀入CSV檔：
 \begin{RC}

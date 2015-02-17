@@ -47,7 +47,7 @@
     \setbeamertemplate{frametitle}{\vspace*{-5pt}\insertframetitle\hspace*{\fill}{\scriptsize\insertpagenumber}\par}
 %    \setbeamercolor{frametitle}{fg=black}
 
-\setbeamersize{text margin left=0.7cm, text margin right=0.7cm}
+\setbeamersize{text margin left=0.6cm, text margin right=0.6cm}
 
 \let\oldfootnote\footnote
 \renewcommand\footnote[1]{\hspace{-0.6em}\oldfootnote{\ignorespaces#1}\hspace{0.3em}}
@@ -66,7 +66,7 @@
 \beamertemplatenavigationsymbolsempty % 去除 Beamer 導覽工具列
 
 \DefineVerbatimEnvironment{RC}{Verbatim}{fontsize=\small, baselinestretch=0.9, samepage=true}
-\DefineVerbatimEnvironment{R}{Verbatim}{fontsize=\footnotesize, frame=single, baselinestretch=0.9, samepage=true}
+\DefineVerbatimEnvironment{R}{Verbatim}{fontsize=\footnotesize, frame=single, baselinestretch=0.85, samepage=true}
 
 %% 西文字配置
 \linespread{1}
@@ -77,9 +77,10 @@
 %\setsansfont[Mapping=tex-text, LetterSpace=0, BoldFont={Lato}, Scale=1]{Lato}
 %\setmonofont[Color=codecolor, Scale=0.95, LetterSpace=-1, BoldFeatures={Color=white}, BoldFont={Consolas}]{Consolas}
 
-\setmainfont[Mapping=tex-text, Scale=0.8, LetterSpace=-0, BoldFont={DejaVu Sans}]{DejaVu Sans}
-\setsansfont[Mapping=tex-text, Scale=0.8, LetterSpace=-4, BoldFont={DejaVu Sans}]{DejaVu Sans}
-\setmonofont[Color=codecolor, Scale=0.8, LetterSpace=-4, BoldFeatures={Color=white}, BoldFont={DejaVu Sans Mono}]{DejaVu Sans Mono}
+\setmainfont[Mapping=tex-text, Scale=0.8, LetterSpace=-2, BoldFont={DejaVu Sans}]{DejaVu Sans}
+\setsansfont[Mapping=tex-text, Scale=0.8, LetterSpace=-2, BoldFont={DejaVu Sans}]{DejaVu Sans}
+%\setmonofont[Color=codecolor, Scale=0.8, LetterSpace=-2, BoldFeatures={Color=white}, BoldFont={DejaVu Sans Mono}]{Inconsolata}
+\setmonofont[Color=codecolor, Scale=MatchUppercase, LetterSpace=-1, BoldFeatures={Color=white}, BoldFont={Inconsolata}]{Inconsolata}
 
 \usefonttheme{professionalfonts}
 
@@ -231,7 +232,7 @@
 
 \begin{frame}[fragile]{初次見面：R是計算機}
 \begin{columns}
-\column{0.4\textwidth}
+\column{0.25\textwidth}
 \begin{verbatim}
 > 2.4 + 42
 [1] 44.4
@@ -243,7 +244,7 @@
 [1] 10
 \end{verbatim}
 
-\column{0.4\textwidth}
+\column{0.25\textwidth}
 \begin{verbatim}
 > a <- 1
 > a
@@ -254,6 +255,21 @@
 > a + b
 [1] 2
 \end{verbatim}
+
+\column{0.4\textwidth}
+\begin{verbatim}
+> m <- c(3, 6, 4)
+> n <- c(1, 2, 3)
+> m + n
+[1] 4 8 7
+> m - n
+[1] 2 4 1
+> m * n
+[1]  3 12 12
+> m / n
+[1] 3.000 3.000 1.333
+\end{verbatim}
+
 
 \end{columns}
 \end{frame}
@@ -398,12 +414,12 @@
 \item \verb+setwd("C:/LearnR2015")+ 到達該資料夾。
 \item \verb+dt <- read.csv("exam.csv")+ 或是 \\
       \verb+dt <- read.csv("C:/LearnR2015/exam.csv")+ 以讀取該檔成為一個資料框（data frame），並取名為 \verb+dt+。\\
-\item \verb+dt+ 的結果是什麼？
 \end{enumerate}
 \end{frame}
 
 
 \begin{frame}[fragile]{提取特定變數（欄）}
+\verb+dt+ 的結果是什麼？
 \begin{R}
 > dt
   ID Gender Group Literature Science
@@ -437,6 +453,10 @@
 \item[A] 可以！請日後自行研究 \verb+xlsx+ 這個套件。
 \end{itemize}
 \begin{itemize}
+\item[Q] 中文資料怎麼辦？\\
+\item[A] 資料中有中文可能是件麻煩事，都可以解決，但初學者還是避免比較方便。
+\end{itemize}
+\begin{itemize}
 \item[Q] 可不可以資料排序？\\
 \item[A] 可以！請日後自行研究 \verb+order()+ 和 \verb+sort()+。
 \end{itemize}
@@ -463,7 +483,7 @@
 %\verb+mean( subset(dt, Gender == "m")$Science )+ \\
 \end{frame}
 
-\begin{frame}[fragile]{單樣本\emph{T}檢驗}
+\begin{frame}[fragile, allowframebreaks]{單樣本\emph{T}檢驗}
 
 目標：檢驗Science的平均是否為60。
 \begin{block}{\texttt{t.test()}的基本語法}
@@ -478,9 +498,27 @@ t.test(dt$Science, alternative = "g", mu = 60)
 #左單尾：
 t.test(dt$Science, alternative = "l", mu = 60) 
 \end{verbatim}
+
+\framebreak
+
+\begin{RC}
+> t.test(dt$Science, mu = 60)
+\end{RC}
+\begin{R}
+	One Sample t-test
+
+data:  dt$Science
+t = 1.5393, df = 8, p-value = 0.1623
+alternative hypothesis: true mean is not equal to 60
+95 percent confidence interval:
+ 54.63219 86.92336
+sample estimates:
+mean of x 
+ 70.77778 
+\end{R}
 \end{frame}
 
-\begin{frame}[fragile]{成對樣本\emph{T}檢驗}
+\begin{frame}[fragile, allowframebreaks]{成對樣本\emph{T}檢驗}
 目標：檢驗Literature和Science差之平均是否為0。
 \begin{block}{\texttt{t.test()}的基本語法}
 \verb+t.test(資料1, 資料2,+
@@ -491,17 +529,36 @@ t.test(dt$Science, alternative = "l", mu = 60)
 # 預設雙尾；預設平均差為零
 t.test(dt$Literature, dt$Science, pair = T)
 \end{verbatim}
+
+\framebreak
+
+\begin{RC}
+t.test(dt$Literature, dt$Science, pair = T)
+\end{RC}
+\begin{R}
+	Paired t-test
+
+data:  dt$Literature and dt$Science
+t = -4.2126, df = 8, p-value = 0.002945
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -17.193365  -5.028857
+sample estimates:
+mean of the differences 
+              -11.11111 
+\end{R}
 \end{frame}
 
 
-\begin{frame}[fragile]{獨立雙樣本\emph{T}檢驗}
+\begin{frame}[fragile, allowframebreaks]{獨立雙樣本\emph{T}檢驗}
 目標：檢驗二種Gender的Literature之平均是否相等。
 %\verb+tapply(dt$Literature, dt$Gender, mean) #分組平均+
 %\verb+tapply(dt$Literature, dt$Gender, sd)   #分組標準差+
 \begin{block}{\texttt{t.test()}的基本語法}
-\verb+t.test(資料1, 資料2, alternative = "t" 或 "l" 或 "g",+\\
-\verb+       mu = 假說中平均數的差, var.equal = T 或 F, ...)+
-\verb+t.test(應變數 ~ 僅二類的類別因子, data = 資料框, ...)+
+\verb+t.test(資料一, 資料二, mu = 假說中平均數的差,+\\
+\verb+       alternative = "t" 或 "l" 或 "g",+\\
+\verb+       var.equal = T 或 F, ...)+
+\verb+t.test(應變數 ~ 二類類別因子, data = 資料框, ...)+
 \end{block}
 \begin{verbatim}
 t.test(subset(dt, Gender == "m")$Literature,
@@ -510,8 +567,25 @@ t.test(subset(dt, Gender == "m")$Literature,
 t.test(Literature ~ Gender, data = dt,
        var.equal = T)
 \end{verbatim}
-\end{frame}
 
+\framebreak
+
+\begin{RC}
+> t.test(Literature ~ Gender, data = dt, var.equal = T)
+\end{RC}
+\begin{R}
+	Two Sample t-test
+
+data:  Literature by Gender
+t = -0.8823, df = 7, p-value = 0.4069
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -43.60845  19.90845
+sample estimates:
+mean in group f mean in group m 
+          54.40           66.25 
+\end{R}
+\end{frame}
 
 \begin{frame}[fragile]{盒形圖}
 
@@ -525,7 +599,7 @@ boxplot(Literature ~ Gender, data = dt,
 \end{verbatim}
 
 \begin{center}
-\includegraphics[width=0.8\textwidth]{Rplot-two-group.pdf}
+\includegraphics[width=0.75\textwidth]{Rplot-two-group.pdf}
 \end{center}
 \end{frame}
 
@@ -535,21 +609,47 @@ boxplot(Literature ~ Gender, data = dt,
 %  ylab = "Literature score", xlab = "Gender")
 %dev.off()
 
-\begin{frame}[fragile]{單因子變異數分析}
+\begin{frame}[fragile, allowframebreaks]{單因子變異數分析}
 目標：檢驗三種Group的Literature之平均是否相等，並進行Tukey事後檢驗。
 
 \begin{block}{\texttt{aov()}和\texttt{TukeyHSD()}的基本語法}
-\verb+aov(應變數 ~ 三組以上類別自變數, +
+\verb+aov(應變數 ~ 三組以上類別自變數, +\\
 \verb+    data = 資料框, ...)+\\
 \verb+TukeyHSD(aov物件, "分組因子", ...)+
 \end{block}
-
 \begin{verbatim}
 fit.1 <- aov(Literature ~ Group, data = dt)
 summary(fit.1) # Type I sum of square
-TukeyHSD(fit, "Group")
+TukeyHSD(fit.1, "Group")
 \end{verbatim}
 
+
+\framebreak
+
+\begin{RC}
+> fit.1 <- aov(Literature ~ Group, data = dt)
+> summary(fit.1)
+\end{RC}
+\begin{R}
+            Df Sum Sq Mean Sq F value Pr(>F)
+Group        2    2.7     1.3   0.003  0.997
+Residuals    6 3115.3   519.2               
+\end{R}
+\begin{RC}
+> TukeyHSD(fit.1, "Group")
+\end{RC}
+\begin{R}
+  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = Literature ~ Group, data = dt)
+
+$Group
+         diff       lwr      upr     p adj
+B-A 0.6666667 -56.41875 57.75209 0.9992924
+C-A 1.3333333 -55.75209 58.41875 0.9971738
+C-B 0.6666667 -56.41875 57.75209 0.9992924
+\end{R}
 \end{frame}
 
 \begin{frame}[fragile]{盒形圖}
@@ -564,7 +664,7 @@ boxplot(Literature ~ Group, data = dt,
 \end{verbatim}
 
 \begin{center}
-\includegraphics[width=0.8\textwidth]{Rplot-three-group.pdf}
+\includegraphics[width=0.75\textwidth]{Rplot-three-group.pdf}
 \end{center}
 \end{frame}
 
@@ -576,7 +676,7 @@ boxplot(Literature ~ Group, data = dt,
 %dev.off()
 
 
-\begin{frame}[fragile]{簡單線性迴歸}
+\begin{frame}[fragile, allowframebreaks]{簡單線性迴歸}
 目標：建立Science對應Literature的簡單線性迴歸模型，並檢驗斜率是否為零。
 \begin{block}{\texttt{lm()}的基本語法}
 \verb+lm(應變數 ~ 連續自變數, data = 資料框, ...)+
@@ -586,10 +686,48 @@ fit.2 <- lm(Literature ~ Science, data = dt)
 summary(fit.2)
 anova(fit.2) # Type I sum of square
 \end{verbatim}
+
+\framebreak
+
+\begin{RC}
+> fit.2 <- lm(Literature ~ Science, data = dt); 
+> summary(fit.2)
+\end{RC}
+\begin{R}
+Call:
+lm(formula = Literature ~ Science, data = dt)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-16.894  -1.085   2.494   4.269   8.113 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -1.9625     9.8294  -0.200 0.847422    
+Science       0.8707     0.1337   6.511 0.000331 ***
+---
+
+Residual standard error: 7.946 on 7 degrees of freedom
+Multiple R-squared:  0.8583,	Adjusted R-squared:  0.838 
+F-statistic: 42.39 on 1 and 7 DF,  p-value: 0.0003308
+\end{R}
+
+\framebreak
+
+\begin{RC}
+> anova(fit.2)
+\end{RC}
+\begin{R}
+Analysis of Variance Table
+
+Response: Literature
+          Df  Sum Sq Mean Sq F value    Pr(>F)    
+Science    1 2676.08 2676.08  42.389 0.0003308 ***
+Residuals  7  441.92   63.13                      
+\end{R}
 \end{frame}
 
-
-\begin{frame}[fragile]{簡單線性相關}
+\begin{frame}[fragile, allowframebreaks]{簡單線性相關}
 目標：計算Science與Literature的簡單線性相關係數是否為零。
 \begin{block}{\texttt{cor.test()}的基本語法}
 \verb+cor.test(資料一, 資料二,+
@@ -601,8 +739,25 @@ cor.test(dt$Literature, dt$Science)
 cor.test(~ Literature + Science, data = dt)
 cor.test(~ Science + Literature, data = dt)
 \end{verbatim}
-\end{frame}
 
+\framebreak
+
+\begin{RC}
+> cor.test(dt$Literature, dt$Science)
+\end{RC}
+\begin{R}
+	Pearson's product-moment correlation
+
+data:  dt$Literature and dt$Science
+t = 6.5107, df = 7, p-value = 0.0003308
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ 0.6817766 0.9847014
+sample estimates:
+      cor 
+0.9264278
+\end{R}
+\end{frame}
 
 \begin{frame}[fragile]{散佈圖}
 
@@ -632,7 +787,7 @@ abline(a = coef(fit.2)[1], b = coef(fit.2)[2],
 \end{verbatim}
 
 \begin{center}
-\includegraphics[width=0.8\textwidth]{Rplot-sct.pdf}
+\includegraphics[width=0.75\textwidth]{Rplot-sct.pdf}
 \end{center}
 \end{frame}
 
@@ -661,7 +816,7 @@ abline(a = coef(fit.2)[1], b = coef(fit.2)[2],
 \end{itemize}
 \begin{itemize}\item[Q] R畫的圖想做更多調整$\cdots\cdots$
 \item[A1] 這件工作不是非常容易，需要經驗。有空看看 \verb+par()+ 和 \verb+plot()+ 的使用手冊。
-\item[A2] 初學者可以先用 R 畫好概要圖，再以其它圖片編輯軟體後製。
+\item[A2] 初學者可以先用 R 畫個大概的樣子，再以其它圖片編輯軟體後製。參考 \verb+png()+、\verb+pdf()+、\verb+svg()+ 等方法來輸出圖檔。
 \end{itemize}
 \end{frame}
 
@@ -768,8 +923,6 @@ R官方收錄有六千多個的套件，\footnote{\url{http://cran.r-project.org
 \end{itemize}
 \end{frame}
 
-\section{小試身手}\subsection{}
-
 \begin{frame}{今日的總複習}
 \begin{itemize}
 \item 建立一個（適合自己的）R工作環境
@@ -780,6 +933,20 @@ R官方收錄有六千多個的套件，\footnote{\url{http://cran.r-project.org
 \end{itemize}
 \end{frame}
 
+\begin{frame}[fragile]{謝謝收看}
+\large
+\begin{verbatim}
+> cat("Have wonderful R experiences!\n")
+> q()
+\end{verbatim}
+
+%\textattachfile[appearance=false, mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"]{exam.xlsx}{}
+%\textattachfile[appearance=false, mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"]{nation-data.xlsx}{}
+\end{frame}
+
+
+
+\section{試練窟}\subsection{}
 
 \begin{frame}[shrink=8, fragile]{按今日課程試著完成以下練習}
 \begin{enumerate}
@@ -793,6 +960,10 @@ R官方收錄有六千多個的套件，\footnote{\url{http://cran.r-project.org
 
 
 \begin{frame}[fragile, allowframebreaks]{參考解法}
+
+{\Huge 我是防雷頁}
+
+\framebreak
 
 讀入CSV檔：
 \begin{RC}
@@ -850,6 +1021,10 @@ mean of the differences
                4.260981
 \end{R}
 
+\begin{minipage}{1\textwidth}
+\tiny 註：參考使用無母數方法one-sample Wilcoxon test \verb+wilcox.test(..., paired = T)+。
+\end{minipage}
+
 \framebreak 
 
 以 \verb+GDP.10000+ 分組對 \verb+HIV.rate+ 之描述：
@@ -889,9 +1064,10 @@ mean in group high  mean in group low
           0.286087           1.213061
 \end{R}
 
-{
-\tiny 註：此例使用 \verb+t.test(..., var.equal = F)+ 可能較洽當，因為二組的變方差距不小。
-}
+\begin{minipage}{1\textwidth}
+\tiny 註：此例使用 \verb+t.test(..., var.equal = F)+ 可能較洽當（因為二組的變方差距不小），甚至參考使用無母數方法two-sample Wilcoxon test \verb+wilcox.test()+ 或 two-sample Kolmogorov-Smirnov test \verb+ks.test()+。
+\end{minipage}
+
 \framebreak
 
 以 \verb+GDP.10000+ 分組對 \verb+HIV.rate+ 之盒形圖：
@@ -908,7 +1084,7 @@ mean in group high  mean in group low
 %          xaxt = "n")
 %axis(1, 1:2, label = c("> 10k USD", "< 10k USD"))
 %dev.off()
-\begin{center}\includegraphics[width=0.8\textwidth]{Rplot-test-two-group.pdf}\end{center}
+\begin{center}\includegraphics[width=0.75\textwidth]{Rplot-test-two-group.pdf}\end{center}
 
 \framebreak
 
@@ -939,8 +1115,6 @@ mean in group high  mean in group low
             Df Sum Sq Mean Sq F value   Pr(>F)    
 Continent    3   2439   813.0   24.12 9.66e-11 ***
 Residuals   68   2292    33.7                     
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 \end{R}
 
 \begin{minipage}{1\textwidth}
@@ -986,7 +1160,7 @@ $Continent
 %        xaxt = "n")
 %axis(1, 1:4, label = c("Africa", "America", "Asia", "Europe"))
 %dev.off()
-\begin{center}\includegraphics[width=0.8\textwidth]{Rplot-test-anova.pdf}\end{center}
+\begin{center}\includegraphics[width=0.75\textwidth]{Rplot-test-anova.pdf}\end{center}
 
 \verb+HIV.rate+ vs \verb+Age.ave+ 的簡單線性迴歸：
 \begin{RC}
@@ -996,22 +1170,22 @@ $Continent
 \begin{R}
 Call:
 lm(formula = HIV.rate ~ Age.ave, data = mydt0)
-
 Residuals:
     Min      1Q  Median      3Q     Max 
 -2.6995 -0.8609 -0.0631  0.7118  7.8572 
-
 Coefficients:
             Estimate Std. Error t value Pr(>|t|)    
 (Intercept) 15.09700    1.73463   8.703 9.27e-13 ***
 Age.ave     -0.19488    0.02369  -8.225 7.03e-12 ***
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
 Residual standard error: 1.63 on 70 degrees of freedom
 Multiple R-squared:  0.4915,	Adjusted R-squared:  0.4842 
 F-statistic: 67.65 on 1 and 70 DF,  p-value: 7.027e-12
 \end{R}
+
+\begin{minipage}{1\textwidth}
+\tiny 註：考慮應變數轉型 \verb!lm(sqrt(HIV.rate + 1) ~ Age.ave, ...)! 或自變數包括二次式 \verb!lm(HIV.rate ~ Age.ave + I(Age.ave ^ 2), ...)!。
+\end{minipage}
 
 \framebreak
 
@@ -1033,6 +1207,10 @@ sample estimates:
 -0.7010578 
 \end{R}
 
+\begin{minipage}{1\textwidth}
+\tiny 註：考慮無母數相關 \verb!cor.test(..., method = "kendall")! 或。\verb!cor.test(..., method = "spearman")!。
+\end{minipage}
+
 \framebreak
 
 \verb+HIV.rate+ vs \verb+Age.ave+ 的散佈圖：
@@ -1042,7 +1220,7 @@ sample estimates:
 > abline(a = coef(fit.reg)[1], b = coef(fit.reg)[2],
 +        lty = 2, col = 6)
 \end{RC}
-\begin{center}\includegraphics[width=0.8\textwidth]{Rplot-test-lm.pdf}\end{center}
+\begin{center}\includegraphics[width=0.75\textwidth]{Rplot-test-lm.pdf}\end{center}
 %pdf("Rplot-test-lm.pdf", width=5, height=2.5)
 %par(mar=c(4,4,0.5,0.1))
 %plot(HIV.rate ~ Age.ave, data = mydt0,
@@ -1051,17 +1229,6 @@ sample estimates:
 %dev.off()
 
 \end{frame}
-\Large
-\begin{frame}[fragile]{謝謝收看}
-\begin{verbatim}
-> cat("See you next time :) \n")
-See you next time :)
-> q()
-Save workspace image? [y/n/c]: n
-\end{verbatim}
 
-%\textattachfile[appearance=false, mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"]{exam.xlsx}{}
-%\textattachfile[appearance=false, mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"]{nation-data.xlsx}{}
-\end{frame}
 
 \end{document}

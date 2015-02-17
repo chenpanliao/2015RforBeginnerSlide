@@ -739,11 +739,11 @@ Residuals  7  441.92   63.13
 \verb+         alternative = "t" 或 "l" 或 "g", ...)+
 \verb#cor.test( ~ 資料一 + 資料二, data = 資料框, ...)#
 \end{block}
-\begin{verbatim}
+\begin{RC}
 cor.test(dt$Literature, dt$Science)
 cor.test(~ Literature + Science, data = dt)
 cor.test(~ Science + Literature, data = dt)
-\end{verbatim}
+\end{RC}
 
 \framebreak
 
@@ -777,20 +777,19 @@ sample estimates:
 \verb+       lty, col, ...) # 畫上迴歸線 +
 \end{block}
 
-\begin{verbatim}
+\begin{RC}
 plot(Literature ~ Science, data = dt)
 abline(a = coef(fit.2)[1], b = coef(fit.2)[2],
        lty = 3)
-\end{verbatim}
-\end{frame}
+\end{RC}
 
-\begin{frame}[fragile]{散佈圖}
+\framebreak
 
-\begin{verbatim}
+\begin{RC}
 plot(Literature ~ Science, data = dt)
 abline(a = coef(fit.2)[1], b = coef(fit.2)[2],
        lty = 3)
-\end{verbatim}
+\end{RC}
 
 \begin{center}
 \includegraphics[width=0.75\textwidth]{Rplot-sct.pdf}
@@ -929,7 +928,7 @@ R官方收錄有六千多個的套件，\footnote{\url{http://cran.r-project.org
 \end{itemize}
 \end{frame}
 
-\begin{frame}{今日的總複習}
+\begin{frame}[fragile]{今日的總複習}
 \begin{itemize}
 \item 建立一個（適合自己的）R工作環境
 \item 了解R的函數與如何閱讀其使用手冊
@@ -937,9 +936,7 @@ R官方收錄有六千多個的套件，\footnote{\url{http://cran.r-project.org
 \item 練習常見的統計方法
 \item 讓自己更厲害的資源
 \end{itemize}
-\end{frame}
 
-\begin{frame}[fragile]{謝謝收看}
 \large
 \begin{verbatim}
 > cat("Have wonderful R experiences!\n")

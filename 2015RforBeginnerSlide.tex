@@ -7,7 +7,7 @@
 \definecolor{codecolor}{rgb}{0.0, 0.3, 0.1}
 \definecolor{white}{rgb}{1,1,1}
 
-\usepackage{attachfile2}
+%\usepackage{attachfile2}
 
 % draft watermark
 %\usepackage[]{draftwatermark}
@@ -50,7 +50,7 @@
     \setbeamertemplate{frametitle}{\vspace*{-0pt}\insertframetitle\hspace*{\fill}\par}
 %    \setbeamercolor{frametitle}{fg=black}
 
-\setbeamersize{text margin left=0.6cm, text margin right=0.6cm}
+\setbeamersize{text margin left=0.7cm, text margin right=0.7cm}
 
 \let\oldfootnote\footnote
 \renewcommand\footnote[1]{\hspace{-0.7em}\oldfootnote{\ignorespaces#1}\hspace{0.5em}}
@@ -77,12 +77,12 @@
 \usepackage[no-math]{fontspec}
 
 %\setmainfont[Mapping=tex-text, LetterSpace=0, BoldFont={Lato}]{Lato}
-%\setsansfont[Mapping=tex-text, LetterSpace=0, BoldFont={Lato}, Scale=1]{Lato}
+%\setsansfont[Mapping=tex-text, LetterSpace=0, BoldFont={Lato}, Scale=0.85]{Lato}
 %\setmonofont[Color=codecolor, Scale=0.95, LetterSpace=-1, BoldFeatures={Color=white}, BoldFont={Consolas}]{Consolas}
 
-\setmainfont[Mapping=tex-text, Scale=0.85, LetterSpace=-0, BoldFont={DejaVu Sans}]{DejaVu Sans}
-\setsansfont[Mapping=tex-text, Scale=0.85, LetterSpace=-0, BoldFont={DejaVu Sans}]{DejaVu Sans}
-\setmonofont[Color=codecolor, Scale=0.85, LetterSpace=-4, BoldFeatures={Color=white}, BoldFont={DejaVu Sans Mono}]{DejaVu Sans Mono}
+\setmainfont[Mapping=tex-text, Scale=0.8, LetterSpace=-0, BoldFont={DejaVu Sans}]{DejaVu Sans}
+\setsansfont[Mapping=tex-text, Scale=0.8, LetterSpace=-0, BoldFont={DejaVu Sans}]{DejaVu Sans}
+\setmonofont[Color=codecolor, Scale=0.8, LetterSpace=-2, BoldFeatures={Color=white}, BoldFont={DejaVu Sans Mono}]{DejaVu Sans Mono}
 
 \usefonttheme{professionalfonts}
 
@@ -95,7 +95,7 @@
   CJKglue = {\hskip-0.4pt plus 2pt}, CJKecglue = {\nbs}
 ]{xeCJK}
 \setCJKmainfont[Scale=0.95, BoldFont={cwTeX Q Hei Bold}, LetterSpace=0]{cwTeX Q Hei}
-\setCJKmonofont[Scale=0.95, BoldFont={cwTeX Q Hei Bold}, LetterSpace=-0, Color=codecolor, FakeStretch = 0.95]{cwTeX Q Yuan}
+\setCJKmonofont[Scale=0.95, BoldFont={cwTeX Q Hei Bold}, LetterSpace=-0, Color=codecolor]{cwTeX Q Yuan}
 
 
 \title{初學R語言的60分鐘}
@@ -114,8 +114,10 @@
     pdfpagemode={UseOutlines},
     pdfdisplaydoctitle=true,
     pdfinfo={License={Attribution-ShareAlike 4.0 International}},
-    pdftitle={初學R語言的60分鐘},    % title
-    pdfauthor={廖鎮磐 (Chen-Pan Liao) <andrew.43@gmail.com>},     % author
+    pdftitle={初學R語言的60分鐘},
+    pdfauthor={廖鎮磐 (Chen-Pan Liao) <andrew.43@gmail.com>},
+    pdfsubject={針對R語言的初學者所設計的教學投影片。主題包括建立R操作環境、了解R的函數使用方法、資料讀取、常見的統計分析與繪圖。},
+    pdfkeywords={R語言, 投影片, 初學},
     pdflang={zh-TW},
     xetex
 }
@@ -389,14 +391,14 @@
 
 \begin{frame}[fragile]{檔案下載}
 \begin{enumerate}
-\item 至 \url{http://goo.gl/YRCOaN} 下載以下三個檔案。
+\item 至 \url{http://goo.gl/foAeaq} 以下載檔案：
 \begin{description}[longest item]
-\item [\texttt{2015RforBeginnerSlide.pdf}]本投影片
+%\item [\texttt{2015RforBeginnerSlide.pdf}]本投影片
 \item [\texttt{exam.xlsx}]例範資料
 \item [\texttt{text.xlsx}]練習資料
 \end{description}
 
-\item 在C disk 下創建一個\nbs\verb+LearnR2015+\nbs{}資料夾，並將三個檔案置入該資料夾中。
+\item 在C disk 下創建一個\nbs\verb+LearnR2015+\nbs{}資料夾，並將檔案置入該資料夾中。
 \end{enumerate}
 %\begin{center}
 %\Huge\url{http://goo.gl/YRCOaN}\\
@@ -437,8 +439,8 @@
 
 \begin{frame}[fragile]{提取特定重覆數（列）}
 \begin{itemize}
-\item \verb+dt[3 , ]+ \\ 取得dt裡的第3列變數
-\item \verb+dt[c(3, 6) , ]+ \\ 取得dt裡的第3及第6列變數
+\item \verb+dt[3 , ]+ \\ 取得dt裡的第3列資料
+\item \verb+dt[c(3, 6) , ]+ \\ 取得dt裡的第3及第6列資料
 \item \verb+subset(dt, Gender == "m")+ \\ 取得Gender是m的資料。
 \item \verb+subset(dt, Science >= 60)+ \\ 取得Science大於等於60的資料。
 %\item \verb+subset(dt, Gender == "m" | Science >= 60)+ \\ 取得Gender是m \alert{或} Science大於等於60的資料。
@@ -811,7 +813,7 @@ sample estimates:
 \item[Q] 我怎麼知道我做對了？
 \item[A] 拿出你的統計學課本的例題，用R做做看。
 \end{itemize}
-\begin{itemize}\item[Q] R畫的圖想做更多調整$\cdots\cdots$
+\begin{itemize}\item[Q] R畫的圖想做更多調整$\ldots\ldots$
 \item[A1] 這件工作不是非常容易，需要經驗。有空看看\nbs\verb+par()+\nbs{}和\nbs\verb+plot()+\nbs{}的使用手冊。
 \item[A2] 初學者可以先用 R 畫個大概的樣子，再以其它圖片編輯軟體後製。參考\nbs\verb+png()+、\verb+pdf()+、\verb+svg()+\nbs{}等方法來輸出圖檔。
 \end{itemize}
@@ -849,7 +851,7 @@ sample estimates:
 英文書選擇極多。我推薦以下幾本我喜歡或值得閱讀的。
 \begin{itemize}
 \item ``Biostatistical Design and Analysis Using R: A Practical Guide'' by Murray Logan. Wiley-Blackwell Press.\\ 實驗設計和R並重，非常推薦。
-\item ``The R Book, 2nd Edition'' by Michael J.~Crawley. Wiley Press. \\ 較不易閱讀，但仍值得細讀。R語言和統計併重。
+\item ``The R Book, 2\textsuperscript{nd} Edition'' by Michael J.~Crawley. Wiley Press. \\ 較不易閱讀，但仍值得細讀。R語言和統計併重。
 \item ``A First Course in Statistical Programming with R'' by W.~John Braun \& Duncan J.~Murdoch. Cambridge University Press. \\ 易讀。統計學基礎內容為主，但實驗設計部份少。
 \end{itemize}
 \end{frame}
@@ -858,10 +860,9 @@ sample estimates:
 \begin{frame}{網路教學}
 \begin{itemize}
 \item 《R 演習室》\makeatletter @ \makeatother youtube.com\oldfootnote{\url{https://www.youtube.com/playlist?list=PL5AC0ADBF65924EAD}} \\ 針對初學者的 R 視訊教學系列。有廣告（歡迎多看幾秒），但有提供影片載點。
-\item \url{http://www.r-software.org/movielist} \\ 中文影片，內容豐富，適合初學者。
-\item ``Quick-R''by Robert I.~Kabacoff\oldfootnote{\url{http://www.statmethods.net/}}
-\item 請自行 Google「R turorial」，實在太多了。
-\item 中文教學網頁極少，還是找英文的比較實在。
+\item \url{http://www.r-software.org/home} \\ 中華R軟體學會。收錄許多中文影片與中文教學，內容豐富，亦適合初學者。
+\item ``Quick-R''by Robert I.~Kabacoff\oldfootnote{\url{http://www.statmethods.net/}}\\ 我常用的速查網站。
+\item 英文的的網路教學非常多，請自行搜尋「R turorial」。
 \end{itemize}
 \end{frame}
 
@@ -869,7 +870,7 @@ sample estimates:
 \begin{frame}{網路討論區}
 \begin{itemize}
 \item PTT的R\_Language板 \\ 路徑：戰略高手 $\rightarrow$ CompScience $\rightarrow$ R\_Language\\ 對初學者友善。
-\item R軟體使用者論壇\oldfootnote{\url{https://groups.google.com/forum/?hl=zh-TW\#!forum/taiwanruser}}
+\item （中文的）R軟體使用者論壇\oldfootnote{\url{https://groups.google.com/forum/?hl=zh-TW\#!forum/taiwanruser}}
 \item Tag ``R''  \makeatletter @ \makeatother stackoverflow.com\oldfootnote{\url{http://stackoverflow.com/questions/tagged/r}}
 \end{itemize}
 \end{frame}
@@ -916,7 +917,7 @@ R官方收錄有六千多個的套件，\footnote{\url{http://cran.r-project.org
 \item[Q] 阿盤學多久才叫「上手」、「有生產力」？
 \item[A] 自學半年以上，但我今天就要把八成功力都傳給你了！
 \end{itemize}
-\begin{itemize}\item[Q] 聽到這裡，我想認輸了$\cdots\cdots$我想重回用滑鼠搞定的世界。
+\begin{itemize}\item[Q] 聽到這裡，我想認輸了$\ldots\ldots$我想重回用滑鼠搞定的世界。
 \item[A] 只要是適合自己的工具，就是好工具。
 \end{itemize}
 \end{frame}
@@ -947,10 +948,10 @@ R官方收錄有六千多個的套件，\footnote{\url{http://cran.r-project.org
 \begin{frame}[shrink=8, fragile]{按今日課程試著完成以下練習}
 \begin{enumerate}
 \item 想辦法以R讀取\nbs\verb+nation-data.xlsx+\nbs{}的內容並命名為\nbs\verb+mydt0+\nbs{}資料框。以檔案中所有國家為樣本完成以下分析。
-\item 利用配對樣本\emph{T}檢驗，考驗\nbs\verb+Mortality.rate.child+\nbs{}之平均是否顯著高於\nbs\verb+Mortality.rate.newborn+nbs{}之平均。提示：不是雙尾檢驗。
-\item 以\nbs\verb+GDP.10000+nbs{}為組別，計算\nbs\verb+HIV.rate+nbs{}在各組的平均值和標準偏差，並利用獨立雙樣本\emph{T}檢驗比較組間的平均是否顯著不等，以及繪製對應的盒形圖。
-\item 以\nbs\verb+Continent+nbs{}為組別，計算\nbs\verb+Age.ave+nbs{}在各組的平均值和標準偏差，並利用單因子變異數分析比較組間的平均差異是否顯著不等，以及繪製對應的盒形圖。
-\item 以\nbs\verb+HIV.rate+nbs{}為反應變數（應變數），\verb+Age.ave+nbs{}為解釋變數（自變數），建立簡單線性迴歸模型，並檢驗斜率及相關係數是否顯著不為零，以及繪製對應之散佈圖。
+\item 利用配對樣本\emph{T}檢驗，考驗\nbs\verb+Mortality.rate.child+\nbs{}之平均是否顯著高於\nbs\verb+Mortality.rate.newborn+\nbs{}之平均。提示：不是雙尾檢驗。
+\item 以\nbs\verb+GDP.10000+\nbs{}為組別，計算\nbs\verb+HIV.rate+\nbs{}在各組的平均值和標準偏差，並利用獨立雙樣本\emph{T}檢驗比較組間的平均是否顯著不等，以及繪製對應的盒形圖。
+\item 以\nbs\verb+Continent+\nbs{}為組別，計算\nbs\verb+Age.ave+\nbs{}在各組的平均值和標準偏差，並利用單因子變異數分析比較組間的平均差異是否顯著不等，以及繪製對應的盒形圖。
+\item 以\nbs\verb+HIV.rate+\nbs{}為反應變數（應變數），\verb+Age.ave+\nbs{}為解釋變數（自變數），建立簡單線性迴歸模型，並檢驗斜率及相關係數是否顯著不為零，以及繪製對應之散佈圖。
 \end{enumerate}
 \end{frame}
 
@@ -997,7 +998,7 @@ R官方收錄有六千多個的套件，\footnote{\url{http://cran.r-project.org
 
 \framebreak 
 
-對\nbs\verb+Mortality.rate.child+nbs{}和\nbs\verb+Mortality.rate.newborn+nbs{}的配對樣本\emph{T}檢驗：
+對\texttt{Mortality.rate.child}和\texttt{Mortality.rate.newborn}的配對樣本\emph{T}檢驗：
 \begin{RC}
 > x.1 <- mydt0$Mortality.rate.child
 > x.2 <- mydt0$Mortality.rate.newborn
@@ -1024,7 +1025,7 @@ mean of the differences
 
 \framebreak 
 
-以\nbs\verb+GDP.10000+nbs{}分組對\nbs\verb+HIV.rate+nbs{}之描述：
+以\texttt{GDP.10000}分組對\texttt{HIV.rate}之描述：
 \begin{RC}
 > tapply(mydt0$HIV.rate, mydt0$GDP.10000, mean))
 > with(mydt0, {tapply(HIV.rate, GDP.10000, mean)}) #亦可
@@ -1043,7 +1044,7 @@ mean of the differences
 
 \framebreak
 
-以\nbs\verb+GDP.10000+nbs{}分組對\nbs\verb+HIV.rate+nbs{}之獨立雙樣本\emph{T}檢驗：
+以\texttt{GDP.10000}分組對\texttt{HIV.rate}之獨立雙樣本\emph{T}檢驗：
 \begin{RC}
 > t.test(HIV.rate ~ GDP.10000,
          data = mydt0, var.equal = T)
@@ -1062,12 +1063,12 @@ mean in group high  mean in group low
 \end{R}
 
 \begin{flushleft}
-\scriptsize 註：此例使用\nbs\verb+t.test(..., var.equal = F)+nbs{}可能較洽當（因為二組的變方差距不小），甚至參考使用無母數方法two-sample Wilcoxon test \verb+wilcox.test()+nbs{}或 two-sample Kolmogorov-Smirnov test \verb+ks.test()+。
+\scriptsize 註：此例使用\nbs\verb+t.test(..., var.equal = F)+\nbs{}可能較洽當（因為二組的變方差距不小），甚至參考使用無母數方法two-sample Wilcoxon test \verb+wilcox.test()+\nbs{}或 two-sample Kolmogorov-Smirnov test \verb+ks.test()+。
 \end{flushleft}
 
 \framebreak
 
-以\nbs\verb+GDP.10000+nbs{}分組對\nbs\verb+HIV.rate+nbs{}之盒形圖：
+以\nbs\verb+GDP.10000+\nbs{}分組對\nbs\verb+HIV.rate+\nbs{}之盒形圖：
 \begin{RC}
 > boxplot(HIV.rate ~ GDP.10000, data = mydt0,
 +         xlab = "GDP", ylab = "HIV rate (%)",
@@ -1085,7 +1086,7 @@ mean in group high  mean in group low
 
 \framebreak
 
-以\nbs\verb+Continent+nbs{}分組對\nbs\verb+Age.ave+\nbs{}之描述：
+以\texttt{Continent}分組對\texttt{Age.ave}之描述：
 \begin{RC}
 > with(mydt0, {tapply(Age.ave, Continent, mean)})
 \end{RC}
@@ -1103,7 +1104,7 @@ mean in group high  mean in group low
 
 \framebreak
 
-以\nbs\verb+Continent+\nbs{}分組對\nbs\verb+Age.ave+\nbs{}進行單因子變異數分析：
+以\texttt{Continent}分組對\texttt{Age.ave}進行單因子變異數分析：
 \begin{RC}
 > f.anova <- aov(Age.ave ~ Continent, data = mydt0)
 > summary(f.anova)
@@ -1115,7 +1116,7 @@ Residuals   68   2292    33.7
 \end{R}
 
 \begin{flushleft}
-\scriptsize 註：此例之間間變方甚不同質，故以\nbs\verb+oneway.test(Age.ave ~ Continent, data = mydt0)+nbs{}進行組間變方不同質之修正，或是以\nbs\verb+kruskal.test(Age.ave ~ Continent, data = mydt0)+nbs{}進行Kruskal-Wallis rank sum test，可能較洽當。
+\scriptsize 註：此例之間間變方甚不同質，故以\nbs\verb+oneway.test(Age.ave ~ Continent, data = mydt0)+\nbs{}進行組間變方不同質之修正，或是以\nbs\verb+kruskal.test(Age.ave ~ Continent, data = mydt0)+\nbs{}進行Kruskal-Wallis rank sum test，可能較洽當。
 \end{flushleft}
 
 \framebreak

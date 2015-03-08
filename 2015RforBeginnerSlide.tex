@@ -4,7 +4,7 @@
 \documentclass[14pt, aspectratio=43]{beamer}
 \usepackage{amsmath, fancyvrb, textcomp}
 \usepackage{xcolor}
-\definecolor{codecolor}{rgb}{0.0, 0.3, 0.1}
+\definecolor{codecolor}{rgb}{0.1, 0.3, 0}
 \definecolor{white}{rgb}{1,1,1}
 
 %\usepackage{attachfile2}
@@ -23,7 +23,7 @@
 %\usetheme{Singapore}
 %\usecolortheme{orchid}
 \usecolortheme{rose}
-\useinnertheme{circles}
+%\useinnertheme{circles}
 %\useoutertheme[subsection=false]{miniframes}
 
 
@@ -55,7 +55,7 @@
 \let\oldfootnote\footnote
 \renewcommand\footnote[1]{\hspace{-0.7em}\oldfootnote{\ignorespaces#1}\hspace{0.5em}}
 \setbeamerfont{footnote mark}{size=\tiny}
-\setbeamerfont{footnote}{size=\scriptsize}
+\setbeamerfont{footnote}{size=\footnotesize}
 \setbeamertemplate{footnote}{\textsuperscript{\insertfootnotemark}\insertfootnotetext}
 
 \setbeamertemplate{itemize item}{\LARGE\raise-3.5pt\hbox{\textbullet}}
@@ -80,9 +80,9 @@
 %\setsansfont[Mapping=tex-text, LetterSpace=0, BoldFont={Lato}, Scale=0.85]{Lato}
 %\setmonofont[Color=codecolor, Scale=0.95, LetterSpace=-1, BoldFeatures={Color=white}, BoldFont={Consolas}]{Consolas}
 
-\setmainfont[Mapping=tex-text, Scale=0.8, LetterSpace=-0, BoldFont={DejaVu Sans}]{DejaVu Sans}
-\setsansfont[Mapping=tex-text, Scale=0.8, LetterSpace=-0, BoldFont={DejaVu Sans}]{DejaVu Sans}
-\setmonofont[Color=codecolor, Scale=0.8, LetterSpace=-2, BoldFeatures={Color=white}, BoldFont={DejaVu Sans Mono}]{DejaVu Sans Mono}
+\setmainfont[Mapping=tex-text, Scale=0.82, LetterSpace=-0, BoldFont={Roboto Medium}]{Roboto Medium}
+\setsansfont[Mapping=tex-text, Scale=0.82, LetterSpace=-0, BoldFont={Roboto Medium}]{Roboto Medium}
+\setmonofont[Color=codecolor, Scale=0.84, LetterSpace=-5, BoldFeatures={Color=codecolor}, BoldFont={Source Code Pro Semibold}]{Source Code Pro Semibold}
 
 \usefonttheme{professionalfonts}
 
@@ -95,7 +95,7 @@
   CJKglue = {\hskip-0.4pt plus 2pt}, CJKecglue = {\nbs}
 ]{xeCJK}
 \setCJKmainfont[Scale=0.95, BoldFont={cwTeX Q Hei Bold}, LetterSpace=0]{cwTeX Q Hei}
-\setCJKmonofont[Scale=0.95, BoldFont={cwTeX Q Hei Bold}, LetterSpace=-0, Color=codecolor]{cwTeX Q Yuan}
+\setCJKmonofont[Color=codecolor, Scale=0.95, BoldFont={cwTeX Q Hei Bold}, LetterSpace=-0]{cwTeX Q Hei}
 
 
 \title{初學R語言的60分鐘}
@@ -125,17 +125,16 @@
 \setbeamertemplate{title page}{
   \vskip0pt plus 1filll
     \LARGE{\bfseries\usebeamercolor[fg]{title}初學\hspace{0.2em}\includegraphics[width=3cm]{Rlogo-novo.png}\hspace{0.2em}語言的60分鐘}\\[8pt]
-    \normalsize{廖鎮磐 \texttt{<andrew.43@gmail.com>}\\東海大學生命科學系}\\[10pt]
-    \normalsize{2015年台灣生態研究網年會\\ 2015年3月14日於蓮華池研究中心}
+    \large{廖鎮磐 \texttt{<andrew.43@gmail.com>}\\[-5pt] \small 東海大學生命科學系}\\[10pt]
+    \large{2015年台灣生態研究網年會\\[-5pt] \small 2015年3月14日於蓮華池研究中心}
     \vskip0pt plus 0.5filll
-    {\scriptsize
+    {\footnotesize
         \parbox[c]{2.7cm}{% 
           \includegraphics[width=2.7cm]{cc.pdf}%
         }\hspace{6pt}%
         \parbox[c]{8.2cm}{% 
-           © 2015 廖鎮磐（Chen-Pan Liao）\\[-1pt]
-	   本文件採用姓名標示-相同方式分享 4.0 國際授權（CC BY-SA 4.0）。\footnote{詳情請見 \url{http://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW}。}\\[-1pt]
-	   歡迎下載本投影片及資料檔案。\footnote{\url{https://www.dropbox.com/sh/7p9cluglptyk25a/AAAmPWrSMVf_tC9-cL4JSscCa?dl=0}}
+           © 2015 廖鎮磐（Chen-Pan Liao）。\\
+	   本文件採用姓名標示-相同方式分享 4.0 國際授權（CC BY-SA 4.0），\footnote{\url{http://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW}。}歡迎\href{http://goo.gl/foAeaq}{下載本投影片及資料檔案}。\footnote{\url{http://goo.gl/foAeaq}}
 	 }% 
 	 \vspace{10pt}
     }
@@ -193,8 +192,7 @@
 
 
 
-\begin{frame}{R的特色}
-\framesubtitle{為什麼我選擇R？}
+\begin{frame}{R的特色？為什麼我選擇R？}
 \begin{itemize}
 \item 自由、免費、跨平台。
 \item 是一種「程式語言」，像Python、Perl、JAVA等。
@@ -304,7 +302,7 @@
 
 \begin{frame}[fragile]{函數的使用手冊}
 \begin{itemize}
-\item 觀看某個函數的使用手冊：\verb+?函數名+\nbs{}或\nbs\verb+help(函數名)+。
+\item 觀看某個函數的使用手冊：\verb+?函數名+。
 \item 請看看\nbs\verb+?seq+。
 \item 使用手冊中都有以下資訊：
 \begin{description}[longest item]
@@ -398,7 +396,8 @@
 \item [\texttt{text.xlsx}]練習資料
 \end{description}
 
-\item 在C disk 下創建一個\nbs\verb+LearnR2015+\nbs{}資料夾，並將檔案置入該資料夾中。
+\item 在C disk 下創建一個\nbs\verb+LearnR2015+\nbs{}資料夾，並將檔案置入該資料夾中。\footnote{Unix-like電腦可放置於家目錄下的\texttt{LearnR2015}資料夾。}\\
+
 \end{enumerate}
 %\begin{center}
 %\Huge\url{http://goo.gl/YRCOaN}\\
@@ -412,9 +411,10 @@
 \item 開啟\nbs\verb+exam.xlsx+，注意第一列必需有一列「變數名」。
 \item 另存新檔 $\rightarrow$ 檔名為「exam」，類型為「CSV」，儲存在相同資料夾中。
 \item \verb+getwd()+\nbs{}顯示目前R所在的路徑。
-\item \verb+setwd("C:/LearnR2015")+\nbs{}到達該資料夾。
-\item \verb+dt <- read.csv("exam.csv")+\nbs{}或是 \\
-      \verb+dt <- read.csv("C:/LearnR2015/exam.csv")+\nbs{}以讀取該檔成為一個資料框（data frame），並取名為 \verb+dt+。\\
+\item \verb+setwd("C:/LearnR2015")+\nbs{}到達該資料夾。\footnote{Unix-like電腦可輸入\texttt{setwd("\textasciitilde{}/LearnR2015")}}
+\item \verb+dt <- read.csv("exam.csv")+\nbs{}或 \\
+      \verb+dt <- read.csv("C:/LearnR2015/exam.csv")+\nbs{}或 \\
+      \verb+dt <- read.csv(file.choose())+\nbs{}以讀取該檔成為一個資料框（data frame），並取名為 \verb+dt+。\\
 \end{enumerate}
 \end{frame}
 
@@ -468,20 +468,46 @@
 
 \begin{frame}[fragile]{描述性統計}
 \begin{block}{常見的描述性統計函數}
-\verb+length(dt$Science)   #個數+ \\
-\verb+mean(dt$Science)     #平均數+ \\
-\verb+sd(dt$Science)       #標準偏差+ \\
-\verb+quantile(dt$Science) #百分位數+ \\
+\verb+length(變數)   #個數+ \\
+\verb+mean(變數)     #平均數+ \\
+\verb+sd(變數)       #標準偏差+ \\
+\verb+quantile(變數) #百分位數+ \\
 \end{block}
+
+\begin{RC}
+> mean(dt$Science)
+> sd(dt$Literature)
+\end{RC}
+\begin{R}
+[1] 70.77778
+[1] 19.74209
+\end{R}
+
+\end{frame}
+
+\begin{frame}[fragile]{分組之描述性統計}
 
 如果要求各組的描述性統計呢？使用\nbs\verb+tapply()+。
 \begin{block}{\texttt{tapply()}的基本語法}
 \verb+tapply(變數, 分組因子, 運算函數, ...)+
 \end{block}
-例如，要計算Science在不同Gender內的平均數：\\
-\verb+tapply(dt$Science, dt$Gender, mean)+\\
-%或是用\verb+subset()+切出子集，例如\\
-%\verb+mean( subset(dt, Gender == "m")$Science )+ \\
+例如，要計算Science在不同Gender內的平均數：
+\begin{RC}
+> tapply(dt$Science, dt$Gender, mean)
+\end{RC}
+\begin{R}
+    f     m 
+64.40 78.75 
+\end{R}
+或是用\verb+subset()+切出子集，例如\\
+\begin{RC}
+> mean( subset(dt, Gender == "m")$Science )
+> mean( subset(dt, Gender == "f")$Science )
+\end{RC}
+\begin{R}
+[1] 78.75
+[1] 64.4
+\end{R}
 \end{frame}
 
 \begin{frame}[fragile, allowframebreaks]{單樣本\emph{T}檢驗}
@@ -842,8 +868,8 @@ sample estimates:
 \begin{itemize}
 \item 《R軟體：應用統計方法》陳景祥著，東華出版社。\\ 對初學者很有幫助的一本。R語言和統計學併重。
 \item 《R 錦囊妙計》 Paul Teetor著，張夏菁譯，歐萊禮出版社。\\ 前半本內容是R語言，後半本是以R進行統計工作。
-\item {\CJKfontspec[Scale=0.88]{WenQuanYi Micro Hei}《R语言实用教程》薛毅、陈立萍著，清华大学出版社。}
-\item {\CJKfontspec[Scale=0.88]{WenQuanYi Micro Hei}《统计建模与R软件》薛毅、陈立萍著，清华大学出版社。} \\ 以數理統計為主，R語言實作為輔。
+\item {\CJKfontspec[Scale=0.85]{WenQuanYi Micro Hei}《R语言实用教程》薛毅、陈立萍著，清华大学出版社。}
+\item {\CJKfontspec[Scale=0.85]{WenQuanYi Micro Hei}《统计建模与R软件》薛毅、陈立萍著，清华大学出版社。} \\ 以數理統計為主，R語言實作為輔。
 \end{itemize}
 \end{frame}
 
@@ -859,7 +885,7 @@ sample estimates:
 
 \begin{frame}{網路教學}
 \begin{itemize}
-\item 《R 演習室》\makeatletter @ \makeatother youtube.com\oldfootnote{\url{https://www.youtube.com/playlist?list=PL5AC0ADBF65924EAD}} \\ 針對初學者的 R 視訊教學系列。有廣告（歡迎多看幾秒），但有提供影片載點。
+\item 《R 演習室》\makeatletter @ \makeatother youtube.com\oldfootnote{\url{https://www.youtube.com/playlist?list=PL5AC0ADBF65924EAD}} \\ 針對初學者的 R 視訊教學系列。有廣告，但有提供影片載點。
 \item \url{http://www.r-software.org/home} \\ 中華R軟體學會。收錄許多中文影片與中文教學，內容豐富，亦適合初學者。
 \item ``Quick-R''by Robert I.~Kabacoff\oldfootnote{\url{http://www.statmethods.net/}}\\ 我常用的速查網站。
 \item 英文的的網路教學非常多，請自行搜尋「R turorial」。
@@ -963,20 +989,20 @@ R官方收錄有六千多個的套件，\footnote{\url{http://cran.r-project.org
 
 \begin{frame}[fragile, allowframebreaks]{參考解法}
 
-讀入CSV檔：
+先以Excel轉存\texttt{nation-data.csv}後，在R中讀入CSV檔：
 \begin{RC}
-> setwd("somewhere") # 更變目前路徑
+> setwd("某路徑") # 更變目前路徑
 > mydt0 <- read.csv("nation-data.csv")  # 讀檔
 > mydt0
 \end{RC}
 \begin{R}
-            Nation Continent HIV.rate Age.ave Mortality.rate.child ...
-1          Algeria   1Africa     0.10  72.904            18.090586 ...
-2          Morocco   1Africa     0.10  71.882            13.156450 ...
-3           Zambia   1Africa    13.50  48.513           105.545396 ...
-               ...       ...      ...     ...                  ... ...
-71 Slovak Republic   4Europe     0.06  75.242             4.203745 ...
-72          Latvia   4Europe     0.70  73.039             4.064162 ...
+            Nation Continent HIV.rate Age.ave ...
+1          Algeria   1Africa     0.10  72.904 ...
+2          Morocco   1Africa     0.10  71.882 ...
+3           Zambia   1Africa    13.50  48.513 ...
+               ...       ...      ...     ... ...
+71 Slovak Republic   4Europe     0.06  75.242 ...
+72          Latvia   4Europe     0.70  73.039 ...
 \end{R}
 
 \framebreak 
@@ -998,12 +1024,11 @@ R官方收錄有六千多個的套件，\footnote{\url{http://cran.r-project.org
 
 \framebreak 
 
-對\texttt{Mortality.rate.child}和\texttt{Mortality.rate.newborn}的配對樣本\emph{T}檢驗：
+\texttt{Mortality.rate.child}和\texttt{Mortality.rate.newborn}的配對樣本\emph{T}檢驗：
 \begin{RC}
 > x.1 <- mydt0$Mortality.rate.child
 > x.2 <- mydt0$Mortality.rate.newborn
 > t.test(x.1, x.2, paired = T, alternative = "g")
-> t.test(x.2, x.1, paired = T, alternative = "l") # 也可
 \end{RC}
 
 \begin{R}
@@ -1020,7 +1045,7 @@ mean of the differences
 \end{R}
 
 \begin{flushleft}
-\scriptsize 註：參考使用無母數方法one-sample Wilcoxon test \verb+wilcox.test(..., paired = T)+。
+\footnotesize 註：參考使用無母數方法one-sample Wilcoxon test \verb+wilcox.test(..., paired = T)+。
 \end{flushleft}
 
 \framebreak 
@@ -1047,7 +1072,7 @@ mean of the differences
 以\texttt{GDP.10000}分組對\texttt{HIV.rate}之獨立雙樣本\emph{T}檢驗：
 \begin{RC}
 > t.test(HIV.rate ~ GDP.10000,
-         data = mydt0, var.equal = T)
++        data = mydt0, var.equal = T)
 \end{RC}
 \begin{R}
 	Two Sample t-test
@@ -1063,7 +1088,7 @@ mean in group high  mean in group low
 \end{R}
 
 \begin{flushleft}
-\scriptsize 註：此例使用\nbs\verb+t.test(..., var.equal = F)+\nbs{}可能較洽當（因為二組的變方差距不小），甚至參考使用無母數方法two-sample Wilcoxon test \verb+wilcox.test()+\nbs{}或 two-sample Kolmogorov-Smirnov test \verb+ks.test()+。
+\footnotesize 註：此例使用\nbs\verb+t.test(..., var.equal = F)+\nbs{}可能較洽當（因為二組的變方差距不小），甚至參考使用無母數方法two-sample Wilcoxon test \verb+wilcox.test()+\nbs{}或 two-sample Kolmogorov-Smirnov test \verb+ks.test()+。
 \end{flushleft}
 
 \framebreak
@@ -1116,7 +1141,7 @@ Residuals   68   2292    33.7
 \end{R}
 
 \begin{flushleft}
-\scriptsize 註：此例之間間變方甚不同質，故以\nbs\verb+oneway.test(Age.ave ~ Continent, data = mydt0)+\nbs{}進行組間變方不同質之修正，或是以\nbs\verb+kruskal.test(Age.ave ~ Continent, data = mydt0)+\nbs{}進行Kruskal-Wallis rank sum test，可能較洽當。
+\footnotesize 註：此例之間間變方甚不同質，故以\nbs\verb+oneway.test(Age.ave ~ Continent, data = mydt0)+\nbs{}進行組間變方不同質之修正，或是以\nbs\verb+kruskal.test(Age.ave ~ Continent, data = mydt0)+\nbs{}進行Kruskal-Wallis rank sum test，可能較洽當。
 \end{flushleft}
 
 \framebreak
@@ -1182,7 +1207,7 @@ F-statistic: 67.65 on 1 and 70 DF,  p-value: 7.027e-12
 \end{R}
 
 \begin{flushleft}
-\scriptsize 註：考慮應變數轉型\nbs\verb!lm(sqrt(HIV.rate + 1) ~ Age.ave, ...)!\nbs{}或自變數包括二次式\nbs\verb!lm(HIV.rate ~ Age.ave + I(Age.ave ^ 2), ...)!。
+\footnotesize 註：考慮應變數轉型\nbs\verb!lm(sqrt(HIV.rate + 1) ~ Age.ave, ...)!\nbs{}或自變數包括二次式\nbs\verb!lm(HIV.rate ~ Age.ave + I(Age.ave ^ 2), ...)!。
 \end{flushleft}
 
 \framebreak
@@ -1206,7 +1231,7 @@ sample estimates:
 \end{R}
 
 \begin{flushleft}
-\scriptsize 註：考慮無母數相關\nbs\verb!cor.test(..., method = "kendall")!\nbs{}或\nbs\verb!cor.test(..., method = "spearman")!。
+\footnotesize 註：考慮無母數相關\nbs\verb!cor.test(..., method = "kendall")!\nbs{}或\nbs\verb!cor.test(..., method = "spearman")!。
 \end{flushleft}
 
 \framebreak

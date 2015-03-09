@@ -54,7 +54,7 @@
 
 \let\oldfootnote\footnote
 \renewcommand\footnote[1]{\hspace{-0.7em}\oldfootnote{\ignorespaces#1}\hspace{0.5em}}
-\setbeamerfont{footnote mark}{size=\scriptsize}
+\setbeamerfont{footnote mark}{size=\tiny}
 \setbeamerfont{footnote}{size=\footnotesize}
 \setbeamertemplate{footnote}{\textsuperscript{\insertfootnotemark}\insertfootnotetext}
 
@@ -69,7 +69,7 @@
 \beamertemplatenavigationsymbolsempty % 去除 Beamer 導覽工具列
 
 \DefineVerbatimEnvironment{RC}{Verbatim}{fontsize=\small, baselinestretch=0.9, samepage=true}
-\DefineVerbatimEnvironment{R}{Verbatim}{fontsize=\footnotesize, frame=single, baselinestretch=0.85, samepage=true}
+\DefineVerbatimEnvironment{R}{Verbatim}{fontsize=\footnotesize, frame=single, baselinestretch=0.9, samepage=true}
 
 %% 西文字配置
 \linespread{1}
@@ -82,7 +82,7 @@
 
 \setmainfont[Mapping=tex-text, Scale=0.82, LetterSpace=-0, BoldFont={Roboto Medium}]{Roboto Medium}
 \setsansfont[Mapping=tex-text, Scale=0.82, LetterSpace=-0, BoldFont={Roboto Medium}]{Roboto Medium}
-\setmonofont[Color=codecolor, Scale=0.85, LetterSpace=-5, BoldFeatures={Color=codecolor}, BoldFont={Source Code Pro Semibold}]{Source Code Pro Semibold}
+\setmonofont[Color=codecolor, Scale=0.82, LetterSpace=-2, BoldFeatures={Color=codecolor}, BoldFont={Source Code Pro Semibold}]{Source Code Pro Semibold}
 
 \usefonttheme{professionalfonts}
 
@@ -217,23 +217,25 @@
 \end{frame}
 
 \begin{frame}[fragile]{選用適當的R程式編輯器}
+
+
 \begin{itemize}
-\item 建議以純文字編輯器撰寫R程式碼，並儲存成「\verb+.R+」檔。
-\item 「語法多色支援」、「語法提示」、「即時執行」等功能，增加撰寫效率。
-\item 支援R語言的編輯器很多，有興趣請自行試用。
-\begin{description}[longest item]
-	\item [RStudio] 強大、整合性高、專為R程式員設計。\footnote{\url{http://www.rstudio.com/}}
-	\item [Notepad++] 老字號的純文字編輯器，有和R相配合的外掛。\footnote{\url{http://notepad-plus-plus.org/}}
-	\item [Atom] 與GitHub配合度高。\footnote{\url{https://atom.io/}}
-\end{description}
+\item 建議以純文字編輯器撰寫R程式碼，並儲存成「\verb+.R+」檔。\\
+\item 「語法多色支援」、「語法提示」、「即時執行」等功能，增加撰寫效率。\\ \includegraphics[width=0.7\textwidth]{editor.png}
 \end{itemize}
+\begin{description}[longest item]
+	\item [RStudio] 目前最流行的 IDE，跨平台。\footnote{\url{http://www.rstudio.com/}}
+	\item [Tinn-R] 老字號的 R IED。\footnote{\url{http://sourceforge.net/projects/tinn-r/}}
+	\item [Notepad++] 老字號的純文字編輯器，有和R相配合的外掛NppToR。\footnote{\url{http://notepad-plus-plus.org/}}
+%	\item [Atom] 與GitHub配合度高。\footnote{\url{https://atom.io/}}
+\end{description}
 \end{frame}
 
 
 \begin{frame}[fragile]{初次見面：R是計算機}
 \begin{columns}
 \column{0.22\textwidth}
-\begin{verbatim}
+\begin{RC}
 > 2.4 + 42
 [1] 44.4
 > 4 ^ 2
@@ -242,10 +244,10 @@
 [1] 10
 > 100 ^ 0.5
 [1] 10
-\end{verbatim}
+\end{RC}
 
 \column{0.22\textwidth}
-\begin{verbatim}
+\begin{RC}
 > a <- 1
 > a
 [1] 1
@@ -254,12 +256,12 @@
 [1] 1
 > a + b
 [1] 2
-\end{verbatim}
+\end{RC}
 
 \column{0.45\textwidth}
-\begin{verbatim}
+\begin{RC}
 > m <- c(3, 6, 4)
-> n <- c(1, 2, 3)
+> n  = c(1, 2, 3)
 > m + n
 [1] 4 8 7
 > m - n
@@ -268,7 +270,7 @@
 [1]  3 12 12
 > m / n
 [1] 3.000 3.000 1.333
-\end{verbatim}
+\end{RC}
 
 
 \end{columns}
@@ -392,7 +394,7 @@
 \section{資料的讀取與整理}\subsection{}
 
 
-\begin{frame}[fragile]{檔案下載}
+\begin{frame}[fragile]{轉存Excel檔案成CSV檔案}
 \begin{enumerate}
 \item 至 \url{http://goo.gl/foAeaq} 以下載檔案：
 \begin{description}[longest item]
@@ -400,9 +402,9 @@
 \item [\texttt{exam.xlsx}]例範資料
 \item [\texttt{text.xlsx}]練習資料
 \end{description}
-
-\item 在C disk 下創建一個\nbs\verb+LearnR2015+\nbs{}資料夾，並將檔案置入該資料夾中。\footnote{Unix-like電腦可放置於家目錄下的\texttt{LearnR2015}資料夾。}\\
-
+\item 在C disk 下創建一個\nbs\verb+LearnR2015+\nbs{}資料夾。\footnote{Unix-like電腦可放置於家目錄下的\texttt{LearnR2015}資料夾。}
+\item 以Excel開啟\nbs\verb+exam.xlsx+，注意第一列必須是變數名稱。
+\item 另存新檔 $\rightarrow$ 檔名為「exam」，類型為「CSV」，一樣儲存在\texttt{C:/LearnR2015}中。
 \end{enumerate}
 %\begin{center}
 %\Huge\url{http://goo.gl/YRCOaN}\\
@@ -411,10 +413,8 @@
 \end{frame}
 
 
-\begin{frame}[fragile]{讀取CSV資料檔案}
+\begin{frame}[fragile]{在R中讀取CSV資料檔案}
 \begin{enumerate}
-\item 開啟\nbs\verb+exam.xlsx+，注意第一列必需有一列「變數名」。
-\item 另存新檔 $\rightarrow$ 檔名為「exam」，類型為「CSV」，儲存在相同資料夾中。
 \item \verb+getwd()+\nbs{}顯示目前R所在的路徑。
 \item \verb+setwd("C:/LearnR2015")+\nbs{}到達該資料夾。\footnote{Unix-like電腦可輸入\texttt{setwd("\textasciitilde{}/LearnR2015")}}
 \item \verb+dt <- read.csv("exam.csv")+\nbs{}或 \\
@@ -426,8 +426,10 @@
 
 \begin{frame}[fragile]{提取特定變數（欄）}
 \verb+dt+\nbs{}的結果是什麼？
-\begin{R}
+\begin{RC}
 > dt
+\end{RC}
+\begin{R}
   ID Gender Group Literature Science
 1 23      m     A         36      63
 ...
@@ -987,7 +989,7 @@ R官方收錄有六千多個的套件，\footnote{\url{http://cran.r-project.org
 
 \begin{frame}{ }
 \begin{center}
-{\Huge 以下是參考解答\\ \normalsize 防雷一下}
+{\Huge 以下是參考解答\\[10pt] \normalsize 防雷一下}
 \end{center}
 \end{frame}
 
@@ -1030,15 +1032,14 @@ R官方收錄有六千多個的套件，\footnote{\url{http://cran.r-project.org
 
 \texttt{Mortality.rate.child}和\texttt{Mortality.rate.newborn}的配對樣本\emph{T}檢驗：
 \begin{RC}
-> x.1 <- mydt0$Mortality.rate.child
-> x.2 <- mydt0$Mortality.rate.newborn
-> t.test(x.1, x.2, paired = T, alternative = "g")
+> x1 <- mydt0$Mortality.rate.child
+> x2 <- mydt0$Mortality.rate.newborn
+> t.test(x1, x2, paired = T, alternative = "g")
 \end{RC}
 
 \begin{R}
-	Paired t-test
-
-data:  x.1 and x.2
+        Paired t-test
+data:  x1 and x2
 t = 2.1011, df = 71, p-value = 0.01959
 alternative hypothesis: true difference in means is greater than 0
 95 percent confidence interval:
@@ -1205,9 +1206,7 @@ Coefficients:
 (Intercept) 15.09700    1.73463   8.703 9.27e-13 ***
 Age.ave     -0.19488    0.02369  -8.225 7.03e-12 ***
 ---
-Residual standard error: 1.63 on 70 degrees of freedom
-Multiple R-squared:  0.4915,	Adjusted R-squared:  0.4842 
-F-statistic: 67.65 on 1 and 70 DF,  p-value: 7.027e-12
+...
 \end{R}
 
 \begin{flushleft}
@@ -1259,3 +1258,8 @@ sample estimates:
 
 
 \end{document}
+
+
+
+% PDF to TIFFs using ghostscript
+% gs -dNOPAUSE -sDEVICE=tiffgray -sCompression=lzw -r1800 -sOutputFile=pageTiff/p%03d.tiff 2015RforBeginnerSlide.pdf

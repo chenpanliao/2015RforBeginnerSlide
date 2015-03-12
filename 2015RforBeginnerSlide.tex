@@ -139,9 +139,8 @@
           \includegraphics[width=2cm]{cc.pdf}%
         }\hspace{6pt}%
         \parbox[c]{9cm}{% 
-           © 2015 廖鎮磐（Chen-Pan Liao）。本文件採用姓名標示-相同方式分享 4.0 國際授權（CC BY-SA 4.0），\footnote{\url{http://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW}。}歡迎\href{http://goo.gl/foAeaq}{下載本投影片及練習資料檔案}。\footnote{\url{http://goo.gl/foAeaq}}以Adobe Reader開啟本PDF亦可取得練習資料檔案附件。
-	 }% 
-	 \vspace{10pt}
+           © 2015 廖鎮磐（Chen-Pan Liao）。本文件採用姓名標示-相同方式分享 4.0 國際授權（CC BY-SA 4.0），\footnote{\url{http://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW}。}歡迎\href{http://goo.gl/foAeaq}{下載本投影片及練習資料檔案}。\footnote{\url{http://goo.gl/foAeaq}}以Adobe Reader開啟本PDF亦可取得練習資料檔案附件。}% 
+    \vspace{10pt}
     }
 }
 
@@ -173,7 +172,7 @@
 
 \section{R簡介與操作環境}\subsection{}
 
-\begin{frame}{今天主題$\cdots\cdots$}
+\begin{frame}{今天主題}
 
 \begin{block}{目標}
 \begin{itemize}
@@ -213,7 +212,7 @@
 \item 點選Download, Packages (CRAN) \\
 \item 選擇作業平台
 \end{enumerate}
-	\begin{center}\includegraphics[width=0.6\textwidth]{downloadR.png}\end{center}
+  \begin{center}\includegraphics[width=0.6\textwidth]{downloadR.png}\end{center}
 \end{frame}
 
 \begin{frame}[fragile]{選用適當的R程式編輯器}
@@ -539,7 +538,7 @@
 > t.test(dt$Science, mu = 60)
 \end{RC}
 \begin{R}
-	One Sample t-test
+        One Sample t-test
 
 data:  dt$Science
 t = 1.5393, df = 8, p-value = 0.1623
@@ -570,7 +569,7 @@ mean of x
 > t.test(dt$Literature, dt$Science, pair = T)
 \end{RC}
 \begin{R}
-	Paired t-test
+        Paired t-test
 
 data:  dt$Literature and dt$Science
 t = -4.2126, df = 8, p-value = 0.002945
@@ -608,7 +607,7 @@ mean of the differences
 > t.test(Literature ~ Gender, data = dt, var.equal = T)
 \end{RC}
 \begin{R}
-	Two Sample t-test
+        Two Sample t-test
 
 data:  Literature by Gender
 t = -0.8823, df = 7, p-value = 0.4069
@@ -742,7 +741,7 @@ Science       0.8707     0.1337   6.511 0.000331 ***
 ---
 
 Residual standard error: 7.946 on 7 degrees of freedom
-Multiple R-squared:  0.8583,	Adjusted R-squared:  0.838 
+Multiple R-squared:  0.8583, Adjusted R-squared:  0.838 
 F-statistic: 42.39 on 1 and 7 DF,  p-value: 0.0003308
 \end{R}
 
@@ -780,7 +779,7 @@ Residuals  7  441.92   63.13
 > cor.test(dt$Literature, dt$Science)
 \end{RC}
 \begin{R}
-	Pearson's product-moment correlation
+        Pearson's product-moment correlation
 
 data:  dt$Literature and dt$Science
 t = 6.5107, df = 7, p-value = 0.0003308
@@ -1080,7 +1079,7 @@ mean of the differences
 +        data = mydt0, var.equal = T)
 \end{RC}
 \begin{R}
-	Two Sample t-test
+        Two Sample t-test
 
 data:  HIV.rate by GDP.10000
 t = -1.6351, df = 70, p-value = 0.1065
@@ -1221,7 +1220,7 @@ Age.ave     -0.19488    0.02369  -8.225 7.03e-12 ***
 > cor.test(mydt0$HIV.rate, mydt0$Age.ave)  # 亦可
 \end{RC}
 \begin{R}
-	Pearson's product-moment correlation
+        Pearson's product-moment correlation
 
 data:  mydt0$HIV.rate and mydt0$Age.ave
 t = -8.2253, df = 70, p-value = 7.027e-12

@@ -1,10 +1,10 @@
 %!TEX TS-program = xelatex
 %!TEX encoding = UTF-8 Unicode
 
-\documentclass[14pt, aspectratio=43]{beamer}
+\documentclass[11pt, aspectratio=43]{beamer}
 \usepackage{amsmath, fancyvrb, textcomp}
 \usepackage{xcolor}
-\definecolor{codecolor}{rgb}{0.1, 0.3, 0}
+\definecolor{codecolor}{rgb}{0.2, 0.5, 0}
 \definecolor{white}{rgb}{1,1,1}
 
 \usepackage{attachfile2}
@@ -18,13 +18,7 @@
 
 %% Beamer 版面配置
 \mode<presentation>
-
-%\usetheme{Pittsburgh}
-%\usetheme{Singapore}
-%\usecolortheme{orchid}
 \usecolortheme{rose}
-%\useinnertheme{circles}
-%\useoutertheme[subsection=false]{miniframes}
 
 
 % page number shown on top-right corner
@@ -32,8 +26,7 @@
         \vskip6pt\hspace*{\fill}\insertpagenumber\hspace*{3pt}\vspace*{-6pt}%
     }
     \setbeamercolor{headline}{fg=black!50, bg=black!50}
-    \setbeamerfont{headline}{size=\footnotesize}
-
+    \setbeamerfont{headline}{size=\scriptsize}
     \setbeamerfont{frametitle continuation}{size=\normalsize}
  
 
@@ -53,55 +46,48 @@
 \setbeamersize{text margin left=0.7cm, text margin right=0.7cm}
 
 \let\oldfootnote\footnote
-\renewcommand\footnote[1]{\hspace{-0.7em}\oldfootnote{\ignorespaces#1}\hspace{0.5em}}
+\renewcommand\footnote[1]{\hspace{-0.6em}\oldfootnote{\ignorespaces#1}\hspace{0.5em}}
 \setbeamerfont{footnote mark}{size=\tiny}
-\setbeamerfont{footnote}{size=\footnotesize}
+\setbeamerfont{footnote}{size=\scriptsize}
 \setbeamertemplate{footnote}{\textsuperscript{\insertfootnotemark}\insertfootnotetext}
 
-\setbeamertemplate{itemize item}{\LARGE\raise-3.5pt\hbox{\textbullet}}
+\setbeamertemplate{itemize item}{\large\raise-0.2pt\hbox{\textbullet}}
 
 %\setbeamerfont{page number in head/foot}{size = \scriptsize}
 %\setbeamertemplate{footline}[frame number]{}
 
-\usefonttheme{structurebold}
+%\usefonttheme{structurebold}
 
 
 \beamertemplatenavigationsymbolsempty % 去除 Beamer 導覽工具列
 
-\DefineVerbatimEnvironment{RC}{Verbatim}{fontsize=\small, baselinestretch=0.9, samepage=true}
-\DefineVerbatimEnvironment{R}{Verbatim}{fontsize=\footnotesize, frame=single, baselinestretch=0.9, samepage=true}
+\DefineVerbatimEnvironment{RC}{Verbatim}{fontsize=\small, baselinestretch=1, samepage=true}
+\DefineVerbatimEnvironment{R}{Verbatim}{fontsize=\footnotesize, frame=single, baselinestretch=1, samepage=true}
 
 %% 西文字配置
-\linespread{1}
-\usepackage{arevmath}
+\linespread{1.15}
+\usepackage{newtxsf}
 \usepackage[no-math]{fontspec}
-
-%\setmainfont[Mapping=tex-text, LetterSpace=0, BoldFont={Lato}]{Lato}
-%\setsansfont[Mapping=tex-text, LetterSpace=0, BoldFont={Lato}, Scale=0.85]{Lato}
-%\setmonofont[Color=codecolor, Scale=0.95, LetterSpace=-1, BoldFeatures={Color=white}, BoldFont={Consolas}]{Consolas}
-
-\setmainfont[Mapping=tex-text, Scale=0.82, LetterSpace=-0, BoldFont={Roboto Medium}]{Roboto Medium}
-\setsansfont[Mapping=tex-text, Scale=0.82, LetterSpace=-0, BoldFont={Roboto Medium}]{Roboto Medium}
-\setmonofont[Color=codecolor, Scale=0.82, LetterSpace=-2, BoldFeatures={Color=codecolor}, BoldFont={Source Code Pro Semibold}]{Source Code Pro Semibold}
-
+\setmainfont[Mapping=tex-text, BoldFont={Fira Sans SemiBold}]{Fira Sans}
+\setsansfont[Mapping=tex-text, BoldFont={Fira Sans SemiBold}]{Fira Sans}
+\setmonofont[Color=codecolor, Scale=1, LetterSpace=0, BoldFeatures={Color=codecolor}]{Noto Sans Mono CJK JP}
 \usefonttheme{professionalfonts}
 
-
 %% 中文字配置
-\newcommand{\nbs}{\hskip3pt plus 1pt minus 1pt}
+\newcommand{\nbs}{\hskip2pt plus 1pt minus 1pt}
 \usepackage[
   CJKmath=true, indentfirst=false, PunctStyle={quanjiao},
   CheckSingle=false, Verb=true, AutoFallBack=true, AutoFakeBold=false, AutoFakeSlant=false, 
-  CJKglue = {\hskip-0.4pt plus 2pt}, CJKecglue = {\nbs}
+  CJKglue = {\hskip0pt}, CJKecglue = {\nbs}
 ]{xeCJK}
-\setCJKmainfont[Scale=0.95, BoldFont={cwTeX Q Hei Bold}, LetterSpace=0]{cwTeX Q Hei}
-\setCJKmonofont[Color=codecolor, Scale=0.95, BoldFont={cwTeX Q Hei Bold}, LetterSpace=-0]{cwTeX Q Hei}
+\setCJKmainfont[Scale=1, LetterSpace=0]{Noto Sans CJK JP}
+\setCJKmonofont[Color=codecolor, Scale=1, LetterSpace=-0]{Noto Sans Mono CJK JP}
 
 
-\title{初學R語言的60分鐘}
-\author{廖鎮磐 \texttt{<andrew.43@gmail.com>}}
-\institute{東海大學生命科學系}
-\date{2015年台灣生態研究網年會 -- 2015年3月14日於蓮華池研究中心}
+%\title{初學R語言的60分鐘}
+%\author{廖鎮磐 \texttt{<andrew.43@gmail.com>}}
+%\institute{東海大學生命科學系}
+%\date{2015年台灣生態研究網年會 -- 2015年3月14日於蓮華池研究中心}
 \hypersetup{
     bookmarks=true,         % show bookmarks bar?
     unicode=true,           % non-Latin characters in Acrobat’s bookmarks
@@ -114,7 +100,7 @@
     pdfpagemode={UseOutlines},
     pdfdisplaydoctitle=true,
     pdfinfo={License={Attribution-ShareAlike 4.0 International}},
-    pdftitle={初學R語言的60分鐘},
+    pdftitle={初學R語言的120分鐘},
     pdfauthor={廖鎮磐 (Chen-Pan Liao) <andrew.43@gmail.com>},
     pdfsubject={針對R語言的初學者所設計的教學投影片。主題包括建立R操作環境、了解R的函數使用方法、資料讀取、常見的統計分析與繪圖。},
     pdfkeywords={R語言, 投影片, 初學},
@@ -123,23 +109,22 @@
 }
 
 \setbeamertemplate{title page}{
-  \vskip0pt plus 1filll
-    \LARGE{\bfseries\usebeamercolor[fg]{title}初學\hspace{0.2em}\includegraphics[width=3cm]{Rlogo-novo.png}\hspace{0.2em}語言的60分鐘}\\[0pt]
+  \vskip0pt plus 0.5filll
+    \huge{\bfseries\usebeamercolor[fg]{title}初學\hspace{0.2em}\includegraphics[width=3cm]{Rlogo-novo.png}\hspace{0.2em}語言的120分鐘}\\[0pt]
 
 \tiny{
 \textattachfile[appearance=false, mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"]{exam.xlsx}{}
 \textattachfile[appearance=false, mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"]{nation-data.xlsx}{}
 }
 
-    \large{廖鎮磐 \texttt{<andrew.43@gmail.com>}\\[-5pt] \small 東海大學生命科學系}\\[5pt]
-    \large{2015年台灣生態研究網年會\\[-5pt] \small 2015年3月14日於蓮華池研究中心}
-    \vskip0pt plus 0.5filll
-    {\footnotesize
-        \parbox[c]{2cm}{% 
-          \includegraphics[width=2cm]{cc.pdf}%
+    \normalsize{廖鎮磐 \texttt{<andrew.43@gmail.com>} \\ 東海大學生命科學系}
+    \vskip0pt plus 0.2filll
+    {\scriptsize
+        \parbox[c]{3cm}{% 
+          \includegraphics[width=3cm]{cc.pdf}%
         }\hspace{6pt}%
-        \parbox[c]{9cm}{% 
-           © 2015 廖鎮磐（Chen-Pan Liao）。本文件採用\href{http://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW}{姓名標示-相同方式分享 4.0 國際授權}（CC BY-SA 4.0），\footnote{\url{http://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW}。}歡迎\href{http://goo.gl/foAeaq}{下載本投影片及練習資料檔案}。\footnote{\url{http://goo.gl/foAeaq}}以Adobe Reader開啟本PDF亦可取得練習資料檔案附件。}% 
+        \parbox[c]{8cm}{% 
+           © 2016 廖鎮磐（Chen-Pan Liao）。本文件採用\href{http://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW}{姓名標示-相同方式分享 4.0 國際授權}（CC BY-SA 4.0），\footnote{\url{http://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW}。}以Adobe Reader開啟本PDF可取得練習資料檔案附件。}% 
     \vspace{10pt}
     }
 }
@@ -219,57 +204,80 @@
 
 
 \begin{itemize}
-\item 建議以純文字編輯器撰寫R程式碼，並儲存成「\verb+.R+」檔。\\
-\item 「語法多色支援」、「語法提示」、「即時執行」等功能，增加撰寫效率。\\ \includegraphics[width=0.7\textwidth]{editor.png}
+\item 不要只是在R的命令列輸入R指令。建議以純文字編輯器撰寫R程式碼，並儲存成「\verb+.R+」檔，供未來始用時參考。
+\item 「語法多色支援」、「語法提示」、「即時執行」等功能的編輯器，增加撰寫效率。\\ \includegraphics[width=0.7\textwidth]{editor.png}
 \end{itemize}
 \begin{description}[longest item]
-	\item [\href{http://www.rstudio.com/}{RStudio}] 目前最流行的 IDE，跨平台。\footnote{\url{http://www.rstudio.com/}}
+	\item [\href{http://www.rstudio.com/}{RStudio}] 目前最流行的 IDE，跨平台，支援功能多。\footnote{\url{http://www.rstudio.com/}}
 	\item [\href{http://sourceforge.net/projects/tinn-r/}{Tinn-R}] 老字號的 R IED。\footnote{\url{http://sourceforge.net/projects/tinn-r/}}
 	\item [\href{http://notepad-plus-plus.org/}{Notepad++}] 老字號的純文字編輯器，有和R相配合的外掛NppToR。\footnote{\url{http://notepad-plus-plus.org/}}
+	\item [Atom + language-r + r-exec] MAC平台上效果好。\footnote{\url{https://atom.io/}}
 \end{description}
 \end{frame}
 
 
 \begin{frame}[fragile]{初次見面：R是計算機}
-\begin{columns}
-\column{0.22\textwidth}
+\begin{columns}[onlytextwidth, t]
+\column{0.2\textwidth}
 \begin{RC}
 > 2.4 + 42
 [1] 44.4
+
 > 4 ^ 2
 [1] 16
+
 > sqrt(100)
 [1] 10
+
 > 100 ^ 0.5
 [1] 10
 \end{RC}
 
-\column{0.22\textwidth}
+\column{0.2\textwidth}
 \begin{RC}
 > a <- 1
 > a
 [1] 1
+
 > 1 -> b
 > b
 [1] 1
+
 > a + b
 [1] 2
 \end{RC}
 
-\column{0.45\textwidth}
+\column{0.35\textwidth}
 \begin{RC}
 > m <- c(3, 6, 4)
 > n  = c(1, 2, 3)
+
 > m + n
 [1] 4 8 7
+
 > m - n
 [1] 2 4 1
+
 > m * n
 [1]  3 12 12
+
 > m / n
 [1] 3.000 3.000 1.333
 \end{RC}
 
+\column{0.25\textwidth}
+\begin{RC}
+> # 這是註解
+> 
+
+> m +
++ 3
+[1] 5 8 6
+
+> m * 2 ; m / 2
+[1]  6 12  8
+[1] 1.5 3.0 2.0
+\end{RC}
 
 \end{columns}
 \end{frame}
@@ -394,12 +402,12 @@
 
 \begin{frame}[fragile]{轉存Excel檔案成CSV檔案}
 \begin{enumerate}
-\item 至 \url{http://goo.gl/foAeaq} 以下載檔案：
-\begin{description}[longest item]
+\item 取得檔案：
+\begin{itemize}
 %\item [\texttt{2015RforBeginnerSlide.pdf}]本投影片
-\item [\texttt{exam.xlsx}]例範資料
-\item [\texttt{nation-data.xlsx}]練習資料
-\end{description}
+\item \texttt{exam.xlsx} 例範資料
+\item \texttt{nation-data.xlsx} 練習資料
+\end{itemize}
 \item 在C disk 下創建一個\nbs\verb+LearnR2015+\nbs{}資料夾。\footnote{Unix-like電腦可放置於家目錄下的\texttt{LearnR2015}資料夾。}
 \item 以Excel開啟\nbs\verb+exam.xlsx+，注意第一列必須是變數名稱。
 \item 另存新檔 $\rightarrow$ 檔名為「exam」，類型為「CSV」，一樣儲存在\texttt{C:/LearnR2015}中。
@@ -511,7 +519,7 @@
 \end{R}
 \end{frame}
 
-\begin{frame}[fragile, allowframebreaks]{單樣本\emph{T}檢驗}
+\begin{frame}[fragile, allowframebreaks]{單樣本T檢驗}
 
 目標：檢驗Science的平均是否為60。
 \begin{block}{\texttt{t.test()}的基本語法}
@@ -546,7 +554,7 @@ mean of x
 \end{R}
 \end{frame}
 
-\begin{frame}[fragile, allowframebreaks]{成對樣本\emph{T}檢驗}
+\begin{frame}[fragile, allowframebreaks]{成對樣本T檢驗}
 目標：檢驗Literature和Science差之平均是否為0。
 \begin{block}{\texttt{t.test()}的基本語法}
 \verb+t.test(資料1, 資料2,+
@@ -578,7 +586,7 @@ mean of the differences
 \end{frame}
 
 
-\begin{frame}[fragile, allowframebreaks]{獨立雙樣本\emph{T}檢驗}
+\begin{frame}[fragile, allowframebreaks]{獨立雙樣本T檢驗}
 目標：檢驗二種Gender的Literature之平均是否相等。
 %\verb+tapply(dt$Literature, dt$Gender, mean) #分組平均+
 %\verb+tapply(dt$Literature, dt$Gender, sd)   #分組標準差+
@@ -864,13 +872,23 @@ sample estimates:
 \end{frame}
 
 
+\begin{frame}{R適合你嗎？}
+\begin{itemize}
+\item R是很自由的語言，所以同一項任務給不同人寫可能會寫出非常不同的程式碼；其它統計軟體可能很制式，一步一步照著教材做。
+\item R的學習梯度在初期較陡，必竟它也是一種程式語言。在學習後期梯度明顯較平緩。
+\item 身為程式語言，R可以完成一般統計軟體不能辦到的「個人化」任務，但這在學習中後後期才出現。
+\item R內建沒有圖形介面（但有第三方的支援軟體有），所以只能寫code。這對沒寫過程式的人可能很可怕。
+\end{itemize}
+\end{frame}
+
+
 \begin{frame}{中文書籍推薦}
 繁體中文書非常少，但簡體中文書不少。去圖書館或書局翻翻。能看懂有收穫就有參考價值。初學程式語言者應該都需要一本。
 \begin{itemize}
 \item 《R軟體：應用統計方法》陳景祥著，東華出版社。\\ 對初學者很有幫助的一本。R語言和統計學併重。
 \item 《R 錦囊妙計》 Paul Teetor著，張夏菁譯，歐萊禮出版社。\\ 前半本內容是R語言，後半本是以R進行統計工作。
-\item {\CJKfontspec[Scale=0.85]{WenQuanYi Micro Hei}《R语言实用教程》薛毅、陈立萍著，清华大学出版社。}
-\item {\CJKfontspec[Scale=0.85]{WenQuanYi Micro Hei}《统计建模与R软件》薛毅、陈立萍著，清华大学出版社。} \\ 以數理統計為主，R語言實作為輔。
+\item {《R语言实用教程》薛毅、陈立萍著，清华大学出版社。}
+\item {《统计建模与R软件》薛毅、陈立萍著，清华大学出版社。} \\ 以數理統計為主，R語言實作為輔。
 \end{itemize}
 \end{frame}
 
@@ -971,7 +989,7 @@ sample estimates:
 
 \section{試練窟}\subsection{}
 
-\begin{frame}[shrink=8, fragile]{按今日課程試著完成以下練習}
+\begin{frame}[fragile]{按今日課程試著完成以下練習}
 \begin{enumerate}
 \item 想辦法以R讀取\nbs\verb+nation-data.xlsx+\nbs{}的內容並命名為\nbs\verb+mydt0+\nbs{}資料框。以檔案中所有國家為樣本完成以下分析。
 \item 利用配對樣本\emph{T}檢驗，考驗\nbs\verb+Mortality.rate.child+\nbs{}之平均是否顯著高於\nbs\verb+Mortality.rate.newborn+\nbs{}之平均。提示：不是雙尾檢驗。
